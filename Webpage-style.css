@@ -30,12 +30,14 @@ body {
     padding: 0px 0px 0px 61px;
     font-family: 'Jacques Francois Shadow', cursive;
     font-weight: 100;
+    white-space: nowrap;
     font-size: 50px;
 }
 
 #marginer-hello {
     margin-right: 20px;
     padding: 25px 0px 0px 0px;
+    white-space: nowrap;
     font-weight: 150;
 }
 
@@ -146,11 +148,84 @@ i {
     text-align: center;
 }
 
-.oddRow {
+.oddRowSummary {
     background-color: #51abff32;
 }
 
-.oddRow td {
+.oddRowSummary td {
     border: 0px;
     border-radius: 10px;
+}
+
+.cardInfo{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    justify-content: space-around;
+    width: 100vw;
+    align-items: center;
+}
+
+.cardsList{
+    font-family: 'Tajawal', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    width: 610px;
+    height: 65px;
+    background: #B9DEFF;
+    border: 0px;
+    border-radius: 13px;
+}
+.cardInfo p{
+    font-weight: 600;
+    font-size: 36px;
+    
+}
+.tableContainer{
+    display: flex;
+    justify-content: center;
+}
+.cardTransactions h1{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    margin-left: 50px;
+}
+.cardTransactions table{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.oddRow{
+    background-color: #51ABFF33;
+}
+.cardTransactions th{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+}
+.cardTransactions td{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    
+}
+.oddDataLeft{
+    border-top-left-radius: 8px;
+    border-Bottom-left-radius: 8px;
+    border: 0px;
+}
+.oddDataRight{
+    border-top-right-radius: 8px;
+    border-Bottom-right-radius: 8px;
+    border: 0px;
 }

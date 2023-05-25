@@ -51,7 +51,7 @@
                 <p><b>BALANCE: </b>CR 269,600 EGP</p>
             </div>
             <div class="transcations">
-                <p style="font-size: 48px;"><b>TRANSCATIONS</b></p>
+                <p style="font-size: 48px;"><b>TRANSACTIONS</b></p>
                 <button style="font-size: 36px;">TRANSFER<i id="arrow-right" class="bi-arrow-bar-right"></i></button>
             </div>
             <table class = "summaryTable">
@@ -62,7 +62,7 @@
                     <th>DEBIT/CREDIT</th>
                     <th>BALANCE</th>
                 </tr>
-                <tr class="oddRow">
+                <tr class="oddRowSummary">
                     <td>23/05/2023</td>
                     <td>23/05/2023</td>
                     <td>VODAFONE POS</td>
@@ -76,7 +76,7 @@
                     <td>CR 269,600.00 EGP</td>
                     <td>CR 269,600.00 EGP</td>
                 </tr>
-                <tr class="oddRow">
+                <tr class="oddRowSummary">
                     <td>23/05/2023</td>
                     <td>23/05/2023</td>
                     <td>VODAFONE POS</td>
@@ -90,7 +90,7 @@
                     <td>CR 269,600.00 EGP</td>
                     <td>CR 269,600.00 EGP</td>
                 </tr>
-                <tr class="oddRow">
+                <tr class="oddRowSummary">
                     <td>23/05/2023</td>
                     <td>23/05/2023</td>
                     <td>VODAFONE POS</td>
@@ -104,7 +104,7 @@
                     <td>CR 269,600.00 EGP</td>
                     <td>CR 269,600.00 EGP</td>
                 </tr>
-                <tr class="oddRow">
+                <tr class="oddRowSummary">
                     <td>23/05/2023</td>
                     <td>23/05/2023</td>
                     <td>VODAFONE POS</td>
@@ -122,7 +122,49 @@
         </div>
         <!-- start of cards page -->
         <div id="cardsPage" class="hide">
-
+            <div class = " cardInfo">
+                <select class="cardsList">
+                    <option value="123456789"> 1234567891234567(Credit) </option>
+                    <option value="123456789"> 1234567891234567(Credit) </option>
+                    <option value="123456789"> 1234567891234567(Credit) </option>
+                    <option value="123456789"> 1234567891234567(Credit) </option>
+                </select>
+                <p><span>Limit:</span> 50,000.00 EGP</p>
+                <p><span>Points:</span> 2,000 point</p>
+            </div>
+            <div class="cardTransactions">
+                <h1> TRANSACTIONS </h1>
+                <table>
+                    <tr>
+                      <th>TRANSACTION DATE</th>
+                      <th>VALUE DATE</th>
+                      <th>DETAILS</th>
+                      <th>DEBIT/CREDIT</th>
+                      <th>BALANCE</th>
+                    </tr>
+                    <tr class="oddRow">
+                      <td class="oddDataLeft">23/05/2023</td>
+                      <td>23/05/2023</td>
+                      <td>VODAFONE POS</td>
+                      <td>CR 269,600.00 EGP</td>
+                      <td class = "oddDataRight">CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr>
+                        <td>23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td>CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr class="oddRow">
+                        <td class = "oddDataLeft">23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td class = "oddDataRight">CR 269,600.00 EGP</td>
+                    </tr>
+                  </table>
+            </div>
         </div>
         <!-- start of loans page -->
         <div id="loansPage" class="hide">
