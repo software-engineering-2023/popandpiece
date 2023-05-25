@@ -28,10 +28,14 @@
         <!-- start of navigation bar -->
 
         <div class="navigation">
-            <button id="summary" class="clicked" onclick="switchSummary()"><i id="houseIcon" class="bi-house-fill"></i>Summary</button>
-            <button id="cards" class="notclicked" onclick="switchCards()"><i id="cardsIcon" class="bi-credit-card-2-front"></i>Cards</button>
-            <button id="loans" class="notclicked" onclick="switchLoans()"><i id="safwatIcon" class="bi-piggy-bank"></i>Loans</button>
-            <button id="bills" class="notclicked" onclick="switchBills()"><i id="waterIcon" class="bi-droplet"></i>Bills</button>
+            <button id="summary" class="clicked" onclick="switchSummary()"><i id="houseIcon"
+                    class="bi-house-fill"></i>Summary</button>
+            <button id="cards" class="notclicked" onclick="switchCards()"><i id="cardsIcon"
+                    class="bi-credit-card-2-front"></i>Cards</button>
+            <button id="loans" class="notclicked" onclick="switchLoans()"><i id="safwatIcon"
+                    class="bi-piggy-bank"></i>Loans</button>
+            <button id="bills" class="notclicked" onclick="switchBills()"><i id="waterIcon"
+                    class="bi-droplet"></i>Bills</button>
             <select name="accounts" id="account-numbers">
                 <option value="124075613413">124075613413 (main)</option>
                 <option value="378075613413">378075613413</option>
@@ -42,11 +46,83 @@
         </div>
         <!-- start of summary page -->
         <div id="summaryPage" class="show">
-            <p>maged 3ars w by7b el regala</p>
+            <div class="availables">
+                <p><b>AVAILABLE TO USE: </b>CR 269,600 EGP</p>
+                <p><b>BALANCE: </b>CR 269,600 EGP</p>
+            </div>
+            <div class="transcations">
+                <p style="font-size: 48px;"><b>TRANSCATIONS</b></p>
+                <button style="font-size: 36px;">TRANSFER<i id="arrow-right" class="bi-arrow-bar-right"></i></button>
+            </div>
+            <table class = "summaryTable">
+                <tr>
+                    <th>TRANSACTION DATE</th>
+                    <th>VALUE DATE</th>
+                    <th>DETAILS</th>
+                    <th>DEBIT/CREDIT</th>
+                    <th>BALANCE</th>
+                </tr>
+                <tr class="oddRow">
+                    <td>23/05/2023</td>
+                    <td>23/05/2023</td>
+                    <td>VODAFONE POS</td>
+                    <td>CR 269,600.00 EGP</td>
+                    <td>CR 269,600.00 EGP</td>
+                </tr>
+                <tr>
+                    <td>23/05/2023</td>
+                    <td>23/05/2023</td>
+                    <td>VODAFONE POS</td>
+                    <td>CR 269,600.00 EGP</td>
+                    <td>CR 269,600.00 EGP</td>
+                </tr>
+                <tr class="oddRow">
+                    <td>23/05/2023</td>
+                    <td>23/05/2023</td>
+                    <td>VODAFONE POS</td>
+                    <td>CR 269,600.00 EGP</td>
+                    <td>CR 269,600.00 EGP</td>
+                </tr>
+                <tr>
+                    <td>23/05/2023</td>
+                    <td>23/05/2023</td>
+                    <td>VODAFONE POS</td>
+                    <td>CR 269,600.00 EGP</td>
+                    <td>CR 269,600.00 EGP</td>
+                </tr>
+                <tr class="oddRow">
+                    <td>23/05/2023</td>
+                    <td>23/05/2023</td>
+                    <td>VODAFONE POS</td>
+                    <td>CR 269,600.00 EGP</td>
+                    <td>CR 269,600.00 EGP</td>
+                </tr>
+                <tr>
+                    <td>23/05/2023</td>
+                    <td>23/05/2023</td>
+                    <td>VODAFONE POS</td>
+                    <td>CR 269,600.00 EGP</td>
+                    <td>CR 269,600.00 EGP</td>
+                </tr>
+                <tr class="oddRow">
+                    <td>23/05/2023</td>
+                    <td>23/05/2023</td>
+                    <td>VODAFONE POS</td>
+                    <td>CR 269,600.00 EGP</td>
+                    <td>CR 269,600.00 EGP</td>
+                </tr>
+                <tr>
+                    <td>23/05/2023</td>
+                    <td>23/05/2023</td>
+                    <td>VODAFONE POS</td>
+                    <td>CR 269,600.00 EGP</td>
+                    <td>CR 269,600.00 EGP</td>
+                </tr>
+            </table>
         </div>
         <!-- start of cards page -->
         <div id="cardsPage" class="hide">
-            <p>Kika metnak</p>
+
         </div>
         <!-- start of loans page -->
         <div id="loansPage" class="hide">

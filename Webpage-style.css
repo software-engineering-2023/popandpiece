@@ -13,7 +13,7 @@ body {
 
 #Header {
     display: flex;
-    width: 100vw;
+    width: 100%;
     background-color: #51ABFF;
     height: 120px;
 }
@@ -28,7 +28,6 @@ body {
 #marginer-h1 {
     margin-right: 1030px;
     padding: 0px 0px 0px 61px;
-    white-space: nowrap;
     font-family: 'Jacques Francois Shadow', cursive;
     font-weight: 100;
     font-size: 50px;
@@ -36,7 +35,6 @@ body {
 
 #marginer-hello {
     margin-right: 20px;
-    white-space: nowrap;
     padding: 25px 0px 0px 0px;
     font-weight: 150;
 }
@@ -106,4 +104,51 @@ i {
 
 .show {
     display: block;
+}
+
+.availables {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 38px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.transcations {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.transcations button{
+    display: flex;
+    padding-top: 10px;
+    width: 275px;
+    height: 69px;
+    margin-top: 68px;
+    border: 0px;
+    border-radius: 10px;
+    background-color: #51ABFF;
+    color: white;
+    justify-content: space-around;
+}
+
+.transcations button:hover{
+    background-color: #3895ec;
+}
+
+.summaryTable {
+    margin-right: auto;
+    margin-left: auto;
+    width: 93%;
+    text-align: center;
+}
+.oddRow {
+    background-color: #51abff32;
+}
+.oddRow td {
+    border: 0px;
+    border-radius: 10px;
 }
