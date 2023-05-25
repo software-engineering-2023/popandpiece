@@ -145,9 +145,11 @@ i {
     width: 93%;
     text-align: center;
 }
+
 .oddRow {
     background-color: #51abff32;
 }
+
 .oddRow td {
     border: 0px;
     border-radius: 10px;
