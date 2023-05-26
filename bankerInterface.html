@@ -112,33 +112,154 @@
                   <td>23/05/2023</td>
                   <td>CAR LOAN</td>
                   <td>CR 269,600.00 EGP</td>
-                  <td><button id="b1"style="color:white;">MANAGE</button></td>
+                  <td><button id="b1"style="color:white;"class="notclicked" onclick="switchManage()">MANAGE</button></td>
                 </tr>
                 <tr>
                     <td>23/05/2023</td>
                     <td>CAR LOAN</td>
                     <td>CR 269,600.00 EGP</td>
-                    <td><button id="b2"style="color:white;">MANAGE</button></td>
+                    <td><button id="b2"style="color:white;"class="notclicked" onclick="switchManage()">MANAGE</button></td>
                 </tr>
                 <tr class="oddRow">
                     <td>23/05/2023</td>
                     <td>PERSONAL</td>
                     <td>CR 269,600.00 EGP</td>
-                    <td><button id="b3" style="color:white;">MANAGE</button></td>
+                    <td><button id="b3" style="color:white;"class="notclicked" onclick="switchManage()">MANAGE</button></td>
                 </tr>
               </table>
         </div>
+
+
+
         <!-- start of cards page -->
         <div id="cardsPage" class="hide">
-            <p>test 2 yarab el ta2fel</p>
+            <p class="reqK">REGISTERATION REQUESTS</p>
+            <table id="loanstrial">
+                <tr>
+                  <th>Username</th>
+                  <th>EMAIL</th>
+                  <th>National ID</th>
+                  <th>Mobile Number</th>
+                  <th>Date Of Birth</th>
+                </tr>
+                <tr class="oddRow">
+                  <td>XxjoesniperxX</td>
+                  <td>sniper@gmail.com</td>
+                  <td>2319871938798</td>
+                  <td>010983729839</td>
+                  <td>23/05/2023</td>
+                  <td ><button id="1" class="bTa"style="color:white;"class="notclicked" onclick="switchApprove(this.id)">APPROVE</button></td>
+                    <td><button id="1" class="bTd" style="color:white" class="notclicked" onclick="switchDecline(this.id)">DECLINE</button></td>
+                </tr>
+                <tr>
+                    <td>bigbusiness</td>
+                    <td>big@yahoo.com</td>
+                    <td>2738289389799</td>
+                    <td>010983732233</td>
+                    <td>23/05/2023</td>
+                    <td><button id="2" class="bTa"style="color:white;"class="notclicked" onclick="switchApprove(this.id)">APPROVE</button></td>
+                        <td><button id="2" class="bTd" style="color:white" class="notclicked" onclick="switchDecline(this.id)">DECLINE</button></td>
+                </tr>
+              </table>
+              <p CLASS="reqK">CREDIT CARD REQUESTS</p>
+              <table id="loanstrial2">
+                <tr>
+                  <th>Username</th>
+                  <th>REQUEST DATE</th>
+                </tr>
+                <tr class="oddRow">
+                  <td>XxjoesniperxX</td>
+                  <td>23/05/2023</td>
+                  <td ><button id="1" class="bTa"style="color:white;"class="notclicked" onclick="switchApprove2(this.id)">APPROVE</button></td>
+                    <td><button id="1" class="bTd" style="color:white" class="notclicked" onclick="switchDecline2(this.id)">DECLINE</button></td>
+                </tr>
+                <tr>
+                    <td>bigbusiness</td>
+                    <td>23/05/2023</td>
+                    <td><button id="2" class="bTa"style="color:white;"class="notclicked" onclick="switchApprove2(this.id)">APPROVE</button></td>
+                        <td><button id="2" class="bTd" style="color:white" class="notclicked" onclick="switchDecline2(this.id)">DECLINE</button></td>
+                </tr>
+              </table>
         </div>
+
+
+
         <!-- start of loans page -->
         <div id="loansPage" class="hide">
-            <p>Loans</p>
+            <p><p class = "username1">
+                <select id="username" class="clicked" onclick="switchUser">
+                    <option value="124075613413">Ahmed Mohsen</option>
+                    <option value="378075613413">User1</option>
+                </select>
+                <select id="username" class="clicked" onclick="switchUser">
+                    <option value="124075613413">1234*********9829 (Credit)</option>
+                    <option value="378075613413">2138*********2829</option>
+                </select>
+            </p></p>
+            <div id="loansappdec">
+            <p class="trans"> LOAN REQUESTS</p>
+            <table id="loanstrial3">
+                <tr>
+                  <th>DUE DATE</th>
+                  <th>DETAILS</th>
+                  <th>AMOUNT</th>
+                  <th> </th>
+                </tr>
+                <tr class="oddRow">
+                  <td>23/05/2023</td>
+                  <td>CAR LOAN</td>
+                  <td>CR 269,600.00 EGP</td>
+                  <td><button id="1" class="bTa"style="color:white;"class="notclicked" onclick="switchApprove3(this.id)">APPROVE</button> </td>
+                  <td><button id="1" class="bTd" style="color:white" class="notclicked" onclick="switchDecline3(this.id)">DECLINE</button></td>
+                </tr>
+                <tr>
+                    <td>23/05/2023</td>
+                    <td>CAR LOAN</td>
+                    <td>CR 269,600.00 EGP</td>
+                    <td><button id="2" class="bTa"style="color:white;"class="notclicked" onclick="switchApprove3(this.id)">APPROVE</button></td>
+                    <td><button id="2" class="bTd" style="color:white" class="notclicked" onclick="switchDecline3(this.id)">DECLINE</button></td>
+                </tr>
+                <tr class="oddRow">
+                    <td>23/05/2023</td>
+                    <td>PERSONAL</td>
+                    <td>CR 269,600.00 EGP</td>
+                    <td><button id="3" class="bTa" style="color:white;"class="notclicked" onclick="switchApprove3(this.id)">APPROVE</button> </td>
+                    <td><button id="3" class="bTd" style="color:white" class="notclicked" onclick="switchDecline3(this.id)">DECLINE</button></td>
+                </tr>
+              </table>
+              </div><div class="color-block-container">
+              <div class="color-block" style="height:100vh; display:flex; justify-content: center;align-items: center;"><p class="color-block-text">CUSTOMER DETAILS</p>
+                <div class="sub-text-container">
+                    <p class="sub-text" style="display:block; justify-content: space-between;margin-left: 75px;">National ID: <button class="loansboxesW" style="background-color: white; margin:20px; border-radius:8px;"> 999999999</button></p>
+                    <p class="sub-text" style="display:block; justify-content: space-between;margin-left: 65px;">For Account:<button class="loansboxesW" style="background-color: white; margin:20px; border-radius:8px;"> Ahmed Mohsen</button></p>
+                    <p class="sub-text" style="display:block; justify-content: space-between; margin-left: 140px;">Reason:<button class="loansboxesW" style="background-color: white; margin:20px; border-radius:8px;"> Car Loan</button></p>
+                    <p class="sub-text" style="display:block; justify-content: space-between;margin-left: 125px;">Amount:<button class="loansboxesW" style="background-color: white; margin:20px; border-radius:8px;"> 50,000EGP</button></p>
+                    <p class="sub-text" style="display:block; justify-content: space-between;margin-right: 50px;">Monthly Income:<button class="loansboxesW" style="background-color: white; margin:20px; border-radius:8px;"> 50,000EGP</button></p>
+                    <p class="sub-text" style="display:block; justify-content: space-between;margin-left: 120px;">Job Title:<button class="loansboxesW" style="background-color: white; margin:20px; border-radius:8px;"> Beatboxer</button></p>
+                  </div></div></div>
         </div>
         <!-- start of bills page -->
         <div id="billsPage" class="hide">
-            <p>Bills</p>
+            <p class="trans"> STOLEN CARDS</p>
+            <table id="loanstrial">
+                <tr>
+                  <th>REPORT DATE</th>
+                  <th>TYPE</th>
+                  <th>CARD DETAILS</th>
+                  <th>REPLACEMENT REQUEST</th>                </tr>
+                <tr class="oddRow">
+                  <td>23/05/2023</td>
+                  <td>Stolen Card</td>
+                  <td>124075613413</td>
+                  <td>YES</td>
+                </tr>
+                <tr>
+                    <td>23/05/2023</td>
+                    <td>Stolen Card</td>
+                    <td>124075332413</td>
+                    <td>NO</td>
+                </tr>
+              </table>
         </div>
     </div>
 
