@@ -201,3 +201,174 @@ margin: 10px 5px 10px 5px;
     border: 0px;
     border-radius: 8px;
 }
+#loansPage th{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+}
+#loansPage td{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    
+}
+.bTa{
+    font-size: 25px;
+    background-color: #FF5151;
+    border: 0px;
+    border-radius: 8px;
+}
+.bTd{
+    font-size: 25px;
+    background-color: #FF5151;
+    border: 0px;
+    border-radius: 8px;
+}
+#loansPage h1{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    margin-left: 50 px;
+}
+#loansPage table{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.color-block {
+    width: 1184px;
+    height: 731px;
+    background-color: #FFB9B9;
+    border: 0px;
+    border-radius: 24px;
+    padding: 20px 30px;
+    position: absolute;
+    height:100vh; display:flex; justify-content: center; align-items: center;
+  }
+  .color-block-container {
+    height:120vh;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+  }
+  .color-block-text {
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    color: #000000;
+  }
+  .sub-text-container {
+    position: absolute;
+    top:100px;
+    left: 30px;
+    padding: 30px;
+    margin-top: 20px;
+    text-align:left;
+  }
+
+  .sub-text {
+      font-size: 36px;
+      color: #000000;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+  .loansboxesW {
+    background-color: white;
+    margin-left: 20px;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 24px;
+    width:200px;
+    
+  }
+.hide {
+    display: none;
+}
+.slowlyhide{
+    color:#30502600;
+    background-color:#263c5000;
+}
+.slowlyhideA{
+color: rgb(34, 176, 34);
+background-color: rgb(34, 176, 34);
+}
+#loanstrial tr{
+    transition-duration:0.5s ;
+    cursor:pointer;
+}
+#loanstrial2 tr{
+    transition-duration:0.5s ;
+    cursor:pointer;
+}
+#loanstrial3 tr{
+    transition-duration:0.5s ;
+    cursor:pointer;
+}
+.slowlyhideD{
+color: red;
+background-color: red;
+}
+
+.reqK {
+    font-size: 48px;
+    font-family: 'Tajawal';
+    margin: 70px 5px 10px 50px
+}
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#cardsPage table{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#cardsPage th{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+}
+#cardsPage td{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+}
+#billsPage th{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+}
+#billsPage td{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+}
+#billsPage table{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
