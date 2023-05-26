@@ -15,76 +15,141 @@ const billsIcon = document.getElementById("waterIcon");
 
 function switchSummary() {
 
-        cardsPage.classList.replace('show','hide');
-        loansPage.classList.replace('show','hide');
-        billsPage.classList.replace('show','hide');
+        cardsPage.classList.replace('show', 'hide');
+        loansPage.classList.replace('show', 'hide');
+        billsPage.classList.replace('show', 'hide');
 
-        cardsButton.classList.replace('clicked','notclicked');
-        loansButton.classList.replace('clicked','notclicked');
-        billsButton.classList.replace('clicked','notclicked');
+        cardsButton.classList.replace('clicked', 'notclicked');
+        loansButton.classList.replace('clicked', 'notclicked');
+        billsButton.classList.replace('clicked', 'notclicked');
 
-        cardsIcon.classList.replace('bi-credit-card-2-front-fill','bi-credit-card-2-front');
-        loansIcon.classList.replace('bi-piggy-bank-fill','bi-piggy-bank');
-        billsIcon.classList.replace('bi-droplet-fill','bi-droplet');
-        
-        summaryPage.classList.replace('hide','show');
-        summaryButton.classList.replace('notclicked','clicked');
-        summaryIcon.classList.replace('bi-house','bi-house-fill');
+        cardsIcon.classList.replace('bi-credit-card-2-front-fill', 'bi-credit-card-2-front');
+        loansIcon.classList.replace('bi-piggy-bank-fill', 'bi-piggy-bank');
+        billsIcon.classList.replace('bi-droplet-fill', 'bi-droplet');
+
+        summaryPage.classList.replace('hide', 'show');
+        summaryButton.classList.replace('notclicked', 'clicked');
+        summaryIcon.classList.replace('bi-house', 'bi-house-fill');
 }
 
 function switchCards() {
-        
-        loansPage.classList.replace('show','hide');
-        billsPage.classList.replace('show','hide');
-        summaryPage.classList.replace('show','hide');
 
-        loansButton.classList.replace('clicked','notclicked');
-        billsButton.classList.replace('clicked','notclicked');
-        summaryButton.classList.replace('clicked','notclicked');
+        loansPage.classList.replace('show', 'hide');
+        billsPage.classList.replace('show', 'hide');
+        summaryPage.classList.replace('show', 'hide');
 
-        loansIcon.classList.replace('bi-piggy-bank-fill','bi-piggy-bank');
-        billsIcon.classList.replace('bi-droplet-fill','bi-droplet');
-        summaryIcon.classList.replace('bi-house-fill','bi-house');
+        loansButton.classList.replace('clicked', 'notclicked');
+        billsButton.classList.replace('clicked', 'notclicked');
+        summaryButton.classList.replace('clicked', 'notclicked');
 
-        cardsPage.classList.replace('hide','show');
-        cardsButton.classList.replace('notclicked','clicked');
-        cardsIcon.classList.replace('bi-credit-card-2-front','bi-credit-card-2-front-fill');
+        loansIcon.classList.replace('bi-piggy-bank-fill', 'bi-piggy-bank');
+        billsIcon.classList.replace('bi-droplet-fill', 'bi-droplet');
+        summaryIcon.classList.replace('bi-house-fill', 'bi-house');
+
+        cardsPage.classList.replace('hide', 'show');
+        cardsButton.classList.replace('notclicked', 'clicked');
+        cardsIcon.classList.replace('bi-credit-card-2-front', 'bi-credit-card-2-front-fill');
 }
 
-function switchLoans(){
+function switchLoans() {
+
+        cardsPage.classList.replace('show', 'hide');
+        billsPage.classList.replace('show', 'hide');
+        summaryPage.classList.replace('show', 'hide');
+
+        billsButton.classList.replace('clicked', 'notclicked');
+        summaryButton.classList.replace('clicked', 'notclicked');
+        cardsButton.classList.replace('clicked', 'notclicked');
+
+        billsIcon.classList.replace('bi-droplet-fill', 'bi-droplet');
+        summaryIcon.classList.replace('bi-house-fill', 'bi-house');
+        cardsIcon.classList.replace('bi-credit-card-2-front-fill', 'bi-credit-card-2-front');
+
+        loansPage.classList.replace('hide', 'show');
+        loansButton.classList.replace('notclicked', 'clicked');
+        loansIcon.classList.replace('bi-piggy-bank', 'bi-piggy-bank-fill');
+}
+
+function switchBills() {
+
+        cardsPage.classList.replace('show', 'hide');
+        loansPage.classList.replace('show', 'hide');
+        summaryPage.classList.replace('show', 'hide');
+
+        summaryButton.classList.replace('clicked', 'notclicked');
+        cardsButton.classList.replace('clicked', 'notclicked');
+        loansButton.classList.replace('clicked', 'notclicked');
+
+        summaryIcon.classList.replace('bi-house-fill', 'bi-house');
+        cardsIcon.classList.replace('bi-credit-card-2-front-fill', 'bi-credit-card-2-front');
+        loansIcon.classList.replace('bi-piggy-bank-fill', 'bi-piggy-bank');
+
+        billsPage.classList.replace('hide', 'show');
+        billsButton.classList.replace('notclicked', 'clicked');
+        billsIcon.classList.replace('bi-droplet', 'bi-droplet-fill');
+}
+
+
+function toTransfers() { //this method switches from the summary page to the transfers page
+        const summaryPage = document.getElementById('summaryWithoutTransfer');
+        const transferPage = document.getElementById('transferCenter');
+        summaryPage.classList.add('hide');
+        transferPage.classList.remove('hide');
+}
+
+function toTransfer() { //this method switches from the transfers' page itself to the transfers' view
+        if (document.getElementById('LOSAccount').checked) {
+                document.getElementById('summaryWithoutTransfer').classList.add('hide');
+                const domesticView = document.getElementById('domesticViewInterface');
+                const internationalView = document.getElementById('internationalViewInterface');
+                const transferPage = document.getElementById('transferCenter');
                 
-        cardsPage.classList.replace('show','hide');
-        billsPage.classList.replace('show','hide');
-        summaryPage.classList.replace('show','hide');
-        
-        billsButton.classList.replace('clicked','notclicked');
-        summaryButton.classList.replace('clicked','notclicked');
-        cardsButton.classList.replace('clicked','notclicked');
-        
-        billsIcon.classList.replace('bi-droplet-fill','bi-droplet');
-        summaryIcon.classList.replace('bi-house-fill','bi-house');
-        cardsIcon.classList.replace('bi-credit-card-2-front-fill','bi-credit-card-2-front');
-        
-        loansPage.classList.replace('hide','show');
-        loansButton.classList.replace('notclicked','clicked');
-        loansIcon.classList.replace('bi-piggy-bank','bi-piggy-bank-fill');
+                transferPage.classList.remove('domesticView');
+                transferPage.classList.remove('internationalView');
+                transferPage.classList.add('LOSView');
+                domesticView.classList.add('hide');
+                internationalView.classList.add('hide');
+        }
 }
 
-function switchBills(){
-
-        cardsPage.classList.replace('show','hide');
-        loansPage.classList.replace('show','hide');
-        summaryPage.classList.replace('show','hide');
-        
-        summaryButton.classList.replace('clicked','notclicked');
-        cardsButton.classList.replace('clicked','notclicked');
-        loansButton.classList.replace('clicked','notclicked');
-
-        summaryIcon.classList.replace('bi-house-fill','bi-house');
-        cardsIcon.classList.replace('bi-credit-card-2-front-fill','bi-credit-card-2-front');
-        loansIcon.classList.replace('bi-piggy-bank-fill','bi-piggy-bank');
-        
-        billsPage.classList.replace('hide','show');
-        billsButton.classList.replace('notclicked','clicked');
-        billsIcon.classList.replace('bi-droplet','bi-droplet-fill');
+function toDomestic() {
+        if (document.getElementById('domestic').checked) {
+                document.getElementById('summaryWithoutTransfer').classList.add('hide');
+                const domesticView = document.getElementById('domesticViewInterface');
+                const internationalView = document.getElementById('internationalViewInterface');
+                const transferPage = document.getElementById('transferCenter');
+                
+                transferPage.classList.add('domesticView');
+                domesticView.classList.remove('hide');
+                internationalView.classList.add('hide');
+        }
 }
+
+function toInternational() {
+        if (document.getElementById('international').checked) {
+                
+                document.getElementById('summaryWithoutTransfer').classList.add('hide');
+                const domesticView = document.getElementById('domesticViewInterface');
+                const internationalView = document.getElementById('internationalViewInterface');
+                const transferPage = document.getElementById('transferCenter');
+                
+                transferPage.classList.add('internationalView');
+                internationalView.classList.remove('hide');
+                domesticView.classList.remove('hide');
+                
+        }
+}
+
+function cancelTransfer(){
+        const summaryPage = document.getElementById('summaryWithoutTransfer');
+        const transferPage = document.getElementById('transferCenter');
+        summaryPage.classList.remove('hide');
+        transferPage.classList.add('hide');
+}
+
+function confirmTransfer(){
+
+}
+
+
+

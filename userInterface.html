@@ -36,7 +36,7 @@
                     class="bi-piggy-bank"></i>Loans</button>
             <button id="bills" class="notclicked" onclick="switchBills()"><i id="waterIcon"
                     class="bi-droplet"></i>Bills</button>
-            <select name="accounts" id="account-numbers">
+            <select id="account-numbers">
                 <option value="124075613413">124075613413 (main)</option>
                 <option value="378075613413">378075613413</option>
                 <option value="098075613413">098075613413</option>
@@ -46,83 +46,228 @@
         </div>
         <!-- start of summary page -->
         <div id="summaryPage" class="show">
-            <div class="availables">
-                <p><b>AVAILABLE TO USE: </b>CR 269,600 EGP</p>
-                <p><b>BALANCE: </b>CR 269,600 EGP</p>
+            <div id="summaryWithoutTransfer">
+                <div class="availables">
+                    <p><b>AVAILABLE TO USE: </b>CR 269,600 EGP</p>
+                    <p><b>BALANCE: </b>CR 269,600 EGP</p>
+                </div>
+                <div class="transcations">
+                    <p style="font-size: 48px;"><b>TRANSACTIONS</b></p>
+                    <button id="transferButton" style="font-size: 36px;" onclick="toTransfers()">TRANSFER<i
+                            id="arrow-right" class="bi-arrow-bar-right"></i></button>
+                </div>
+                <table class="summaryTable">
+                    <tr>
+                        <th>TRANSACTION DATE</th>
+                        <th>VALUE DATE</th>
+                        <th>DETAILS</th>
+                        <th>DEBIT/CREDIT</th>
+                        <th>BALANCE</th>
+                    </tr>
+                    <tr class="oddRow">
+                        <td class="oddDataLeft">23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td class="oddDataRight">CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr>
+                        <td>23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td>CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr class="oddRow">
+                        <td class="oddDataLeft">23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td class="oddDataRight">CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr>
+                        <td>23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td>CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr class="oddRow">
+                        <td class="oddDataLeft">23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td class="oddDataRight">CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr>
+                        <td>23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td>CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr class="oddRow">
+                        <td class="oddDataLeft">23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td class="oddDataRight">CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr>
+                        <td>23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td>CR 269,600.00 EGP</td>
+                    </tr>
+                </table>
             </div>
-            <div class="transcations">
-                <p style="font-size: 48px;"><b>TRANSACTIONS</b></p>
-                <button style="font-size: 36px;">TRANSFER<i id="arrow-right" class="bi-arrow-bar-right"></i></button>
+            <div id="transferCenter" class="hide LOSView">
+                <p style="font-size: 48px; padding-left: 50px; padding-top: 30px;"><b>New Transfer</b></p>
+                <div class="transferPageText">
+                    <p style="display: inline; margin-left: -35px; margin-bottom: 20px;">beneficiary Name: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Ex. Kika Mina"></p><br>
+                    <label for="accountInTransfer" style="margin-left: 59px;">Account: </label>
+                    <select class="accountInTransfer">
+                        <option value="account1">124075613413 (main)</option>
+                        <option value="account2">378075613413</option>
+                        <option value="account3">098075613413</option>
+                        <option value="account4">743075613413</option>
+                    </select>
+                    <div style="margin-bottom: -25px; margin-left:-38px; display: flex; gap:10px; align-items: center;">
+                        <p>Transaction Type:</p>
+                        <input type="radio" id="LOSAccount" name="transcationType" checked="checked" onclick="toTransfer()"><label
+                            for="LOSAccount">Another LOS account</label><input type="radio" id="domestic"
+                            name="transcationType" onclick="toDomestic()"><label for="domestic">Domestic</label><input type="radio"
+                            id="international" name="transcationType" onclick="toInternational()"><label for="international">International</label>
+                    </div>
+                    <p style="margin-left: 60px;">Amount: <input class="amountInTransfer" type="text"
+                            placeholder=" Enter Amount">
+                        <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>
+                        <select class="currency">
+                            <option value="EGP">EGP</option>
+                            <option value="EUR">EUR</option>
+                            <option value="JPY">JPY</option>
+                            <option value="GBP">GBP</option>
+                            <option value="AUD">AUD</option>
+                            <option value="CAD">CAD</option>
+                            <option value="CHF">CHF</option>
+                            <option value="CNY">CNY</option>
+                            <option value="NZD">NZD</option>
+                            <option value="HKD">HKD</option>
+                        </select>
+                    <p style="margin-left: 90px;" >Date: <input class="dateInTransfer" type="date"></p>
+                    <div id="domesticViewInterface" class="hide">
+                        <p style="display: inline; margin-left: 25px; margin-bottom: 20px;">Bank Name: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Enter Bank Name"></p><br>
+                        <p style="display: inline; margin-left: -17px; margin-bottom: 20px;">Branch Address: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Enter Branch Address"></p><br>
+                        <p style="display: inline; margin-left: 99px; margin-bottom: 20px;">City: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Enter City"></p><br>
+                        <p style="display: inline; margin-left: -48px; margin-bottom: 20px;"> Swift Code or IBAN: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Enter Swift or IBAN"></p><br>
+                        <p style="display: inline; margin-left: -58px; margin-bottom: 20px;">Beneficiary Address: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Enter Beneficiary Address"></p><br>
+                        <p style="display: inline; margin-left: -18px; margin-bottom: 20px;">Beneficiary City: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Enter Branch City"></p><br>
+                    </div>
+                    <div id="internationalViewInterface" class="hide">
+                        <p style="display: inline; margin-left: 5px; margin-bottom: 20px;">Bank Country: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Enter Bank Country"></p><br>
+                    </div>
+                    <div class="confirmButtons">
+                        <button id="cancelTransfer" onclick="cancelTransfer()">Cancel</button>
+                        <button id="confirmTransfer" onclick="confirmTransfer()">Confirm</button>
+                    </div>
+                </div>
             </div>
-            <table class = "summaryTable">
-                <tr>
-                    <th>TRANSACTION DATE</th>
-                    <th>VALUE DATE</th>
-                    <th>DETAILS</th>
-                    <th>DEBIT/CREDIT</th>
-                    <th>BALANCE</th>
-                </tr>
-                <tr class="oddRowSummary">
-                    <td>23/05/2023</td>
-                    <td>23/05/2023</td>
-                    <td>VODAFONE POS</td>
-                    <td>CR 269,600.00 EGP</td>
-                    <td>CR 269,600.00 EGP</td>
-                </tr>
-                <tr>
-                    <td>23/05/2023</td>
-                    <td>23/05/2023</td>
-                    <td>VODAFONE POS</td>
-                    <td>CR 269,600.00 EGP</td>
-                    <td>CR 269,600.00 EGP</td>
-                </tr>
-                <tr class="oddRowSummary">
-                    <td>23/05/2023</td>
-                    <td>23/05/2023</td>
-                    <td>VODAFONE POS</td>
-                    <td>CR 269,600.00 EGP</td>
-                    <td>CR 269,600.00 EGP</td>
-                </tr>
-                <tr>
-                    <td>23/05/2023</td>
-                    <td>23/05/2023</td>
-                    <td>VODAFONE POS</td>
-                    <td>CR 269,600.00 EGP</td>
-                    <td>CR 269,600.00 EGP</td>
-                </tr>
-                <tr class="oddRowSummary">
-                    <td>23/05/2023</td>
-                    <td>23/05/2023</td>
-                    <td>VODAFONE POS</td>
-                    <td>CR 269,600.00 EGP</td>
-                    <td>CR 269,600.00 EGP</td>
-                </tr>
-                <tr>
-                    <td>23/05/2023</td>
-                    <td>23/05/2023</td>
-                    <td>VODAFONE POS</td>
-                    <td>CR 269,600.00 EGP</td>
-                    <td>CR 269,600.00 EGP</td>
-                </tr>
-                <tr class="oddRowSummary">
-                    <td>23/05/2023</td>
-                    <td>23/05/2023</td>
-                    <td>VODAFONE POS</td>
-                    <td>CR 269,600.00 EGP</td>
-                    <td>CR 269,600.00 EGP</td>
-                </tr>
-                <tr>
-                    <td>23/05/2023</td>
-                    <td>23/05/2023</td>
-                    <td>VODAFONE POS</td>
-                    <td>CR 269,600.00 EGP</td>
-                    <td>CR 269,600.00 EGP</td>
-                </tr>
-            </table>
+            <!-- <div id="domesticTransfer" class="hide">
+                <p>DOMESTICCCCCCCCCCCCCCCCCCCCCCCCCCCCC</p>
+                <p style="font-size: 48px; padding-left: 50px; padding-top: 30px;"><b>New Transfer</b></p>
+                <div class="transferPageText">
+                    <p style="display: inline; margin-left: -35px; margin-bottom: 20px;">beneficiary Name: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Ex. Kika Mina"></p><br>
+                    <label for="accountInTransfer" style="margin-left: 59px;">Account: </label>
+                    <select class="accountInTransfer">
+                        <option value="account1">124075613413 (main)</option>
+                        <option value="account2">378075613413</option>
+                        <option value="account3">098075613413</option>
+                        <option value="account4">743075613413</option>
+                    </select>
+                    <div style="margin-bottom: -25px; margin-left:-38px; display: flex; gap:10px; align-items: center;">
+                        <p>Transaction Type:</p>
+                        <input type="radio" id="LOSAccountDomestic" name="transcationType" onclick="toTransfer()"><label
+                            for="LOSAccountDomestic">Another LOS account</label><input type="radio" id="domesticDomestic"
+                            name="transcationType" checked="checked"> <label for="domesticDomestic">Domestic</label><input type="radio"
+                            id="internationalDomestic" name="transcationType" onclick="toInternational()"><label for="internationalDomestic">International</label>
+                    </div>
+                    <p style="margin-left: 60px;">Amount: <input class="amountInTransfer" type="text"
+                            placeholder=" Enter Amount">
+                        <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>
+                        <select class="currency">
+                            <option value="EGP">EGP</option>
+                            <option value="EUR">EUR</option>
+                            <option value="JPY">JPY</option>
+                            <option value="GBP">GBP</option>
+                            <option value="AUD">AUD</option>
+                            <option value="CAD">CAD</option>
+                            <option value="CHF">CHF</option>
+                            <option value="CNY">CNY</option>
+                            <option value="NZD">NZD</option>
+                            <option value="HKD">HKD</option>
+                        </select>
+                    <p style="margin-left: 90px;">Date: <input class="dateInTransfer" type="date"></p>
+                    <div class="confirmButtons">
+                        <button id="cancelTransfer">Cancel</button>
+                        <button id="confirmTransfer">Confirm</button>
+                    </div>
+            </div>
+            <div id="internationalTransfer" class="hide">
+                <p>INTERNATIONALLLLLLLLLLLLLLLLLLLLLLLLLLLL</p>
+                <p style="font-size: 48px; padding-left: 50px; padding-top: 30px;"><b>New Transfer</b></p>
+                <div class="transferPageText">
+                    <p style="display: inline; margin-left: -35px; margin-bottom: 20px;">beneficiary Name: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Ex. Kika Mina"></p><br>
+                    <label for="accountInTransfer" style="margin-left: 59px;">Account: </label>
+                    <select class="accountInTransfer">
+                        <option value="account1">124075613413 (main)</option>
+                        <option value="account2">378075613413</option>
+                        <option value="account3">098075613413</option>
+                        <option value="account4">743075613413</option>
+                    </select>
+                    <div style="margin-bottom: -25px; margin-left:-38px; display: flex; gap:10px; align-items: center;">
+                        <p>Transaction Type:</p>
+                        <input type="radio" id="LOSAccountInternational" name="transcationType" onclick="toTransfer()"><label
+                            for="LOSAccountInternational">Another LOS account</label><input type="radio" id="domesticInternational"
+                            name="transcationType"> <label for="domesticInternational">Domestic</label><input type="radio"
+                            id="internationalInternational" name="transcationType" checked="checked"><label for="internationalInternational">International</label>
+                    </div>
+                    <p style="margin-left: 60px;">Amount: <input class="amountInTransfer" type="text"
+                            placeholder=" Enter Amount">
+                        <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>
+                        <select class="currency">
+                            <option value="EGP">EGP</option>
+                            <option value="EUR">EUR</option>
+                            <option value="JPY">JPY</option>
+                            <option value="GBP">GBP</option>
+                            <option value="AUD">AUD</option>
+                            <option value="CAD">CAD</option>
+                            <option value="CHF">CHF</option>
+                            <option value="CNY">CNY</option>
+                            <option value="NZD">NZD</option>
+                            <option value="HKD">HKD</option>
+                        </select>
+                    <p style="margin-left: 90px;">Date: <input class="dateInTransfer" type="date"></p>
+                    <div class="confirmButtons">
+                        <button id="cancelTransfer">Cancel</button>
+                        <button id="confirmTransfer">Confirm</button>
+                    </div>
+            </div> -->
         </div>
+
         <!-- start of cards page -->
         <div id="cardsPage" class="hide">
-            <div class = " cardInfo">
+            <div class=" cardInfo">
                 <select class="cardsList">
                     <option value="123456789"> 1234567891234567(Credit) </option>
                     <option value="123456789"> 1234567891234567(Credit) </option>
@@ -136,18 +281,18 @@
                 <h1> TRANSACTIONS </h1>
                 <table>
                     <tr>
-                      <th>TRANSACTION DATE</th>
-                      <th>VALUE DATE</th>
-                      <th>DETAILS</th>
-                      <th>DEBIT/CREDIT</th>
-                      <th>BALANCE</th>
+                        <th>TRANSACTION DATE</th>
+                        <th>VALUE DATE</th>
+                        <th>DETAILS</th>
+                        <th>DEBIT/CREDIT</th>
+                        <th>BALANCE</th>
                     </tr>
                     <tr class="oddRow">
-                      <td class="oddDataLeft">23/05/2023</td>
-                      <td>23/05/2023</td>
-                      <td>VODAFONE POS</td>
-                      <td>CR 269,600.00 EGP</td>
-                      <td class = "oddDataRight">CR 269,600.00 EGP</td>
+                        <td class="oddDataLeft">23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td class="oddDataRight">CR 269,600.00 EGP</td>
                     </tr>
                     <tr>
                         <td>23/05/2023</td>
@@ -157,13 +302,13 @@
                         <td>CR 269,600.00 EGP</td>
                     </tr>
                     <tr class="oddRow">
-                        <td class = "oddDataLeft">23/05/2023</td>
+                        <td class="oddDataLeft">23/05/2023</td>
                         <td>23/05/2023</td>
                         <td>VODAFONE POS</td>
                         <td>CR 269,600.00 EGP</td>
-                        <td class = "oddDataRight">CR 269,600.00 EGP</td>
+                        <td class="oddDataRight">CR 269,600.00 EGP</td>
                     </tr>
-                  </table>
+                </table>
             </div>
         </div>
         <!-- start of loans page -->
