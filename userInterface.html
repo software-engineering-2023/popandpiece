@@ -122,7 +122,7 @@
         </div>
         <!-- start of cards page -->
         <div id="cardsPage" class="hide">
-            <div class = " cardInfo">
+            <div class = "cardInfo">
                 <select class="cardsList">
                     <option value="123456789"> 1234567891234567(Credit) </option>
                     <option value="123456789"> 1234567891234567(Credit) </option>
@@ -164,6 +164,86 @@
                         <td class = "oddDataRight">CR 269,600.00 EGP</td>
                     </tr>
                   </table>
+            </div>
+            <div class="cardsDuepayment">
+                <h1>CREDIT CARD BILL</h1>
+                <table>
+                    <tr>
+                      <th>DUE DATE</th>
+                      <th>AMOUNT TO PAY</th>
+                    </tr>
+                    <tr class="oddRow">
+                      <td class="oddDataLeft">23/05/2023</td>
+                      <td class="tdWidth">45,600.00 EGP</td>
+                      <td><button id="payButton" onclick="payPopOpen()">PAY</button></td>
+                      <td class = "oddDataRight"><button>SET REMINDER</button></td>
+                    </tr>
+                  </table>
+            </div>
+            <div class="cardPoints">
+                <h1>Points | 2,000 point</h1>
+                <h3 id="h3Rewards">Rewards will expire in 5 days</h3>
+                <div class="pointGrid">
+                    <div class="pointGridItem">
+                        <img src="Icons/icons8-amazon-50.png">
+                        <h3>5,500 Points</h3>
+                        <p>10% cashback on any product from amazon</p>
+                        <button>Redeem</button>
+                    </div>
+                    <div class="pointGridItem">
+                        <img src="Icons/icons8-league-of-legends-50.png">
+                        <h3>2,000 Points</h3>
+                        <p>Free 2,500 RP to your Riot acoount</p>
+                        <button>Redeem</button>
+                    </div>
+                    <div class="pointGridItem">
+                        <img src="Icons/icons8-netflix-50.png">
+                        <h3>4,000 Points</h3>
+                        <p>1 month Premium plan for free</p>
+                        <button>Redeem</button>
+                    </div>
+                    <div class="pointGridItem">
+                       <img src="Icons/icons8-valorant-100.png">
+                       <h3>1,500 Points</h3>
+                       <p>1,500 Valorant Points to your Riot account </p>
+                       <button>Redeem</button>
+                    </div>
+                    <div class="pointGridItem">
+                        <img src="Icons/icons8-spotify-50.png">
+                        <h3>1,000 Points</h3>
+                        <p>1 month Spotify Premium for free</p>
+                        <button>Redeem</button>
+                    </div>
+                    <div class="pointGridItem">
+                        <img src="Icons/icons8-starbucks-50.png">
+                        <h3>2,000 Points</h3>
+                        <p>30% off on any product from Starbucks</p>
+                        <button>Redeem</button>
+                    </div>
+                </div>
+            </div>
+            <div id="bigDiv" class="hide"></div>
+            <div id="popMenu" class="payPop hide">
+                <i id= "exit" class="bi-x-circle" onmouseover="hover()" onmouseleave="exithover()" onclick="closepopup()"></i>
+                <p class="payPoptxt"><span>PAY OFF</span><br>TradeLine Installment</p>
+                <p style = "margin-top: 10px;font-family: 'Tajawal';font-style: normal;font-weight: 500;font-size: 26px;color: rgba(0, 0, 0, 0.55);">Available Balance: <br> 200,00.00 EGP</p>
+                <table>
+                    <tr>
+                        <th class="payPoptxt2">amount paid</th>
+                        <th class="payPoptxt2">total due amount</th>
+                    </tr>
+                    <tr>
+                        <td >
+                            <input type = number id = "numberInput"class="payPopBox" placeholder="0 EGP">
+                        </td>
+                        <td>
+                            <div class="payPopBox">
+                                50,000.00 EGP
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <button>PAYOFF</button>
             </div>
         </div>
         <!-- start of loans page -->

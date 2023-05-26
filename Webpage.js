@@ -88,3 +88,33 @@ function switchBills(){
         billsButton.classList.replace('notclicked','clicked');
         billsIcon.classList.replace('bi-droplet','bi-droplet-fill');
 }
+
+function payPopOpen(){
+        const bigDiv = document.getElementById('bigDiv');
+        const popMenu = document.getElementById('popMenu');
+        
+        bigDiv.classList.remove('hide');
+        popMenu.classList.remove('hide');
+}
+
+function hover(){
+        const exitbutton = document.getElementById('exit');
+
+        exitbutton.classList.remove("bi-x-circle");
+        exitbutton.classList.add("bi-x-circle-fill");
+}
+function exithover(){
+        const exitbutton = document.getElementById('exit');
+
+        exitbutton.classList.add("bi-x-circle");
+        exitbutton.classList.remove("bi-x-circle-fill");
+}
+function closepopup(){
+        const bigDiv = document.getElementById('bigDiv');
+        const popMenu = document.getElementById('popMenu');
+        const number = document.getElementById('numberInput');
+
+        number.value = "";
+        bigDiv.classList.add("hide");
+        popMenu.classList.add("hide");
+}

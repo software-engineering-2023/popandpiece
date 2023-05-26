@@ -100,10 +100,6 @@ i {
     margin: 10px 5px 10px 5px;
 }
 
-.hide {
-    display: none;
-}
-
 .show {
     display: block;
 }
@@ -157,6 +153,19 @@ i {
     border-radius: 10px;
 }
 
+#cardPage{
+    position: relative;
+    height: 100%;
+}
+#bigDiv{
+    z-index:9;
+    position:absolute;
+    background-color:rgba(109, 109, 109, 0.418);
+    height: 1327px;
+    width: 100%;
+    top:0;
+    left: 0;
+}
 .cardInfo{
     display: flex;
     margin-top: 20px;
@@ -174,7 +183,7 @@ i {
     line-height: 29px;
     width: 610px;
     height: 65px;
-    background: #B9DEFF;
+    background:#B9DEFF;
     border: 0px;
     border-radius: 13px;
 }
@@ -219,6 +228,55 @@ i {
     text-align: center;
     
 }
+.cardsDuepayment table{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cardsDuepayment h1{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    margin-left: 50px;
+}
+.cardsDuepayment th{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+}
+.tdWidth{
+    width: 500px;
+}
+.cardsDuepayment td{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    height: 45px;
+}
+.cardsDuepayment button{
+    width: 150px;
+    height: 30px;
+    background: #51ABFF;
+    border-radius: 8px;
+    border:0px;
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-size: 20px;
+    line-height: 29px;
+    text-align: center;
+    color: #ffffff;
+    transition-duration: 0.4s;
+}
+.cardsDuepayment button:hover{
+    background: #206db6;
+}
 .oddDataLeft{
     border-top-left-radius: 8px;
     border-Bottom-left-radius: 8px;
@@ -228,4 +286,145 @@ i {
     border-top-right-radius: 8px;
     border-Bottom-right-radius: 8px;
     border: 0px;
+}
+.cardPoints{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 35px;
+}
+.pointGrid{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 35px;
+    grid-auto-rows: minmax(100px, auto);
+}
+.cardPoints h1{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+}
+#h3Rewards{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    margin-left: 20px;
+}
+.pointGridItem{
+    background: rgba(192, 224, 255, 0.41);
+    border-radius: 13px;
+    width: 255px;
+    height: 293px;
+    text-align: center;
+}
+.pointGridItem img{
+    margin-top: 15px;
+}
+.pointGridItem button{
+    background: #51ABFF;
+    border-radius: 8px;
+    width: 192px;
+    height: 42px;
+    border: 0px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 28px;
+    transition-duration: 0.4s;
+}
+.pointGridItem button:hover{
+    background: #2765a0;
+}
+.pointGridItem p{
+    font-family: 'Tajawal';
+    font-style: bold;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    margin: 0px 5px 5px 5px;
+    top: 50%;
+    left: 50%;
+}
+
+.payPop{
+    height:600px;
+    width:739px;
+    background-color:white;
+    z-index: 10;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -369px; 
+    margin-top: -271px;
+    padding-left: 30px ;
+    border-radius:15px;
+    display: flex;
+    flex-direction: column;
+}
+.payPop span{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 45px;
+}
+.payPoptxt{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 520;
+    font-size: 45px;
+    margin-bottom: 0;
+}
+.payPoptxt2{
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: left;
+}
+.payPopBox{
+    background: #E5F2FF;
+    border-radius: 8px;
+    border: 0px;
+    width: 300px;
+    height: 74px;
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    padding-left: 15px;
+    padding-top: 10px;
+}
+.payPop button{
+    width: 306px;
+    height: 63px;
+    background: #51ABFF;
+    border-radius: 13px;
+    border: 0;
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 43px;
+    color: #FFFFFF;
+    margin-left: auto;
+    margin-right: 50px;
+    margin-top: 35px;
+    transition-duration: 0.4s;
+}
+.payPop button:hover{
+    background: #215688;
+}
+.payPop i{
+    font-size:40px;
+    margin-left: auto;
+    margin-right:20px;
+    margin-top:10px;
+}
+.hide {
+    display: none;
 }
