@@ -91,7 +91,7 @@ i {
     font-weight:bold;
     display:flex;
     flex-direction: column;
-    height:1400px
+   
 }
 .mainbody textarea{
     box-sizing: border-box;
