@@ -28,11 +28,15 @@
         <!-- start of navigation bar -->
 
         <div class="navigation">
-            <button id="summary" class="clicked" onclick="switchSummary()"><i id="houseIcon" class="bi-house-fill"></i>Summary</button>
-            <button id="cards" class="notclicked" onclick="switchCards()"><i id="cardsIcon" class="bi-credit-card-2-front"></i>Cards</button>
-            <button id="loans" class="notclicked" onclick="switchLoans()"><i id="safwatIcon" class="bi-piggy-bank"></i>Loans</button>
-            <button id="bills" class="notclicked" onclick="switchBills()"><i id="waterIcon" class="bi-droplet"></i>Bills</button>
-            <select name="accounts" id="account-numbers">
+            <button id="summary" class="clicked" onclick="switchSummary()"><i id="houseIcon"
+                    class="bi-house-fill"></i>Summary</button>
+            <button id="cards" class="notclicked" onclick="switchCards()"><i id="cardsIcon"
+                    class="bi-credit-card-2-front"></i>Cards</button>
+            <button id="loans" class="notclicked" onclick="switchLoans()"><i id="safwatIcon"
+                    class="bi-piggy-bank"></i>Loans</button>
+            <button id="bills" class="notclicked" onclick="switchBills()"><i id="waterIcon"
+                    class="bi-droplet"></i>Bills</button>
+            <select id="account-numbers">
                 <option value="124075613413">124075613413 (main)</option>
                 <option value="378075613413">378075613413</option>
                 <option value="098075613413">098075613413</option>
@@ -42,11 +46,268 @@
         </div>
         <!-- start of summary page -->
         <div id="summaryPage" class="show">
-            <p>maged 3ars w by7b el regala</p>
+            <div id="summaryWithoutTransfer">
+                <div class="availables">
+                    <p><b>AVAILABLE TO USE: </b>CR 269,600 EGP</p>
+                    <p><b>BALANCE: </b>CR 269,600 EGP</p>
+                </div>
+                <div class="transcations">
+                    <p style="font-size: 48px;"><b>TRANSACTIONS</b></p>
+                    <button id="transferButton" style="font-size: 36px;" onclick="toTransfers()">TRANSFER<i
+                            id="arrow-right" class="bi-arrow-bar-right"></i></button>
+                </div>
+                <table class="summaryTable">
+                    <tr>
+                        <th>TRANSACTION DATE</th>
+                        <th>VALUE DATE</th>
+                        <th>DETAILS</th>
+                        <th>DEBIT/CREDIT</th>
+                        <th>BALANCE</th>
+                    </tr>
+                    <tr class="oddRow">
+                        <td class="oddDataLeft">23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td class="oddDataRight">CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr>
+                        <td>23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td>CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr class="oddRow">
+                        <td class="oddDataLeft">23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td class="oddDataRight">CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr>
+                        <td>23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td>CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr class="oddRow">
+                        <td class="oddDataLeft">23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td class="oddDataRight">CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr>
+                        <td>23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td>CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr class="oddRow">
+                        <td class="oddDataLeft">23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td class="oddDataRight">CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr>
+                        <td>23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td>CR 269,600.00 EGP</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="transferCenter" class="hide LOSView">
+                <p style="font-size: 48px; padding-left: 50px; padding-top: 30px;"><b>New Transfer</b></p>
+                <div class="transferPageText">
+                    <p style="display: inline; margin-left: -35px; margin-bottom: 20px;">beneficiary Name: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Ex. Kika Mina"></p><br>
+                    <label for="accountInTransfer" style="margin-left: 59px;">Account: </label>
+                    <select class="accountInTransfer">
+                        <option value="account1">124075613413 (main)</option>
+                        <option value="account2">378075613413</option>
+                        <option value="account3">098075613413</option>
+                        <option value="account4">743075613413</option>
+                    </select>
+                    <div style="margin-bottom: -25px; margin-left:-38px; display: flex; gap:10px; align-items: center;">
+                        <p>Transaction Type:</p>
+                        <input type="radio" id="LOSAccount" name="transcationType" checked="checked" onclick="toTransfer()"><label
+                            for="LOSAccount">Another LOS account</label><input type="radio" id="domestic"
+                            name="transcationType" onclick="toDomestic()"><label for="domestic">Domestic</label><input type="radio"
+                            id="international" name="transcationType" onclick="toInternational()"><label for="international">International</label>
+                    </div>
+                    <p style="margin-left: 60px;">Amount: <input class="amountInTransfer" type="text"
+                            placeholder=" Enter Amount">
+                        <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>
+                        <select class="currency">
+                            <option value="EGP">EGP</option>
+                            <option value="EUR">EUR</option>
+                            <option value="JPY">JPY</option>
+                            <option value="GBP">GBP</option>
+                            <option value="AUD">AUD</option>
+                            <option value="CAD">CAD</option>
+                            <option value="CHF">CHF</option>
+                            <option value="CNY">CNY</option>
+                            <option value="NZD">NZD</option>
+                            <option value="HKD">HKD</option>
+                        </select>
+                    <p style="margin-left: 90px;" >Date: <input class="dateInTransfer" type="date"></p>
+                    <div id="domesticViewInterface" class="hide">
+                        <p style="display: inline; margin-left: 25px; margin-bottom: 20px;">Bank Name: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Enter Bank Name"></p><br>
+                        <p style="display: inline; margin-left: -17px; margin-bottom: 20px;">Branch Address: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Enter Branch Address"></p><br>
+                        <p style="display: inline; margin-left: 99px; margin-bottom: 20px;">City: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Enter City"></p><br>
+                        <p style="display: inline; margin-left: -48px; margin-bottom: 20px;"> Swift Code or IBAN: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Enter Swift or IBAN"></p><br>
+                        <p style="display: inline; margin-left: -58px; margin-bottom: 20px;">Beneficiary Address: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Enter Beneficiary Address"></p><br>
+                        <p style="display: inline; margin-left: -18px; margin-bottom: 20px;">Beneficiary City: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Enter Branch City"></p><br>
+                    </div>
+                    <div id="internationalViewInterface" class="hide">
+                        <p style="display: inline; margin-left: 5px; margin-bottom: 20px;">Bank Country: &nbsp<input
+                            class="paymentName" type="text" placeholder=" Enter Bank Country"></p><br>
+                    </div>
+                    <div class="confirmButtons">
+                        <button id="cancelTransfer" onclick="cancelTransfer()">Cancel</button>
+                        <button id="confirmTransfer" onclick="confirmTransfer()">Confirm</button>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <!-- start of cards page -->
         <div id="cardsPage" class="hide">
-            <p>Kika metnak</p>
+            <div class = "cardInfo">
+                <select class="cardsList">
+                    <option value="123456789"> 1234567891234567(Credit) </option>
+                    <option value="123456789"> 1234567891234567(Credit) </option>
+                    <option value="123456789"> 1234567891234567(Credit) </option>
+                    <option value="123456789"> 1234567891234567(Credit) </option>
+                </select>
+                <p><span>Limit:</span> 50,000.00 EGP</p>
+                <p><span>Points:</span> 2,000 point</p>
+            </div>
+            <div class="cardTransactions">
+                <h1> TRANSACTIONS </h1>
+                <table>
+                    <tr>
+                        <th>TRANSACTION DATE</th>
+                        <th>VALUE DATE</th>
+                        <th>DETAILS</th>
+                        <th>DEBIT/CREDIT</th>
+                        <th>BALANCE</th>
+                    </tr>
+                    <tr class="oddRow">
+                        <td class="oddDataLeft">23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td class="oddDataRight">CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr>
+                        <td>23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td>CR 269,600.00 EGP</td>
+                    </tr>
+                    <tr class="oddRow">
+                        <td class="oddDataLeft">23/05/2023</td>
+                        <td>23/05/2023</td>
+                        <td>VODAFONE POS</td>
+                        <td>CR 269,600.00 EGP</td>
+                        <td class="oddDataRight">CR 269,600.00 EGP</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="cardsDuepayment">
+                <h1>CREDIT CARD BILL</h1>
+                <table>
+                    <tr>
+                      <th>DUE DATE</th>
+                      <th>AMOUNT TO PAY</th>
+                    </tr>
+                    <tr class="oddRow">
+                      <td class="oddDataLeft">23/05/2023</td>
+                      <td class="tdWidth">45,600.00 EGP</td>
+                      <td><button id="payButton" onclick="payPopOpen()">PAY</button></td>
+                      <td class = "oddDataRight"><button>SET REMINDER</button></td>
+                    </tr>
+                  </table>
+            </div>
+            <div class="cardPoints">
+                <h1>Points | 2,000 point</h1>
+                <h3 id="h3Rewards">Rewards will expire in 5 days</h3>
+                <div class="pointGrid">
+                    <div class="pointGridItem">
+                        <img src="Icons/icons8-amazon-50.png">
+                        <h3>5,500 Points</h3>
+                        <p>10% cashback on any product from amazon</p>
+                        <button>Redeem</button>
+                    </div>
+                    <div class="pointGridItem">
+                        <img src="Icons/icons8-league-of-legends-50.png">
+                        <h3>2,000 Points</h3>
+                        <p>Free 2,500 RP to your Riot acoount</p>
+                        <button>Redeem</button>
+                    </div>
+                    <div class="pointGridItem">
+                        <img src="Icons/icons8-netflix-50.png">
+                        <h3>4,000 Points</h3>
+                        <p>1 month Premium plan for free</p>
+                        <button>Redeem</button>
+                    </div>
+                    <div class="pointGridItem">
+                       <img src="Icons/icons8-valorant-100.png">
+                       <h3>1,500 Points</h3>
+                       <p>1,500 Valorant Points to your Riot account </p>
+                       <button>Redeem</button>
+                    </div>
+                    <div class="pointGridItem">
+                        <img src="Icons/icons8-spotify-50.png">
+                        <h3>1,000 Points</h3>
+                        <p>1 month Spotify Premium for free</p>
+                        <button>Redeem</button>
+                    </div>
+                    <div class="pointGridItem">
+                        <img src="Icons/icons8-starbucks-50.png">
+                        <h3>2,000 Points</h3>
+                        <p>30% off on any product from Starbucks</p>
+                        <button>Redeem</button>
+                    </div>
+                </div>
+            </div>
+            <div id="bigDiv" class="hide"></div>
+            <div id="popMenu" class="payPop hide">
+                <i id= "exit" class="bi-x-circle" onmouseover="hover()" onmouseleave="exithover()" onclick="closepopup()"></i>
+                <p class="payPoptxt"><span>PAY OFF</span><br>TradeLine Installment</p>
+                <p style = "margin-top: 10px;font-family: 'Tajawal';font-style: normal;font-weight: 500;font-size: 26px;color: rgba(0, 0, 0, 0.55);">Available Balance: <br> 200,00.00 EGP</p>
+                <table>
+                    <tr>
+                        <th class="payPoptxt2">amount paid</th>
+                        <th class="payPoptxt2">total due amount</th>
+                    </tr>
+                    <tr>
+                        <td >
+                            <input type = number id = "numberInput"class="payPopBox" placeholder="0 EGP">
+                        </td>
+                        <td>
+                            <div class="payPopBox">
+                                50,000.00 EGP
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <button>PAYOFF</button>
+            </div>
         </div>
         <!-- start of loans page -->
         <div id="loansPage" class="hide">
