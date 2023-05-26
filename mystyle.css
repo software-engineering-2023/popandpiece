@@ -196,6 +196,7 @@ a:hover {
     font-size:40px;
     font-weight: bold;
     margin-top:30px;
+    margin-left:40px;
 }
 .pop p{
     font-family: 'Tajawal', sans-serif;
@@ -234,24 +235,7 @@ a:hover {
 .pop button:hover{
     background-color: #71b5f5;
 }
-#enteremail{
-    color:red;
-    font-size:20px;
-    text-align: center;
-    margin-top:0px;
-}
-#enterpass{
-    color:red;
 
-    font-size:20px;
-    text-align: center;
-}
-#reenterpass{
-    color:red;
- 
-    font-size:20px;
-    text-align: center;
-}
 .hide {
     display: none;
 }
