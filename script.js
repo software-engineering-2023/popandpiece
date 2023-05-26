@@ -16,6 +16,9 @@ const rewritepass= document.getElementById("rewritepass");
 const enteremail =document.getElementById("enteremail");
 const enterpass =document.getElementById("enterpass");
 const reenterpass =document.getElementById("reenterpass");
+var clientpass= "client";
+var bankerpass= "banker";
+var adminpass= "admin";
 registrationpage.classList.add("hide");
 loginerror[0].classList.add("hide");
 popup.classList.add("hide");
@@ -108,14 +111,14 @@ function tologin(){
     }
 }
 function tomainpage(){
-    if(usernameform.value=="client" && passwordform.value=="client"){
-        //forward to client page
+    if(usernameform.value=="client" && passwordform.value==clientpass){
+        window.location = "userInterface.html"
     }
-    else if(usernameform.value=="banker" && passwordform.value=="banker"){
-         //forward to banker page
+    else if(usernameform.value=="banker" && passwordform.value==bankerpass){
+        window.location = "bankerInterface.html"
     }
-    else if(usernameform.value=="admin" && passwordform.value=="admin"){
-         //forward to admin page
+    else if(usernameform.value=="admin" && passwordform.value==adminpass){
+        window.location = "admininterface.html"
     }
     else{
         loginerror[0].classList.remove("hide");
@@ -165,12 +168,23 @@ function changepassword(){
     else if(writepass.value==rewritepass.value){
         popup.classList.add("hide");
         background.classList.add("hide");
-        changepass.classList.add("hide")
+        changepass.classList.add("hide");
+        if(writeemail.value=="client@gmail.com"){
+            clientpass=writepass.value;
+    }
+    else if(writeemail.value=="banker@gmail.com"){
+            bankerpass=writepass.value;
+    }
+    else{
+        adminpass=writepass.value;
+    }
+
     }
     else{
         enterpass.classList.remove("hide");
         reenterpass.classList.add("hide");
     }
+    
 }
 
 
