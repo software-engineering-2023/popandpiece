@@ -118,7 +118,7 @@ function tomainpage(){
         window.location = "bankerInterface.html"
     }
     else if(usernameform.value=="admin" && passwordform.value==adminpass){
-        window.location = "admininterface.html"
+        window.location = "adminInterface.html"
     }
     else{
         loginerror[0].classList.remove("hide");
