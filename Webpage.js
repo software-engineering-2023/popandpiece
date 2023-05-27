@@ -184,10 +184,9 @@ function payoffButton(){
         const message=document.getElementById("notifier");
         closepopup();
         const numFiled = document.getElementById("numberInput");
-        if(!numFiled.value==""){
+        
                 message.classList.remove("slowlyhide");
                 setTimeout(() => {
                         message.classList.add("slowlyhide");
                 }, 2000);
-        }
 }
