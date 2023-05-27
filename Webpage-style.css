@@ -520,8 +520,10 @@ i {
 .pointGridItem button:hover {
     background: #2765a0;
 }
-
-.pointGridItem p {
+.pointGridItem button:disabled{
+    background:  rgba(81, 171, 255, 0.35);
+}
+.pointGridItem p{
     font-family: 'Tajawal';
     font-style: bold;
     font-weight: 500;
@@ -601,7 +603,7 @@ i {
     color: #FFFFFF;
     margin-left: auto;
     margin-right: 50px;
-    margin-top: 35px;
+    margin-top: 20px;
     transition-duration: 0.4s;
 }
 
@@ -925,8 +927,24 @@ i {
     color: black;
 }
 
-.black {
-    color: black;
+.errorMessagePayoff {
+    display: flex;
+    background-color: transparent;
+    width: 300px;
+    border: #E42F2F solid ;
+    margin-top: 30px;
+    font-size: 20px;
+    border-radius: 8px;
+    color: #E42F2F;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.errorMessagePayoff i {
+    font-size: 20px;
+    margin: 0px 20px;
+    margin-top: 3px;
 }
 
 .white {
