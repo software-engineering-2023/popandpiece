@@ -164,7 +164,7 @@ function confirmTransfer() {
         var empty = false;
 
         for (i = 0; i < endofCheck; i++) {
-                if (errors[i].value = '')
+                if (errors[i].value == '')
                         empty = true;
         }
 
@@ -204,9 +204,10 @@ function backToSummary() {
 function payPopOpen() {
         const bigDiv = document.getElementById('bigDiv');
         const popMenu = document.getElementById('popMenu');
-
+        const error = document.getElementById('errorPayoff');
         bigDiv.classList.remove('hide');
         popMenu.classList.remove('hide');
+        error.classList.add('hide');
 }
 
 function hover() {
@@ -232,11 +233,32 @@ function closepopup() {
 }
 function payoffButton(){
         const message=document.getElementById("notifier");
+        const numField = document.getElementById("numberInput");
+        if(!numField.value == ""){
         closepopup();
-        const numFiled = document.getElementById("numberInput");
-        
-                message.classList.remove("slowlyhide");
-                setTimeout(() => {
-                        message.classList.add("slowlyhide");
-                }, 2000);
+        message.classList.remove("slowlyhide");
+        setTimeout(() => {                        
+        message.classList.add("slowlyhide");
+        }, 2000);
+        }else{
+                const error = document.getElementById('errorPayoff');
+                error.classList.remove('hide');
+        }
+}
+function redeemPoints(x) {
+        const redeemButton = document.getElementsByClassName('redeemButton');
+        redeemButton[x].disabled = true;
+        redeemButton[x].innerHTML = 'Redeemed';
+}
+function cardSelect() {
+        const cardSelect = document.getElementById('cardsSelect');
+        const creditPage = document.getElementById('creditPage');
+        const limit = document.getElementById('Limit')
+        if (!cardSelect.value.includes('Credit')) {
+          creditPage.classList.add('hide');
+          limit.classList.add('slowlyhide');
+        } else {
+          creditPage.classList.remove('hide');
+          limit.classList.remove('slowlyhide');
+        }
 }
