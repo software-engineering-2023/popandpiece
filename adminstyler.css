@@ -283,7 +283,7 @@ tr{
     height:543px;
     width:739px;
     background-color:white;
-    z-index: 10;
+    z-index: 9000;
     position:absolute;
     top: 50%;
     left: 50%;
@@ -358,10 +358,12 @@ tr{
 .bigboy{
     display:flex;
 }
+
 #container{
     width:20px;
     display:flex;
 }
+
 .accountsettings{
     width:436px;
     height:100vh;
@@ -452,7 +454,6 @@ tr{
     left:10px;
     z-index: 20;
     transition: left 0.4s;
-
 }
 .increaselength{
     width:1315px;

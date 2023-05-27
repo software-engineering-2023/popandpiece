@@ -17,25 +17,54 @@
 <body>
 
     <div id="whole-page">
-        <div id="fading" class=""></div>
+        <div id="fading" class="" onclick="hideSettings()"></div>
+        <!-- reporting problems' view -->
+        <div id="reportingPop" class="hide">
+            <i id="exit1" class="bi-x-circle" onClick="exit1()" onmouseover="hover()" onmouseleave="exithover()"></i>
+            <h1 style="font-size: 60px; margin-top: -5px;">Report a Problem</h1>
+            <div style="text-align: left; margin-left: 87px; margin-bottom: 10px;">
+                <p style="margin-bottom: 10px;"><strong>Problem Type:</strong></p>
+                <input type="radio" id="feedback" name="problemType" onclick="toFeedback()" checked="checked">
+                <label for="feedback"><strong>Feedback</strong></label>
+                <input type="radio" id="Stolen" onclick="toStolenCard()" name="problemType">
+                <label for="stolen"><strong>Stolen Card</strong></label>
+            </div>
+            <div id="stolenCard" class="hide">
+                <p style="margin-right: 270px; margin-bottom: -20px;">choose the stolen card:</p><br>
+                <select onchange="cardSelect()" class="cardsList">
+                    <option value="1234567891234567(Credit)"> 1234********4567(Credit) </option>
+                    <option value="9876543210987654(Debit)"> 9876********3654(Debit) </option>
+                </select>
+                <p style="margin-right: 400px; margin-bottom: -20px;">Lost Date:</p><br>
+                <input id="stolenDate" style="margin-bottom: 10px;" class="cardsList" type="date"><br>
+                <input style="width: 20px; height: 20px; margin-right: 20px;" id="orderReplacement" type="checkbox">
+                <label style="font-weight: normal; margin-right: 265px;" for="orderReplacement"> Order
+                    Replacement</label>
+            </div>
+            <textarea id="reportText" style="resize:none;" type="text"
+                placeholder="Write your Problem or Feedback"></textarea><br>
+            <button id="reportSubmit" onclick="notifyReport()">Submit</button>
+        </div>
         <!-- start of header -->
         <div id="Header">
             <h1 id="marginer-h1">Legit Offshore Bank</h1>
             <h1 id="marginer-hello">Hello, Elon Musk</h1>
-            <button id="profile-icon"><i class="bi-person-circle"></i></button>
+            <button id="profile-icon"><i class="bi-person-circle" onclick="showSettings()" onmouseover="changecolor()"
+                    onmouseleave="back()"></i></button>
         </div>
 
         <!-- start of navigation bar -->
 
         <div class="navigation">
-            <button id="summary" class="clicked" onclick="switchSummary()"><i id="houseIcon"
+            <button id="summary" class="clicked summ" onclick="switchSummary()"><i id="houseIcon"
                     class="bi-house-fill"></i>Summary</button>
-            <button id="cards" class="notclicked" onclick="switchCards()"><i id="cardsIcon"
+            <button id="cards" class="notclicked card" onclick="switchCards()"><i id="cardsIcon"
                     class="bi-credit-card-2-front"></i>Cards</button>
-            <button id="loans" class="notclicked" onclick="switchLoans()"><i id="safwatIcon"
+            <button id="loans" class="notclicked loan" onclick="switchLoans()"><i id="safwatIcon"
                     class="bi-piggy-bank"></i>Loans</button>
-            <button id="bills" class="notclicked" onclick="switchBills()"><i id="waterIcon"
+            <button id="bills" class="notclicked bill" onclick="switchBills()"><i id="waterIcon"
                     class="bi-droplet"></i>Bills</button>
+            <div class="selector"> </div>
             <select id="account-numbers">
                 <option value="124075613413">124075613413 (main)</option>
                 <option value="378075613413">378075613413</option>
@@ -44,12 +73,41 @@
             </select>
             <button class="bell"><i class="bi-bell"></i></button>
         </div>
+
+        <div id="container">
+            <div class="accountsettings" id="accountsettings">
+                <h1>Account Settings</h1>
+                <i id="profile-icon2" class="bi-person-circle icon" onclick="showSettings()" onmouseover="changecolor()"
+                    onmouseleave="back()"></i>
+                <div id="settingsButtons">
+                    <p>Request to close an account</p>
+                    <select id="account-numbersSettings">
+                        <option value="choose">Choose Account</option>
+                        <option value="124075613413">124075613413 (main)</option>
+                        <option value="378075613413">378075613413</option>
+                        <option value="098075613413">098075613413</option>
+                        <option value="743075613413">743075613413</option>
+                    </select>
+                    <button onclick="notifyClose()"><strong>Request Closing</strong></button>
+                    <p>Request to open a new Account</p>
+                    <select id="account-createSettings">
+                        <option value="Type">Choose Type</option>
+                        <option value="credit">Credit</option>
+                        <option value="debit">Debit</option>
+                    </select>
+                    <button onclick="notifyOpen()"><strong>Request Openning</strong></button>
+                    <button style="margin-top: 135px;" onclick="backtologin()"><strong>Sign Out</strong></button>
+                    <button id="reportIssue" onclick="reportError()"><strong>Report an issue</strong></button>
+                </div>
+            </div>
+            <div id="notifierReportSettings" class="slider slowlyhide">Reported</div>
+        </div>
         <!-- start of summary page -->
 
         <div id="summaryPage" class="show">
             <div id="notifierTransfer" class="slider slowlyhide">Transfer done!</div>
             <div id="summaryWithoutTransfer">
-                
+
                 <div class="availables">
                     <p><b>AVAILABLE TO USE: </b>CR 269,600 EGP</p>
                     <p><b>BALANCE: </b>CR 269,600 EGP</p>
@@ -127,10 +185,11 @@
 
             </div>
             <div id="transferCenter" class="hide LOSView">
-                
+
                 <div class="popupTransfer hide">
-                        <h1 style="margin-top: 140px; font-size: 50px; color: rgb(27, 24, 24);">Confirmed &nbsp<i class="bi-check-circle-fill"></i></h1>
-                        <button id="transferDone" onclick="backToSummary()">Done</button>
+                    <h1 style="margin-top: 140px; font-size: 50px; color: rgb(27, 24, 24);">Confirmed &nbsp<i
+                            class="bi-check-circle-fill"></i></h1>
+                    <button id="transferDone" onclick="backToSummary()">Done</button>
                     </h1>
                 </div>
                 <p style="font-size: 48px; padding-left: 50px; padding-top: 30px;"><b>New Transfer</b></p>
@@ -207,11 +266,9 @@
         <!-- start of cards page -->
         <div id="cardsPage" class="hide">
             <div class="cardInfo">
-                <select class="cardsList">
-                    <option value="123456789"> 1234567891234567(Credit) </option>
-                    <option value="123456789"> 1234567891234567(Credit) </option>
-                    <option value="123456789"> 1234567891234567(Credit) </option>
-                    <option value="123456789"> 1234567891234567(Credit) </option>
+                <select id="cardsSelect" onchange="cardSelect()" class="cardsList">
+                    <option value="1234567891234567(Credit)"> 1234567891234567(Credit) </option>
+                    <option value="9876543210987654(Debit)"> 9876543210987654(Debit) </option>
                 </select>
                 <p><span>Limit:</span> 50,000.00 EGP</p>
                 <p><span>Points:</span> 2,000 point</p>
@@ -228,13 +285,13 @@
                     <tr class="oddRow">
                         <td class="oddDataLeft">23/05/2023</td>
                         <td>23/05/2023</td>
-                        <td>VODAFONE POS</td>                       
+                        <td>VODAFONE POS</td>
                         <td class="oddDataRight">CR 269,600.00 EGP</td>
                     </tr>
                     <tr>
                         <td>23/05/2023</td>
                         <td>23/05/2023</td>
-                        <td>VODAFONE POS</td>                        
+                        <td>VODAFONE POS</td>
                         <td>CR 269,600.00 EGP</td>
                     </tr>
                     <tr class="oddRow">
@@ -249,21 +306,22 @@
                 <h1>CREDIT CARD BILL</h1>
                 <table>
                     <tr>
-                      <th>DUE DATE</th>
-                      <th>AMOUNT TO PAY</th>
+                        <th>DUE DATE</th>
+                        <th>AMOUNT TO PAY</th>
                     </tr>
                     <tr class="oddRow">
-                      <td class="oddDataLeft">23/05/2023</td>
-                      <td class="tdWidth">45,600.00 EGP</td>
-                      <td>
-                        <button id="payButton" onclick="payPopOpen()">PAY</button>
-                      </td>
-                      <td class = "oddDataRight">
-                        <div class="reminderFlex">
-                            <input type="datetime-local" data-placeholder="SET REMINDER" required aria-required="true"/>
-                            <button>CONFIRM</button>
-                        </div>
-                    </td>
+                        <td class="oddDataLeft">23/05/2023</td>
+                        <td class="tdWidth">45,600.00 EGP</td>
+                        <td>
+                            <button id="payButton" onclick="payPopOpen()">PAY</button>
+                        </td>
+                        <td class="oddDataRight">
+                            <div class="reminderFlex">
+                                <input type="datetime-local" data-placeholder="SET REMINDER" required
+                                    aria-required="true" />
+                                <button>CONFIRM</button>
+                            </div>
+                        </td>
                     </tr>
                 </table>
             </div>

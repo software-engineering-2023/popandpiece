@@ -48,7 +48,13 @@ function switchSummary() {
         selector[0].classList.remove("goright");
         emptyspace[0].classList.remove("increaselength");
 }
-
+function hideSettings(){
+    accountsettings.classList.remove("left")
+    background.classList.add("hide");
+    for( i = 0; i < popups.length;i++){
+        popups[i].classList.add("hide");
+    }
+}
 function switchCards() {
         summaryButton.classList.replace('clicked','notclicked');
         summaryIcon.classList.replace('bi-send-exclamation-fill','bi-send-exclamation');

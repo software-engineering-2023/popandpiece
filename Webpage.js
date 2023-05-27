@@ -13,7 +13,15 @@ const cardsIcon = document.getElementById("cardsIcon");
 const loansIcon = document.getElementById("safwatIcon");
 const billsIcon = document.getElementById("waterIcon");
 
+const icon = document.getElementById("profile-icon");
+const icon2 = document.getElementById("profile-icon2");
+const accountsettings = document.getElementById("accountsettings");
+var settingsShowen = false;
+
 const fading = document.getElementById('fading');
+var noOffFading = false;
+const selector = document.getElementsByClassName("selector")
+
 
 function switchSummary() {
 
@@ -32,6 +40,10 @@ function switchSummary() {
         summaryPage.classList.replace('hide', 'show');
         summaryButton.classList.replace('notclicked', 'clicked');
         summaryIcon.classList.replace('bi-house', 'bi-house-fill');
+
+        selector[0].classList.remove("goright");
+        selector[0].classList.remove("gorightmore");
+        selector[0].classList.remove("gorightverymore");
 }
 
 function switchCards() {
@@ -51,6 +63,9 @@ function switchCards() {
         cardsPage.classList.replace('hide', 'show');
         cardsButton.classList.replace('notclicked', 'clicked');
         cardsIcon.classList.replace('bi-credit-card-2-front', 'bi-credit-card-2-front-fill');
+        selector[0].classList.add("goright");
+        selector[0].classList.remove("gorightmore");
+        selector[0].classList.remove("gorightverymore");
 }
 
 function switchLoans() {
@@ -70,6 +85,9 @@ function switchLoans() {
         loansPage.classList.replace('hide', 'show');
         loansButton.classList.replace('notclicked', 'clicked');
         loansIcon.classList.replace('bi-piggy-bank', 'bi-piggy-bank-fill');
+        selector[0].classList.remove("goright");
+        selector[0].classList.add("gorightmore");
+        selector[0].classList.remove("gorightverymore");
 }
 
 function switchBills() {
@@ -89,8 +107,48 @@ function switchBills() {
         billsPage.classList.replace('hide', 'show');
         billsButton.classList.replace('notclicked', 'clicked');
         billsIcon.classList.replace('bi-droplet', 'bi-droplet-fill');
+        selector[0].classList.remove("goright");
+        selector[0].classList.remove("gorightmore");
+        selector[0].classList.add("gorightverymore");
 }
 
+function hideSettings() {
+        if (!noOffFading) {
+                accountsettings.classList.remove("left")
+                fading.classList.remove("fade");
+        }
+}
+
+function showSettings() {
+        if (!accountsettings.classList.contains("left")) {
+                accountsettings.classList.add("left");
+                fading.classList.add('fade');
+
+        }
+        else {
+                accountsettings.classList.remove("left")
+                fading.classList.remove("fade");
+        }
+}
+function backtologin() {
+        window.location = "proj.html"
+}
+
+function back() {
+        icon.classList.remove("white");
+        icon.classList.add("black");
+        icon2.classList.add("white");
+        icon2.classList.remove("black");
+}
+
+function changecolor() {
+
+        icon.classList.add("white");
+        icon.classList.remove("black");
+        icon2.classList.remove("white");
+        icon2.classList.add("black");
+
+}
 
 function toTransfers() { //this method switches from the summary page to the transfers page
         const summaryPage = document.getElementById('summaryWithoutTransfer');
@@ -150,11 +208,15 @@ function cancelTransfer() {
         const errors = document.getElementsByClassName('transferField');
         const summaryPage = document.getElementById('summaryWithoutTransfer');
         const transferPage = document.getElementById('transferCenter');
+        const errorMessage = document.getElementsByClassName('errorMessageTransfer');
         summaryPage.classList.remove('hide');
         transferPage.classList.add('hide');
+
         for (i = 0; i < errors.length; i++) {
                 errors[i].value = '';
         }
+
+        errorMessage[0].classList.add('hide');
 }
 
 function confirmTransfer() {
@@ -164,7 +226,7 @@ function confirmTransfer() {
         var empty = false;
 
         for (i = 0; i < endofCheck; i++) {
-                if (errors[i].value = '')
+                if (errors[i].value == '')
                         empty = true;
         }
 
@@ -178,7 +240,114 @@ function confirmTransfer() {
                 payoffButtonTransfer();
                 cancelTransfer();
         }
+}
 
+function notifyReport() {
+        const message = document.getElementById("notifierReportSettings");
+        const text = document.getElementById("reportText");
+        const pop = document.getElementById("reportingPop");
+        const feedbackButton = document.getElementById('feedback');
+        const stolenButton = document.getElementById('Stolen');
+        const date = document.getElementById('stolenDate');
+
+        if (feedbackButton.checked) {
+                if (text.value != '') {
+                        message.classList.remove('sliderError');
+                        message.innerHTML = 'Report Sent';
+                        fading.classList.remove('fade');
+                        pop.classList.add('hide');
+                        noOffFading = false;
+                }
+                else {
+                        message.classList.add('sliderError');
+                        message.innerHTML = 'Write your Feedback or Problem First';
+                }
+        }
+        else {
+                if (date.value != '') {
+                        message.classList.remove('sliderError');
+                        message.innerHTML = 'Report Sent';
+                        fading.classList.remove('fade');
+                        pop.classList.add('hide');
+                        noOffFading = false;
+                }
+                else {
+                        message.classList.add('sliderError');
+                        message.innerHTML = 'choose when did you lose your card';
+                }
+        }
+        message.classList.remove("slowlyhide");
+        setTimeout(() => {
+                message.classList.add("slowlyhide");
+        }, 2000);
+}
+
+function toFeedback() {
+        const stolenView = document.getElementById('stolenCard');
+        const text = document.getElementById('reportText');
+        text.value = '';
+        stolenView.classList.add('hide');
+        text.classList.remove('hide');
+}
+
+function toStolenCard() {
+        const stolenView = document.getElementById('stolenCard');
+        const text = document.getElementById('reportText');
+        const date = document.getElementById('stolenDate');
+
+        date.value = '';
+        stolenView.classList.remove('hide');
+        text.classList.add('hide');
+}
+
+function exit1() {
+        noOffFading = false;
+        const pop = document.getElementById("reportingPop");
+        fading.classList.remove('fade');
+        pop.classList.add('hide');
+}
+
+function notifyClose() {
+        const message = document.getElementById("notifierReportSettings");
+        const selection = document.getElementById("account-numbersSettings").value;
+        if (selection == "choose") {
+                message.classList.add('sliderError');
+                message.innerHTML = 'Please select an Account first';
+        }
+        else {
+                message.classList.remove('sliderError');
+                // message.classList.add('slider');
+                message.innerHTML = 'Closing Requested';
+        }
+        message.classList.remove("slowlyhide");
+        setTimeout(() => {
+                message.classList.add("slowlyhide");
+        }, 1000);
+}
+
+function notifyOpen() {
+        const message = document.getElementById("notifierReportSettings");
+        const selections = document.getElementById("account-createSettings").value;
+        if (selections == "Type") {
+                message.classList.add('sliderError');
+                message.innerHTML = 'Please select a type first';
+        }
+        else {
+                message.classList.remove('sliderError');
+                message.innerHTML = 'Openning Requested';
+        }
+        message.classList.remove("slowlyhide");
+        setTimeout(() => {
+                message.classList.add("slowlyhide");
+        }, 1000);
+}
+
+function reportError() {
+        const errorPop = document.getElementById('reportingPop');
+        errorPop.classList.remove('hide');
+        hideSettings();
+        noOffFading = true;
+        fading.classList.add('fade');
 }
 
 function payoffButtonTransfer() {
@@ -211,15 +380,21 @@ function payPopOpen() {
 
 function hover() {
         const exitbutton = document.getElementById('exit');
-
         exitbutton.classList.remove("bi-x-circle");
         exitbutton.classList.add("bi-x-circle-fill");
+
+        const exitbutton1 = document.getElementById('exit1');
+        exitbutton1.classList.remove("bi-x-circle");
+        exitbutton1.classList.add("bi-x-circle-fill");
 }
 function exithover() {
         const exitbutton = document.getElementById('exit');
-
         exitbutton.classList.add("bi-x-circle");
         exitbutton.classList.remove("bi-x-circle-fill");
+
+        const exitbutton1 = document.getElementById('exit1');
+        exitbutton1.classList.add("bi-x-circle");
+        exitbutton1.classList.remove("bi-x-circle-fill");
 }
 function closepopup() {
         const bigDiv = document.getElementById('bigDiv');
@@ -230,13 +405,13 @@ function closepopup() {
         bigDiv.classList.add("hide");
         popMenu.classList.add("hide");
 }
-function payoffButton(){
-        const message=document.getElementById("notifier");
+function payoffButton() {
+        const message = document.getElementById("notifier");
         closepopup();
         const numFiled = document.getElementById("numberInput");
-        
-                message.classList.remove("slowlyhide");
-                setTimeout(() => {
-                        message.classList.add("slowlyhide");
-                }, 2000);
+
+        message.classList.remove("slowlyhide");
+        setTimeout(() => {
+                message.classList.add("slowlyhide");
+        }, 2000);
 }
