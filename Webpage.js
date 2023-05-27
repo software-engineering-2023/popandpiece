@@ -13,6 +13,8 @@ const cardsIcon = document.getElementById("cardsIcon");
 const loansIcon = document.getElementById("safwatIcon");
 const billsIcon = document.getElementById("waterIcon");
 
+const fading = document.getElementById('fading');
+
 function switchSummary() {
 
         cardsPage.classList.replace('show', 'hide');
@@ -103,7 +105,7 @@ function toTransfer() { //this method switches from the transfers' page itself t
                 const domesticView = document.getElementById('domesticViewInterface');
                 const internationalView = document.getElementById('internationalViewInterface');
                 const transferPage = document.getElementById('transferCenter');
-                
+
                 transferPage.classList.remove('domesticView');
                 transferPage.classList.remove('internationalView');
                 transferPage.classList.add('LOSView');
@@ -112,14 +114,18 @@ function toTransfer() { //this method switches from the transfers' page itself t
         }
 }
 
+var endofCheck = 3;//used to determine when to stop checking for errors for the different views
+
 function toDomestic() {
         if (document.getElementById('domestic').checked) {
+                endofCheck = 9;
                 document.getElementById('summaryWithoutTransfer').classList.add('hide');
                 const domesticView = document.getElementById('domesticViewInterface');
                 const internationalView = document.getElementById('internationalViewInterface');
                 const transferPage = document.getElementById('transferCenter');
-                
+
                 transferPage.classList.add('domesticView');
+                transferPage.classList.remove('internationalView');
                 domesticView.classList.remove('hide');
                 internationalView.classList.add('hide');
         }
@@ -127,51 +133,95 @@ function toDomestic() {
 
 function toInternational() {
         if (document.getElementById('international').checked) {
-                
+                endofCheck = 10;
                 document.getElementById('summaryWithoutTransfer').classList.add('hide');
                 const domesticView = document.getElementById('domesticViewInterface');
                 const internationalView = document.getElementById('internationalViewInterface');
                 const transferPage = document.getElementById('transferCenter');
-                
+
                 transferPage.classList.add('internationalView');
                 internationalView.classList.remove('hide');
                 domesticView.classList.remove('hide');
-                
+
         }
 }
 
-function cancelTransfer(){
+function cancelTransfer() {
+        const errors = document.getElementsByClassName('transferField');
+        const summaryPage = document.getElementById('summaryWithoutTransfer');
+        const transferPage = document.getElementById('transferCenter');
+        summaryPage.classList.remove('hide');
+        transferPage.classList.add('hide');
+        for (i = 0; i < errors.length; i++) {
+                errors[i].value = '';
+        }
+}
+
+function confirmTransfer() {
+        const errors = document.getElementsByClassName('transferField');
+        const errorMessage = document.getElementsByClassName('errorMessageTransfer');
+        const currentView = document.getElementById('transferCenter');
+        var empty = false;
+
+        for (i = 0; i < endofCheck; i++) {
+                if (errors[i].value = '')
+                        empty = true;
+        }
+
+        if (empty)
+                errorMessage[0].classList.remove('hide');
+        else {
+                for (i = 0; i < errors.length; i++) {
+                        errors[i].value = '';
+                }
+                errorMessage[0].classList.add('hide');
+                payoffButtonTransfer();
+                cancelTransfer();
+        }
+
+}
+
+function payoffButtonTransfer() {
+        const message = document.getElementById("notifierTransfer");
+        message.classList.remove("slowlyhide");
+        setTimeout(() => {
+                message.classList.add("slowlyhide");
+        }, 2000);
+}
+
+function backToSummary() {
+        const doneButton = document.getElementById('transferDone');
+        const popup = document.getElementsByClassName('popupTransfer');
+        popup[0].classList.add('hide');
+        fading.classList.remove('fade');
+
         const summaryPage = document.getElementById('summaryWithoutTransfer');
         const transferPage = document.getElementById('transferCenter');
         summaryPage.classList.remove('hide');
         transferPage.classList.add('hide');
 }
 
-function confirmTransfer(){
-
-}
-
-function payPopOpen(){
+function payPopOpen() {
         const bigDiv = document.getElementById('bigDiv');
         const popMenu = document.getElementById('popMenu');
-        
+
         bigDiv.classList.remove('hide');
         popMenu.classList.remove('hide');
 }
 
-function hover(){
+function hover() {
         const exitbutton = document.getElementById('exit');
 
         exitbutton.classList.remove("bi-x-circle");
         exitbutton.classList.add("bi-x-circle-fill");
 }
-function exithover(){
+function exithover() {
         const exitbutton = document.getElementById('exit');
 
         exitbutton.classList.add("bi-x-circle");
         exitbutton.classList.remove("bi-x-circle-fill");
 }
-function closepopup(){
+function closepopup() {
         const bigDiv = document.getElementById('bigDiv');
         const popMenu = document.getElementById('popMenu');
         const number = document.getElementById('numberInput');
@@ -180,3 +230,4 @@ function closepopup(){
         bigDiv.classList.add("hide");
         popMenu.classList.add("hide");
 }
+

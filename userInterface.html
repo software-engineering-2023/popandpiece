@@ -17,7 +17,7 @@
 <body>
 
     <div id="whole-page">
-
+        <div id="fading" class=""></div>
         <!-- start of header -->
         <div id="Header">
             <h1 id="marginer-h1">Legit Offshore Bank</h1>
@@ -45,8 +45,11 @@
             <button class="bell"><i class="bi-bell"></i></button>
         </div>
         <!-- start of summary page -->
+
         <div id="summaryPage" class="show">
+            <div id="notifierTransfer" class="slider slowlyhide">Transfer done!</div>
             <div id="summaryWithoutTransfer">
+                
                 <div class="availables">
                     <p><b>AVAILABLE TO USE: </b>CR 269,600 EGP</p>
                     <p><b>BALANCE: </b>CR 269,600 EGP</p>
@@ -121,12 +124,20 @@
                         <td>CR 269,600.00 EGP</td>
                     </tr>
                 </table>
+
             </div>
             <div id="transferCenter" class="hide LOSView">
+                
+                <div class="popupTransfer hide">
+                        <h1 style="margin-top: 140px; font-size: 50px; color: rgb(27, 24, 24);">Confirmed &nbsp<i class="bi-check-circle-fill"></i></h1>
+                        <button id="transferDone" onclick="backToSummary()">Done</button>
+                    </h1>
+                </div>
                 <p style="font-size: 48px; padding-left: 50px; padding-top: 30px;"><b>New Transfer</b></p>
                 <div class="transferPageText">
-                    <p style="display: inline; margin-left: -35px; margin-bottom: 20px;">beneficiary Name: &nbsp<input
-                            class="paymentName" type="text" placeholder=" Ex. Kika Mina"></p><br>
+                    <p style="display: inline; margin-left: -35px; margin-bottom: 20px;">beneficiary Name:
+                        &nbsp<input class="paymentName transferField" type="text" placeholder=" Ex. Kika Mina"></p>
+                    <br>
                     <label for="accountInTransfer" style="margin-left: 59px;">Account: </label>
                     <select class="accountInTransfer">
                         <option value="account1">124075613413 (main)</option>
@@ -136,12 +147,13 @@
                     </select>
                     <div style="margin-bottom: -25px; margin-left:-38px; display: flex; gap:10px; align-items: center;">
                         <p>Transaction Type:</p>
-                        <input type="radio" id="LOSAccount" name="transcationType" checked="checked" onclick="toTransfer()"><label
-                            for="LOSAccount">Another LOS account</label><input type="radio" id="domestic"
-                            name="transcationType" onclick="toDomestic()"><label for="domestic">Domestic</label><input type="radio"
-                            id="international" name="transcationType" onclick="toInternational()"><label for="international">International</label>
+                        <input type="radio" id="LOSAccount" name="transcationType" checked="checked"
+                            onclick="toTransfer()"><label for="LOSAccount">Another LOS account</label><input
+                            type="radio" id="domestic" name="transcationType" onclick="toDomestic()"><label
+                            for="domestic">Domestic</label><input type="radio" id="international" name="transcationType"
+                            onclick="toInternational()"><label for="international">International</label>
                     </div>
-                    <p style="margin-left: 60px;">Amount: <input class="amountInTransfer" type="text"
+                    <p style="margin-left: 60px;">Amount: <input class="amountInTransfer transferField" type="text"
                             placeholder=" Enter Amount">
                         <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>
                         <select class="currency">
@@ -156,36 +168,45 @@
                             <option value="NZD">NZD</option>
                             <option value="HKD">HKD</option>
                         </select>
-                    <p style="margin-left: 90px;" >Date: <input class="dateInTransfer" type="date"></p>
+                    <p style="margin-left: 90px;">Date: <input class="dateInTransfer transferField" type="date"></p>
                     <div id="domesticViewInterface" class="hide">
                         <p style="display: inline; margin-left: 25px; margin-bottom: 20px;">Bank Name: &nbsp<input
-                            class="paymentName" type="text" placeholder=" Enter Bank Name"></p><br>
-                        <p style="display: inline; margin-left: -17px; margin-bottom: 20px;">Branch Address: &nbsp<input
-                            class="paymentName" type="text" placeholder=" Enter Branch Address"></p><br>
+                                class="paymentName transferField" type="text" placeholder=" Enter Bank Name"></p>
+                        <br>
+                        <p style="display: inline; margin-left: -17px; margin-bottom: 20px;">Branch Address:
+                            &nbsp<input class="paymentName transferField" type="text"
+                                placeholder=" Enter Branch Address"></p>
+                        <br>
                         <p style="display: inline; margin-left: 99px; margin-bottom: 20px;">City: &nbsp<input
-                            class="paymentName" type="text" placeholder=" Enter City"></p><br>
-                        <p style="display: inline; margin-left: -48px; margin-bottom: 20px;"> Swift Code or IBAN: &nbsp<input
-                            class="paymentName" type="text" placeholder=" Enter Swift or IBAN"></p><br>
-                        <p style="display: inline; margin-left: -58px; margin-bottom: 20px;">Beneficiary Address: &nbsp<input
-                            class="paymentName" type="text" placeholder=" Enter Beneficiary Address"></p><br>
-                        <p style="display: inline; margin-left: -18px; margin-bottom: 20px;">Beneficiary City: &nbsp<input
-                            class="paymentName" type="text" placeholder=" Enter Branch City"></p><br>
+                                class="paymentName transferField" type="text" placeholder=" Enter City"></p><br>
+                        <p style="display: inline; margin-left: -48px; margin-bottom: 20px;"> Swift Code or IBAN:
+                            &nbsp<input class="paymentName transferField" type="text"
+                                placeholder=" Enter Swift or IBAN"></p><br>
+                        <p style="display: inline; margin-left: -58px; margin-bottom: 20px;">Beneficiary Address:
+                            &nbsp<input class="paymentName transferField" type="text"
+                                placeholder=" Enter Beneficiary Address"></p><br>
+                        <p style="display: inline; margin-left: -18px; margin-bottom: 20px;">Beneficiary City:
+                            &nbsp<input class="paymentName transferField" type="text" placeholder=" Enter Branch City">
+                        </p><br>
                     </div>
                     <div id="internationalViewInterface" class="hide">
                         <p style="display: inline; margin-left: 5px; margin-bottom: 20px;">Bank Country: &nbsp<input
-                            class="paymentName" type="text" placeholder=" Enter Bank Country"></p><br>
+                                class="paymentName transferField" type="text" placeholder=" Enter Bank Country"></p>
+                        <br>
                     </div>
                     <div class="confirmButtons">
                         <button id="cancelTransfer" onclick="cancelTransfer()">Cancel</button>
                         <button id="confirmTransfer" onclick="confirmTransfer()">Confirm</button>
                     </div>
+                    <p class="errorMessageTransfer hide"><i class="bi bi-x-circle-fill"></i> No fields can be empty
+                    </p>
                 </div>
             </div>
         </div>
 
         <!-- start of cards page -->
         <div id="cardsPage" class="hide">
-            <div class = "cardInfo">
+            <div class="cardInfo">
                 <select class="cardsList">
                     <option value="123456789"> 1234567891234567(Credit) </option>
                     <option value="123456789"> 1234567891234567(Credit) </option>
@@ -232,16 +253,16 @@
                 <h1>CREDIT CARD BILL</h1>
                 <table>
                     <tr>
-                      <th>DUE DATE</th>
-                      <th>AMOUNT TO PAY</th>
+                        <th>DUE DATE</th>
+                        <th>AMOUNT TO PAY</th>
                     </tr>
                     <tr class="oddRow">
-                      <td class="oddDataLeft">23/05/2023</td>
-                      <td class="tdWidth">45,600.00 EGP</td>
-                      <td><button id="payButton" onclick="payPopOpen()">PAY</button></td>
-                      <td class = "oddDataRight"><button>SET REMINDER</button></td>
+                        <td class="oddDataLeft">23/05/2023</td>
+                        <td class="tdWidth">45,600.00 EGP</td>
+                        <td><button id="payButton" onclick="payPopOpen()">PAY</button></td>
+                        <td class="oddDataRight"><button>SET REMINDER</button></td>
                     </tr>
-                  </table>
+                </table>
             </div>
             <div class="cardPoints">
                 <h1>Points | 2,000 point</h1>
@@ -266,10 +287,10 @@
                         <button>Redeem</button>
                     </div>
                     <div class="pointGridItem">
-                       <img src="Icons/icons8-valorant-100.png">
-                       <h3>1,500 Points</h3>
-                       <p>1,500 Valorant Points to your Riot account </p>
-                       <button>Redeem</button>
+                        <img src="Icons/icons8-valorant-100.png">
+                        <h3>1,500 Points</h3>
+                        <p>1,500 Valorant Points to your Riot account </p>
+                        <button>Redeem</button>
                     </div>
                     <div class="pointGridItem">
                         <img src="Icons/icons8-spotify-50.png">
@@ -287,17 +308,20 @@
             </div>
             <div id="bigDiv" class="hide"></div>
             <div id="popMenu" class="payPop hide">
-                <i id= "exit" class="bi-x-circle" onmouseover="hover()" onmouseleave="exithover()" onclick="closepopup()"></i>
+                <i id="exit" class="bi-x-circle" onmouseover="hover()" onmouseleave="exithover()"
+                    onclick="closepopup()"></i>
                 <p class="payPoptxt"><span>PAY OFF</span><br>TradeLine Installment</p>
-                <p style = "margin-top: 10px;font-family: 'Tajawal';font-style: normal;font-weight: 500;font-size: 26px;color: rgba(0, 0, 0, 0.55);">Available Balance: <br> 200,00.00 EGP</p>
+                <p
+                    style="margin-top: 10px;font-family: 'Tajawal';font-style: normal;font-weight: 500;font-size: 26px;color: rgba(0, 0, 0, 0.55);">
+                    Available Balance: <br> 200,00.00 EGP</p>
                 <table>
                     <tr>
                         <th class="payPoptxt2">amount paid</th>
                         <th class="payPoptxt2">total due amount</th>
                     </tr>
                     <tr>
-                        <td >
-                            <input type = number id = "numberInput"class="payPopBox" placeholder="0 EGP">
+                        <td>
+                            <input type=number id="numberInput" class="payPopBox" placeholder="0 EGP">
                         </td>
                         <td>
                             <div class="payPopBox">
