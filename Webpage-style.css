@@ -520,10 +520,12 @@ i {
 .pointGridItem button:hover {
     background: #2765a0;
 }
-.pointGridItem button:disabled{
-    background:  rgba(81, 171, 255, 0.35);
+
+.pointGridItem button:disabled {
+    background: rgba(81, 171, 255, 0.35);
 }
-.pointGridItem p{
+
+.pointGridItem p {
     font-family: 'Tajawal';
     font-style: bold;
     font-weight: 500;
@@ -840,7 +842,7 @@ i {
 }
 
 #confirmTransfer:hover {
-    backgrousd-color: rgb(222, 220, 220);
+    background-color: rgb(222, 220, 220);
     color: black;
 }
 
@@ -858,6 +860,10 @@ i {
     transition-duration: 0.4s;
     cursor: pointer;
     margin-left: 30px;
+}
+
+.black {
+    color: black;
 }
 
 #confirmTransfer {
@@ -931,7 +937,7 @@ i {
     display: flex;
     background-color: transparent;
     width: 300px;
-    border: #E42F2F solid ;
+    border: #E42F2F solid;
     margin-top: 30px;
     font-size: 20px;
     border-radius: 8px;
