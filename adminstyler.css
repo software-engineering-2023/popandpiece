@@ -2,8 +2,12 @@
     font-family: 'Tajawal', sans-serif;
 }
 
+
+ 
+
 body {
     margin: 0px;
+  
 }
 
 #whole-page {
@@ -58,12 +62,13 @@ i {
 
 
 .clicked {
-    background-color: rgba(255, 255, 255, 0.623);
+    background-color: rgba(255, 255, 255, 0);
     border: 0px;
     border-radius: 8px;
     font-size: 24px;
     flex: 2;
     margin: 10px 5px 10px 5px;
+    z-index: 30;
 }
 
 .notclicked {
@@ -75,9 +80,10 @@ i {
     margin: 10px 5px 10px 5px;
     transition-duration: 0.4s;
     cursor:pointer;
+    z-index: 30;
 }
 
-.navigation button:hover {
+.notclicked:hover {
     background-color: rgba(255, 255, 255, 0.623);
     border: 0px;
     border-radius: 8px;
@@ -133,6 +139,7 @@ i {
 .buttonreport:active{
     background-color: #8ABD82;
 }
+
 .mainbody table{
     margin-left: auto;
     margin-right: auto;
@@ -342,7 +349,7 @@ tr{
     background-color: #91d887;
 }
 .back{
-    z-index:5;
+    z-index:55;
     position:fixed;
     background-color:rgba(109, 109, 109, 0.418);
     width:100vw;
@@ -359,15 +366,16 @@ tr{
     width:436px;
     height:100vh;
     border:none;
-    z-index: 14;
+    z-index: 560;
     position: fixed ;
     top:0px;
-    right:0px;
+    right:-436px;
     font-size: 30px;
     font-weight: bold;
     background-color: #2B2B36;
     display:flex;
     flex-direction: column;
+    transition: right 0.4s;
 }
 .accountsettings h1{
     font-size:40px;
@@ -429,5 +437,28 @@ tr{
 .white{
     color:white;
 }
+.left{
+    right:0px;
+}
 
+.selector{
+    width:286px;
+    height:60px;
+    background-color: red;
+    position:absolute;
+    margin-top:10px;
+    background-color: rgba(255, 255, 255, 0.623);
+    border-radius: 10px;
+    left:10px;
+    z-index: 20;
+    transition: left 0.4s;
 
+}
+.increaselength{
+    width:1315px;
+}
+.goright{
+    left:305px;
+}
+
+  
