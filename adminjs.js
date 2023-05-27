@@ -25,6 +25,8 @@ const error= document.getElementById("error");
 const accountsettings= document.getElementById("accountsettings");
 const icon= document.getElementById("profile-icon");
 const icon2= document.getElementById("profile-icon2");
+const selector= document.getElementsByClassName("selector")
+const emptyspace=document.getElementsByClassName("EmptySpace");
 icon2.classList.remove("black");
 for(i =0;i<popups.length;i++){
     popups[i].classList.add("hide");
@@ -34,7 +36,7 @@ message.classList.add("slowlyhide");
 accounts.classList.add("hide");
 background.classList.add("hide");
 error.classList.add("slowlyhide");
-accountsettings.classList.add("hide");
+
 
 function switchSummary() {
         cardsButton.classList.replace('clicked','notclicked');
@@ -43,6 +45,8 @@ function switchSummary() {
         summaryIcon.classList.replace('bi-send-exclamation','bi-send-exclamation-fill');
         reports.classList.remove("hide");
         accounts.classList.add("hide");
+        selector[0].classList.remove("goright");
+        emptyspace[0].classList.remove("increaselength");
 }
 
 function switchCards() {
@@ -52,6 +56,8 @@ function switchCards() {
         cardsIcon.classList.replace('bi-person-check','bi-person-fill-check');
         reports.classList.add("hide");
         accounts.classList.remove("hide");
+        selector[0].classList.add("goright");
+        emptyspace[0].classList.add("increaselength");
 }
 
 function onClick(id) {
@@ -211,12 +217,12 @@ function back(){
     icon2.classList.remove("black");
 }
 function showSettings(){
-    if(accountsettings.classList.contains("hide")){
-        accountsettings.classList.remove("hide");
+    if(!accountsettings.classList.contains("left")){
+        accountsettings.classList.add("left");
         background.classList.remove("hide");
     }
     else{
-    accountsettings.classList.add("hide");
+    accountsettings.classList.remove("left")
     background.classList.add("hide");
     }
 }

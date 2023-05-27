@@ -50,6 +50,7 @@ i {
     background-color: hsla(0, 99%, 65%, 0.591);
     display: flex;
     justify-content: space-evenly;
+   
 }
 
 #account-numbers {
@@ -91,6 +92,7 @@ i {
     font-size: 24px;
     flex: 6;
     margin: 10px 5px 10px 5px;
+     transition-duration: 0.4s;
 }
 
 .navigation button:hover {
