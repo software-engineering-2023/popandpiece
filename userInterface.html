@@ -202,28 +202,24 @@
                         <th>TRANSACTION DATE</th>
                         <th>VALUE DATE</th>
                         <th>DETAILS</th>
-                        <th>DEBIT/CREDIT</th>
-                        <th>BALANCE</th>
+                        <th>AMOUNT PAID</th>
                     </tr>
                     <tr class="oddRow">
                         <td class="oddDataLeft">23/05/2023</td>
                         <td>23/05/2023</td>
-                        <td>VODAFONE POS</td>
-                        <td>CR 269,600.00 EGP</td>
+                        <td>VODAFONE POS</td>                       
                         <td class="oddDataRight">CR 269,600.00 EGP</td>
                     </tr>
                     <tr>
                         <td>23/05/2023</td>
                         <td>23/05/2023</td>
-                        <td>VODAFONE POS</td>
-                        <td>CR 269,600.00 EGP</td>
+                        <td>VODAFONE POS</td>                        
                         <td>CR 269,600.00 EGP</td>
                     </tr>
                     <tr class="oddRow">
                         <td class="oddDataLeft">23/05/2023</td>
                         <td>23/05/2023</td>
                         <td>VODAFONE POS</td>
-                        <td>CR 269,600.00 EGP</td>
                         <td class="oddDataRight">CR 269,600.00 EGP</td>
                     </tr>
                 </table>
@@ -233,13 +229,20 @@
                 <table>
                     <tr>
                       <th>DUE DATE</th>
-                      <th>AMOUNT TO PAY</th>
+                      <th>DUE AMOUNT</th>
                     </tr>
                     <tr class="oddRow">
                       <td class="oddDataLeft">23/05/2023</td>
                       <td class="tdWidth">45,600.00 EGP</td>
-                      <td><button id="payButton" onclick="payPopOpen()">PAY</button></td>
-                      <td class = "oddDataRight"><button>SET REMINDER</button></td>
+                      <td>
+                        <button id="payButton" onclick="payPopOpen()">PAY</button>
+                      </td>
+                      <td class = "oddDataRight">
+                        <div class="reminderFlex">
+                            <input type="datetime-local" data-placeholder="SET REMINDER" required aria-required="true"/>
+                            <button>CONFIRM</button>
+                        </div>
+                    </td>
                     </tr>
                   </table>
             </div>
@@ -306,8 +309,9 @@
                         </td>
                     </tr>
                 </table>
-                <button>PAYOFF</button>
+                <button onclick="payoffButton()">PAYOFF</button>
             </div>
+            <div id="notifier" class="slider hide slowlyhide">Pay Off done!</div>
         </div>
         <!-- start of loans page -->
         <div id="loansPage" class="hide">

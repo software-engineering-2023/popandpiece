@@ -9,11 +9,12 @@ body {
 #whole-page {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 #Header {
     display: flex;
-    width: 100%;
+    width: 100vw;
     background-color: #51ABFF;
     height: 120px;
 }
@@ -23,6 +24,7 @@ body {
     border: 0px;
     font-size: 50px;
     margin-top: 20px;
+    margin-left: -15px;
 }
 
 #marginer-h1 {
@@ -50,7 +52,7 @@ i {
     background-color: hsla(209, 100%, 66%, 0.591);
     display: flex;
     justify-content: space-evenly;
-    
+    width:100vw;
 }
 
 #account-numbers {
@@ -160,14 +162,13 @@ i {
 }
 
 #cardPage{
-    position: relative;
     height: 100%;
 }
 #bigDiv{
     z-index:9;
-    position:absolute;
+    position:fixed;
     background-color:rgba(109, 109, 109, 0.418);
-    height: 1327px;
+    height: 100%;
     width: 100%;
     top:0;
     left: 0;
@@ -177,7 +178,7 @@ i {
     margin-top: 20px;
     margin-left: 20px;
     justify-content: space-around;
-    width: 100vw;
+    width: 90%;
     align-items: center;
 }
 
@@ -187,7 +188,7 @@ i {
     font-weight: 400;
     font-size: 24px;
     line-height: 29px;
-    width: 610px;
+    width: 510px;
     height: 65px;
     background:#B9DEFF;
     border: 0px;
@@ -197,7 +198,6 @@ i {
 .cardInfo p{
     font-weight: 600;
     font-size: 36px;
-    
 }
 
 .tableContainer{
@@ -223,6 +223,17 @@ i {
 .oddRow{
     background-color: #51ABFF33;
 }
+.oddDataLeft{
+    border-top-left-radius: 8px;
+    border-Bottom-left-radius: 8px;
+    border: 0px;
+}
+
+.oddDataRight{
+    border-top-right-radius: 8px;
+    border-Bottom-right-radius: 8px;
+    border: 0px;
+}
 
 .cardTransactions th{
     font-family: 'Tajawal';
@@ -242,7 +253,7 @@ i {
     
 }
 .cardsDuepayment table{
-    width: 95%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -290,17 +301,44 @@ i {
 .cardsDuepayment button:hover{
     background: #206db6;
 }
-.oddDataLeft{
-    border-top-left-radius: 8px;
-    border-Bottom-left-radius: 8px;
+.cardsDuepayment input[type="datetime-local"]{ 
+    width: 170px;
+    height: 30px;
+    background: #51ABFF;
+    border-radius: 8px;
+    border:0px;
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-size: 20px;
+    line-height: 29px;
+    text-align: center;
+    color: #ffffff;
+    transition-duration: 0.4s;
+}
+.cardsDuepayment input[type="datetime-local"]::before { 
+    content: attr(data-placeholder);
+    width: 100%;
+    padding-right: 5px;
+}
+
+.reminderFlex{
+    display:flex;
+    align-items: center; /* Center vertically */
+    justify-content:space-evenly;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 100px;
     border: 0px;
 }
 
-.oddDataRight{
-    border-top-right-radius: 8px;
-    border-Bottom-right-radius: 8px;
-    border: 0px;
+/* hide our custom/fake placeholder text when in focus to show the default
+ * 'mm/dd/yyyy' value and when valid to show the users' date of birth value.
+ */
+.cardsDuepayment input[type="datetime-local"]:focus::before,
+.cardsDuepayment input[type="datetime-local"]:valid::before { display: none }
+.cardsDuepayment input[type="datetime-local"]:hover{
+    background: #206db6;
 }
+
 .cardPoints{
     width: 95%;
     margin-left: auto;
@@ -369,7 +407,7 @@ i {
     width:739px;
     background-color:white;
     z-index: 10;
-    position:absolute;
+    position:fixed;
     top: 50%;
     left: 50%;
     margin-left: -369px; 
@@ -439,8 +477,22 @@ i {
     margin-right:20px;
     margin-top:10px;
 }
-.hide {
-    display: none;
+.slider{
+    width:400px;
+    height:30px;
+    background-color: #90f181;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top:10px;
+    margin-top:0px;
+    transition-duration: 2s;
+    bottom: 30px;
+    z-index: 9999;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .LOSView {
@@ -615,10 +667,10 @@ i {
 
 
 
-
-
-
-
+.slowlyhide{
+    color:#30502600;
+    background-color:#263c5000;
+}
 .hide {
     display: none;
 }
