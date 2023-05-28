@@ -506,3 +506,145 @@ document.getElementById('notif').addEventListener('click', () => {
         notifIcon.classList.toggle('bi-bell')
         notifIcon.classList.toggle('bi-bell-fill')
 })
+
+let user = {
+        name: "elon Musk",
+        accounts: [
+                {
+                        number: "540076330348",
+                        balance: 8224380.90,
+                        availableToUse: 8222130,
+                        transactions: [
+                                {
+                                        transactionDate: "28/05/2023",
+                                        valueDate: "28/05/2023",
+                                        details: "uber",
+                                        debitCredit: 44.91,
+                                        balance: 8224380.90
+                                },
+                                {
+                                        transactionDate: "28/05/2023",
+                                        valueDate: "28/05/2023",
+                                        details: "uber",
+                                        debitCredit: 44.91,
+                                        balance: 8224380.90
+                                },
+                                {
+                                        transactionDate: "28/05/2023",
+                                        valueDate: "28/05/2023",
+                                        details: "uber",
+                                        debitCredit: 44.91,
+                                        balance: 8224380.90
+                                }
+                        ]
+                },
+                {
+                        number: "540051080372",
+                        balance: 8224380.90,
+                        availableToUse: 8222130,
+                        transactions: [
+                                {
+                                        transactionDate: "28/05/2023",
+                                        valueDate: "28/05/2023",
+                                        details: "uber",
+                                        debitCredit: 44.91,
+                                        balance: 8224380.90
+                                },
+                                {
+                                        transactionDate: "28/05/2023",
+                                        valueDate: "28/05/2023",
+                                        details: "uber",
+                                        debitCredit: 44.91,
+                                        balance: 8224380.90
+                                },
+                                {
+                                        transactionDate: "28/05/2023",
+                                        valueDate: "28/05/2023",
+                                        details: "uber",
+                                        debitCredit: 44.91,
+                                        balance: 8224380.90
+                                }
+                        ]
+                }
+        ],
+
+        creditCards: [
+                { number: "3614167248272936", limit: 50000, points: 50600, amountDue: 26000, expiryDate: 06 / 29 },
+                { number: "3614608682512591", limit: 20500, points: 20600, amountDue: 13000, expiryDate: 06 / 29 }
+        ], 
+
+        loans: [
+                {
+                        number: "191922009764869L",
+                        amount: 1000000,
+                        period: 32,
+                        installment: this.amount * 1.1 / this.period
+                },
+                {
+                        number: "173906995243957L",
+                        amount: 1000000,
+                        period: 32,
+                        installment: this.amount * 1.1 / this.period
+                }
+        ],
+
+        notifications: [
+                {
+                        state: "unread",
+                        type: "Transfer",
+                        title: "Received",
+                        amount: 50259,
+                        detail: "Bezoz, Jeff LB",
+                        date: "2023/07/14",
+                        time: "18:00"
+                },
+                {
+                        state: "unread",
+                        type: "Reminder",
+                        title: "Water Bill due",
+                        amount: 250,
+                        sender: "bills",
+                        date: "2023/07/14",
+                        time: "16:00"
+                },
+                {
+                        state: "read",
+                        type: "Reminder",
+                        title: "Payoff credit card",
+                        amount: 12600,
+                        detail: "card no. 3614167248272936",
+                        date: "5/06/2023",
+                        time: "14:00"
+                }
+        ]
+}
+
+
+function loadNotifications(notifs) {
+
+        const fragment = document.createDocumentFragment();
+
+        for (let i = 0; i < user.notifications.length; i++) {
+                const div = document.createElement('div');
+                div.classList.add('notif-item');
+                if (notifs[i].state == "unread") {
+                        div.classList.add('notif-item-is-active')
+                }
+                div.innerHTML =
+                `<div class = "notif-item-head"> 
+                        <h6><i class=${(notifs[i].type == "Transfer" ? "bi-arrow-down-left-circle-fill" : "bi-alarm-fill")}></i>${notifs[i].type}</h6>
+                </div>
+                <div class = "notif-item-body">
+                        <p class = "notif-time">${notifs[i].time}</p>
+                        <p class = "notif-date">${notifs[i].date}</p>
+                        <h5>${notifs[i].title}</h5>
+                        <p class = "notif-detail"> ${notifs[i].amount} USD</p>
+                        <br><p class = "notif-detail"> ${notifs[i].amount}</p>
+                </div>`;
+                fragment.appendChild(div)
+        }
+
+        document.getElementById('notif-list').appendChild(fragment);
+}
+
+loadNotifications(user.notifications);

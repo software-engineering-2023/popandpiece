@@ -1254,7 +1254,7 @@ i {
     border-radius: 8px 0px 0px 8px;
     font-family: "Tajawal";
     box-sizing: border-box;
-    position: absolute;
+    position: fixed;
     top: 200px;
     right: 0px;
     bottom: 0px;
@@ -1362,5 +1362,5 @@ i {
 
 
 .notif-item-is-active {
-    border-left: 6px solid white;
+    border-left: 8px solid white;
 }
