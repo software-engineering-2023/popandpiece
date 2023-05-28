@@ -438,3 +438,16 @@ function cardSelect() {
           limit.classList.remove('slowlyhide');
         }
 }
+
+document.getElementById('notif').addEventListener('click',() => {
+        const notifIcon = document.getElementById('notif-icon')
+        const notifPanel = document.getElementById('notif-panel')
+        if(notifIcon.classList.contains('bi-bell')){
+            notifPanel.classList.remove('notif-panel-is-hidden')
+        }
+        else {
+            notifPanel.classList.add('notif-panel-is-hidden')
+        }
+        notifIcon.classList.toggle('bi-bell')
+        notifIcon.classList.toggle('bi-bell-fill')
+})
