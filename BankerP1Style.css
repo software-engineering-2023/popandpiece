@@ -28,7 +28,7 @@ body {
 }
 
 #marginer-h1 {
-    margin-right: 1150px;
+    margin-right: 950px;
     padding: 0px 0px 0px 61px;
     white-space: nowrap;
     font-family: 'Jacques Francois Shadow', cursive;
@@ -454,7 +454,7 @@ background-color: red;
     display: none;
 }
 .selector{
-    width:520px;
+    width:468px;
     height:60px;
     background-color: red;
     position:absolute;
@@ -466,11 +466,11 @@ background-color: red;
     transition: left 0.4s;
 }
 .goright{
-    left:540px;
+    left:480px;
 }
 .addkter{
-    left:1080px;
+    left:960px;
 }
 .addkterawy{
-    left:1620px;
+    left:1440px;
 }
