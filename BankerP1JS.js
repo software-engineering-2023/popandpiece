@@ -22,6 +22,7 @@ const icon2= document.getElementById("profile-icon2");
 const accountsettings= document.getElementById("accountsettings");
 const background= document.getElementById("background");
 background.classList.add("hide");
+const selector= document.getElementsByClassName("selector")
 
 const approveButton = document.getElementById("bTa");
 const declineButton = document.getElementById("bTd");
@@ -42,6 +43,11 @@ function switchSummary() {
         loansButton.classList.replace('clicked','notclicked');
         ComplaintsButton.classList.replace('clicked','notclicked');
 
+        selector[0].classList.remove("goright");
+        selector[0].classList.remove("addkter");
+        selector[0].classList.remove("addkterawy");
+
+
         CCIcon.classList.replace('bi-credit-card-2-back-fill','bi-credit-card-2-back');
         loansIcon.classList.replace('bi-piggy-bank-fill','bi-piggy-bank');
         ComplaintsIcon.classList.replace('bi-chat-right-dots-fill','bi-chat-right-dots');
@@ -61,6 +67,10 @@ function switchRequests() {
         ComplaintsButton.classList.replace('clicked','notclicked');
         summaryButton.classList.replace('clicked','notclicked');
 
+        selector[0].classList.add("addkter");
+        selector[0].classList.remove("addkterawy");
+        selector[0].classList.remove("goright");
+
         loansIcon.classList.replace('bi-piggy-bank-fill','bi-piggy-bank');
         ComplaintsIcon.classList.replace('bi-chat-right-dots-fill','bi-chat-right-dots');
         summaryIcon.classList.replace('bi-house-fill','bi-house');
@@ -79,10 +89,14 @@ function switchLoans(){
         ComplaintsButton.classList.replace('clicked','notclicked');
         summaryButton.classList.replace('clicked','notclicked');
         CCButton.classList.replace('clicked','notclicked');
+
+        selector[0].classList.add("goright");
+        selector[0].classList.remove("addkterawy");
+        selector[0].classList.remove("addkter");
         
         ComplaintsIcon.classList.replace('bi-chat-right-dots-fill','bi-chat-right-dots');
         summaryIcon.classList.replace('bi-house-fill','bi-house');
-        CCIcon.classList.replace('bi-credit-card-2-front-fill','bi-credit-card-2-front');
+        CCIcon.classList.replace('bi-credit-card-2-back-fill','bi-credit-card-2-back');
         
         loansPage.classList.replace('hide','show');
         loansButton.classList.replace('notclicked','clicked');
@@ -98,6 +112,10 @@ function switchComplaints(){
         summaryButton.classList.replace('clicked','notclicked');
         CCButton.classList.replace('clicked','notclicked');
         loansButton.classList.replace('clicked','notclicked');
+
+        selector[0].classList.add("addkterawy");
+        selector[0].classList.remove("goright");
+        selector[0].classList.remove("addkter");
 
         summaryIcon.classList.replace('bi-house-fill','bi-house');
         CCIcon.classList.replace('bi-credit-card-2-back-fill','bi-credit-card-2-back');

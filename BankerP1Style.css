@@ -28,7 +28,7 @@ body {
 }
 
 #marginer-h1 {
-    margin-right: 950px;
+    margin-right: 1150px;
     padding: 0px 0px 0px 61px;
     white-space: nowrap;
     font-family: 'Jacques Francois Shadow', cursive;
@@ -80,12 +80,13 @@ i {
 }
 
 .clicked {
-    background-color: rgba(255, 255, 255, 0.623);
+    background-color: rgba(255, 255, 255, 0);
     border: 0px;
     border-radius: 8px;
     font-size: 24px;
     flex: 6;
     margin: 10px 5px 10px 5px;
+    z-index: 30;
 }
 
 .notclicked {
@@ -96,9 +97,10 @@ i {
     flex: 6;
     margin: 10px 5px 10px 5px;
      transition-duration: 0.4s;
+     z-index: 30;
 }
 
-.navigation button:hover {
+.navigation .notclicked:hover {
     background-color: rgba(255, 255, 255, 0.623);
     border: 0px;
     border-radius: 8px;
@@ -450,4 +452,25 @@ background-color: red;
 }
 .hide {
     display: none;
+}
+.selector{
+    width:520px;
+    height:60px;
+    background-color: red;
+    position:absolute;
+    margin-top:10px;
+    background-color: rgba(255, 255, 255, 0.623);
+    border-radius: 10px;
+    left:10px;
+    z-index: 20;
+    transition: left 0.4s;
+}
+.goright{
+    left:540px;
+}
+.addkter{
+    left:1080px;
+}
+.addkterawy{
+    left:1620px;
 }
