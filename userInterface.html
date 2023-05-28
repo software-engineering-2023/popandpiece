@@ -71,7 +71,7 @@
                 <option value="098075613413">098075613413</option>
                 <option value="743075613413">743075613413</option>
             </select>
-            <button class="bell"><i class="bi-bell"></i></button>
+            <button id = "notif" class="bell"><i id = "notif-icon" class="bi-bell"></i></button>
         </div>
 
         <div id="container">
@@ -570,6 +570,63 @@
         <div id="billsPage" class="hide">
             <p>Bills</p>
         </div>
+
+        
+        <!--notifications-->
+        <div id = "notif-panel" class = "notif-panel  notif-panel-is-hidden">
+            
+            <div class = "notif-head">
+                <h3 class = "notif-title">Notifications<span id = "notif-bubble" class="notif-bubble">3</span></h3>
+                <div>
+                    <ul class = "notif-filter">
+                        <li class = "notif-filte-is-active">All</li>
+                        <li>Reminders</li>
+                        <li>Transactions</li>
+                    </ul>
+                </div>
+            </div>
+            <div id = "notif-body" class = "notif-body">
+                
+                <div id = "notif-list" class = "notif-list notif-item-is-active">
+                    <div class = "notif-item">
+                        <div class = "notif-item-head">
+                            <h6>
+                                <i class="bi-arrow-down-left-circle-fill"></i>  Transfer
+                            </h6>
+                        </div>
+                        <div class = "notif-item-body">
+                            <p class = "notif-time"> 18/09/2023</p>
+                            <p class = "notif-date">18:00</p>
+                            <h5> Receiverd transfer of</h5>
+                            <p class = "notif-detail"> 50,250 USD</p>
+                            <br>
+                            <p class = "notif-detail"> Bezoz, Jeff another Legit Bank</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id = "notif-list" class = "notif-listn">
+                    <div class = "notif-item">
+                        <div class = "notif-item-head">
+                            <h6>
+                                <i class="bi-arrow-down-left-circle-fill"></i>  Transfer
+                            </h6>
+                        </div>
+                        <div class = "notif-item-body">
+                            <p class = "notif-time"> 18/09/2023</p>
+                            <p class = "notif-date">18:00</p>
+                            <h5> Receiverd transfer of</h5>
+                            <p class = "notif-detail"> 50,250 USD</p>
+                            <br>
+                            <p class = "notif-detail"> Bezoz, Jeff another Legit Bank</p>
+                            
+                        </div>
+                    </div>
+                </div>              
+            </div>
+        </div>
+    </div>
+
     </div>
 
     <script src="Webpage.js"> </script>

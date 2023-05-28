@@ -9,6 +9,7 @@ body {
 #whole-page {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 #Header {
@@ -23,10 +24,11 @@ body {
     border: 0px;
     font-size: 50px;
     margin-top: 20px;
+    margin-left: -15px;
 }
 
 #marginer-h1 {
-    margin-right: 1030px;
+    margin-right: 950px;
     padding: 0px 0px 0px 61px;
     white-space: nowrap;
     font-family: 'Jacques Francois Shadow', cursive;
@@ -50,6 +52,7 @@ i {
     background-color: hsla(0, 99%, 65%, 0.591);
     display: flex;
     justify-content: space-evenly;
+    width: 100vw;
    
 }
 
@@ -373,4 +376,78 @@ background-color: red;
     width: 95%;
     margin-left: auto;
     margin-right: auto;
+}
+#container{
+    width:20px;
+    display:flex;
+}
+
+.accountsettings{
+    width:436px;
+    height:100vh;
+    border:none;
+    z-index: 560;
+    position: fixed ;
+    top:0px;
+    right:-436px;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #2B2B36;
+    display:flex;
+    flex-direction: column;
+    transition: right 0.4s;
+}
+.accountsettings h1{
+    font-size:40px;
+    margin-left:auto;
+    margin-right:auto;
+    color:white;
+    margin-bottom:0px;
+}
+.accountsettings i{
+    margin-left:auto;
+    border:none;
+    margin-top:40px;
+    background-color: #22222200;
+    font-size:50px;
+    transition-duration: 0.4s;
+}
+.accountsettings button{
+    border: none;
+    background-color:white;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width:300px;
+    font:bold;
+    color: #2B2B36;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    padding:20px 10px;
+    margin-top:700px;
+   
+}
+.accountsettings button:hover{
+    
+    background-color:grey;
+    border-radius: 20px;
+}
+.black{
+    color:black;
+}
+.white{
+    color:white;
+}
+.left{
+    right:0px;
+}
+.back{
+    z-index:55;
+    position:fixed;
+    background-color:rgba(109, 109, 109, 0.418);
+    width:100vw;
+    height:100vh;
+}
+.hide {
+    display: none;
 }

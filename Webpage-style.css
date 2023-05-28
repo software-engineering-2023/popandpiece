@@ -1183,3 +1183,126 @@ i {
 .hide {
     display: none;
 }
+
+
+/*notification module*/
+.notif-panel * {
+    margin:0px;
+    padding:0px;
+    
+}
+
+.notif-panel{
+    border-radius: 8px 0px 0px 8px;
+    font-family: "Tajawal";
+    box-sizing: border-box;
+    position: absolute;
+    top: 200px;
+    right: 0px;
+    bottom: 0px;
+    width:400px;
+
+
+    background-color: #2B2B36;
+    color: white;
+    
+    transition: .5s;
+}
+
+.notif-panel-is-hidden{
+    right: -400px;
+}
+
+.notif-head {
+    border-radius: 13px 0px 0px 0px;
+    padding:21px 21px 13px 21px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5) ;
+}
+
+.notif-body {
+    border-radius: 0px 0px 0px 8px;
+}
+
+.notif-title {
+    font-size:21px;
+    font-weight: 700;
+    margin: 0px 0px 13px 0px;
+}
+
+.notif-bubble {
+    font-size:18px;
+    margin-left:13px;
+    padding: 0px 8px 0px 8px;
+    border-radius: 21px;
+    background-color:white;
+    color:#2B2B36;
+    position:relative;
+    bottom:1px;
+}
+
+
+.notif-filter  li{
+    font-size: 18px;
+    list-style: none;
+    display: inline-block;
+    padding:5px 13px 5px 13px;
+    margin-right: 8px;
+    border: 2px solid white ;
+    border-radius: 8px;
+}
+
+.notif-filte-is-active{
+    background-color: white;
+    color:#2B2B36;
+    font-weight: bold;
+}
+
+.notif-item:last-child {
+    padding-bottom:13px;
+}
+.notif-item {
+    margin-top:5px;
+    border-top: thin solid white;
+}
+
+.notif-item-head {
+    padding:8px 13px 8px 24px;
+    color:white;
+}
+
+.notif-item-head h6 {
+    font-size:13px;
+}
+
+.notif-item-body {
+    padding: 0px 8px 8px 24px;
+    height:110px;
+}
+
+.notif-item-body h5 {
+    font-size:24px;
+    font-weight:700;
+}
+
+.notif-detail {
+    font-size:21px;
+}
+.notif-item-head  i {
+    margin-right: 5px;
+}
+
+.notif-time {
+    margin-top:5px;
+    float:right;
+
+}
+.notif-date {
+    margin-top:3px;
+    float:right;
+    clear:right;
+}
+
+
+.notif-item-is-active {
+    border-left: 6px solid white;
+}

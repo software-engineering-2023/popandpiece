@@ -17,6 +17,12 @@ const CCIcon = document.getElementById("CCIcon");
 const loansIcon = document.getElementById("pigIcon");
 const ComplaintsIcon = document.getElementById("chatIcon");
 
+const icon= document.getElementById("profile-icon");
+const icon2= document.getElementById("profile-icon2");
+const accountsettings= document.getElementById("accountsettings");
+const background= document.getElementById("background");
+background.classList.add("hide");
+
 const approveButton = document.getElementById("bTa");
 const declineButton = document.getElementById("bTd");
 const table = document.getElementById("loanstrial");
@@ -281,4 +287,38 @@ function switchDecline3(id){
             // 👇️ hides element (still takes up space on page)
             // box.style.visibility = 'hidden';
           }, 500);
+}
+function showSettings(){
+    if(!accountsettings.classList.contains("left")){
+        accountsettings.classList.add("left");
+        background.classList.remove("hide");
+    }
+    else{
+    accountsettings.classList.remove("left")
+    background.classList.add("hide");
+    }
+}
+function changecolor(){
+ 
+    icon.classList.add("white");
+    icon.classList.remove("black");
+    icon2.classList.remove("white");
+    icon2.classList.add("black");
+
+}
+function back(){
+    icon.classList.remove("white");
+    icon.classList.add("black");
+    icon2.classList.add("white");
+    icon2.classList.remove("black");
+}
+function backtologin(){
+    window.location = "proj.html"
+}
+function hideSettings(){
+    accountsettings.classList.remove("left")
+    background.classList.add("hide");
+    for( i = 0; i < popups.length;i++){
+        popups[i].classList.add("hide");
+    }
 }
