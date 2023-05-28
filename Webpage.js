@@ -496,18 +496,35 @@ function cardSelect() {
         }
 }
 
-document.getElementById('notif').addEventListener('click', () => {
-        const notifIcon = document.getElementById('notif-icon')
-        const notifPanel = document.getElementById('notif-panel')
-        if (notifIcon.classList.contains('bi-bell')) {
-                notifPanel.classList.remove('notif-panel-is-hidden')
+
+function secondbill(){
+        const message = document.getElementById("notifierBills");
+        var bool=false;
+        for( i=0;i<fields.length;i++){
+                if(fields[i].value==""){
+                        bool=true;
+                }
         }
-        else {
-                notifPanel.classList.add('notif-panel-is-hidden')
+        if(bool){
+                message.innerHTML="dont leave any field empty"
+                message.classList.add("sliderError");
+                
         }
-        notifIcon.classList.toggle('bi-bell')
-        notifIcon.classList.toggle('bi-bell-fill')
-})
+        else{
+              
+                message.innerHTML="Reminder set"
+                message.classList.remove("sliderError");
+              
+                
+        }
+        message.classList.remove("slowlyhide");
+                setTimeout(() => {
+                        message.classList.add("slowlyhide");
+                }, 2000);
+}
+
+
+
 
 let user = {
         name: "elon Musk",
@@ -682,13 +699,28 @@ let user = {
                 }
         ]
 }
+let selectedAccount = 0;
+let selectedCard = 0;
+
+rewards = [
+        {value:5500},
+        {value:2000},
+        {value:4000},
+        {value:1500},
+        {value:1000},
+        {value:2000}
+]
 
 
-function loadNotifications(notifs) {
+// load notif-panel dynamically
+function loadNotifications(notifs, filter) {
 
         const fragment = document.createDocumentFragment();
 
         for (let i = 0; i < user.notifications.length; i++) {
+                if(filter != "All" && filter != notifs[i].type + "s"){
+                        continue;
+                }
                 const div = document.createElement('div');
                 div.classList.add('notif-item');
                 if (notifs[i].state == "unread") {
@@ -706,34 +738,55 @@ function loadNotifications(notifs) {
                         <br><p class = "notif-detail"> ${notifs[i].amount}</p>
                 </div>`;
                 fragment.appendChild(div)
-        }
 
-        document.getElementById('notif-list').appendChild(fragment);
+                
+        }
+        const notifList =  document.getElementById('notif-list')
+        notifList.innerHTML = "";
+        notifList.appendChild(fragment);
 }
-function secondbill(){
-        const message = document.getElementById("notifierBills");
-        var bool=false;
-        for( i=0;i<fields.length;i++){
-                if(fields[i].value==""){
-                        bool=true;
+
+loadNotifications(user.notifications, "All");
+
+// expand collapse notif-panel
+document.getElementById('notif').addEventListener('click', () => {
+        const notifIcon = document.getElementById('notif-icon')
+        const notifPanel = document.getElementById('notif-panel')
+        if (notifIcon.classList.contains('bi-bell')) {
+                notifPanel.classList.remove('notif-panel-is-hidden')
+        }
+        else {
+                notifPanel.classList.add('notif-panel-is-hidden')
+        }
+        notifIcon.classList.toggle('bi-bell')
+        notifIcon.classList.toggle('bi-bell-fill')
+})
+
+// notif-panel filter
+const filters = document.getElementById('notif-filter').children
+for(let i = 0; i < filters.length; i++){
+        filters[i].addEventListener('click', (event) => {
+                for(let j = 0; j < filters.length; j++){
+                        if(filters[j].classList.contains('notif-filter-is-active')){
+                                filters[j].classList.remove('notif-filter-is-active')
+                        }
                 }
-        }
-        if(bool){
-                message.innerHTML="dont leave any field empty"
-                message.classList.add("sliderError");
-                
-        }
-        else{
-              
-                message.innerHTML="Reminder set"
-                message.classList.remove("sliderError");
-              
-                
-        }
-        message.classList.remove("slowlyhide");
-                setTimeout(() => {
-                        message.classList.add("slowlyhide");
-                }, 2000);
+                event.srcElement.classList.add('notif-filter-is-active');
+                loadNotifications(user.notifications, event.srcElement.innerHTML + "")
+        })
 }
 
-loadNotifications(user.notifications);
+// redeem points
+const redeemButtons = document.getElementsByClassName('redeemButton')
+for(let i = 0; i < redeemButtons.length; i++){
+        redeemButtons[i].addEventListener('click', (event) => {
+                let points = user.creditCards[selectedCard].points
+                console.log(i);
+                points -= rewards[i].value;
+                if(points >= 0){
+                        user.creditCards[selectedCard].points = points
+                        document.getElementById('card-info-points').innerHTML = 'Points: ' + (points > 999? Math.floor(points/1000) + ",": "") + points%1000
+                }
+                console.log(user.creditCards[0].points);
+        })
+}
