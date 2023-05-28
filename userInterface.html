@@ -133,7 +133,7 @@
                         <td class="oddDataRight">CR 269,600.00 EGP</td>
                     </tr>
                     <tr>
-                        <td>23/05/2023</td>
+                         <td>23/05/2023</td>
                         <td>23/05/2023</td>
                         <td>VODAFONE POS</td>
                         <td>CR 269,600.00 EGP</td>
@@ -186,12 +186,6 @@
             </div>
             <div id="transferCenter" class="hide LOSView">
 
-                <div class="popupTransfer hide">
-                    <h1 style="margin-top: 140px; font-size: 50px; color: rgb(27, 24, 24);">Confirmed &nbsp<i
-                            class="bi-check-circle-fill"></i></h1>
-                    <button id="transferDone" onclick="backToSummary()">Done</button>
-                    </h1>
-                </div>
                 <p style="font-size: 48px; padding-left: 50px; padding-top: 30px;"><b>New Transfer</b></p>
                 <div class="transferPageText">
                     <p style="display: inline; margin-left: -35px; margin-bottom: 20px;">beneficiary Name:
@@ -372,6 +366,12 @@
                     <i id="exit" class="bi-x-circle" onmouseover="hover()" onmouseleave="exithover()"
                         onclick="closepopup()"></i>
                     <p class="payPoptxt"><span>PAY OFF</span><br>TradeLine Installment</p>
+                    <select class="accountInTransfer" style="background: #B9DEFF;">
+                        <option value="account1">124075613413 (main)</option>
+                        <option value="account2">378075613413</option>
+                        <option value="account3">098075613413</option>
+                        <option value="account4">743075613413</option>
+                    </select>
                     <p
                         style="margin-top: 10px;font-family: 'Tajawal';font-style: normal;font-weight: 500;font-size: 26px;color: rgba(0, 0, 0, 0.55);">
                         Available Balance: <br> 200,00.00 EGP</p>
@@ -401,7 +401,170 @@
         </div>
         <!-- start of loans page -->
         <div id="loansPage" class="hide">
-            <p>Loans</p>
+            <div class="loanPage">
+                <div id="loan" class="loanView">
+                    <p style="font-size: 48px; padding-left: 50px; padding-top: 30px;margin-top: 0;"><b>Apply For A Loan</b></p>
+                    <div class="loanPageText">
+                        <p style="display: inline; margin-left: 30px; margin-bottom: 20px;">National ID:
+                            &nbsp<input class="nationalField loanField" type="text" placeholder=" Ex. 30201010105432"></p>
+                        <br>
+                        <label for="loanInTransfer" style="margin-left: 59px;">Account: </label>
+                        <select class="loanInTransfer" >
+                            <option value="account1">124075613413 (main)</option>
+                            <option value="account2">378075613413</option>
+                            <option value="account3">098075613413</option>
+                            <option value="account4">743075613413</option>
+                        </select>
+                        <br>
+                        <label for="loanInTransfer" style="margin-left: 59px;">Reason: </label>
+                        <select class="loanInTransfer" style="margin-top: 20px;margin-left: 15px">
+                            <option value="Personal">Personal</option>
+                            <option value="Car">Car</option>
+                        </select>
+                        <p style="margin-left: 60px;">Amount: <input class="amountInTransfer loanField" type="text"
+                            placeholder=" Enter Amount">
+                        <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>        
+                        <select class="currency">
+                            <option value="EGP">EGP</option>
+                            <option value="EUR">EUR</option>
+                            <option value="JPY">JPY</option>
+                            <option value="GBP">GBP</option>
+                            <option value="AUD">AUD</option>
+                            <option value="CAD">CAD</option>
+                            <option value="CHF">CHF</option>
+                            <option value="CNY">CNY</option>
+                            <option value="NZD">NZD</option>
+                            <option value="HKD">HKD</option>
+                        </select>
+                        <p style="margin-left: -22px;">Monthly Income: <input class="amountInTransfer loanField" type="text"
+                            placeholder=" Enter Amount">
+                        <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>
+                        <select class="currency">
+                            <option value="EGP">EGP</option>
+                            <option value="EUR">EUR</option>
+                            <option value="JPY">JPY</option>
+                            <option value="GBP">GBP</option>
+                            <option value="AUD">AUD</option>
+                            <option value="CAD">CAD</option>
+                            <option value="CHF">CHF</option>
+                            <option value="CNY">CNY</option>
+                            <option value="NZD">NZD</option>
+                            <option value="HKD">HKD</option>
+                        </select>
+                        <p style="display: inline; margin-left: 55px;">Job Title:
+                            &nbsp<input class="nationalField loanField" type="text" placeholder=" Ex. Engineer"></p>
+                        <div class="confirmButtonsLoan">
+                            <button id="confirmLoan">Submit</button>
+                        </div>
+                        <p class="errorMessageTransfer hide"><i class="bi bi-x-circle-fill"></i> No fields can be empty
+                        </p>
+                    </div>
+                </div>
+                <div class="loans">
+                   <div class="loansApplied">
+                        <p style="font-size: 48px; padding-left: 50px; padding-top: 30px;margin-top: 0;"><b>Your Loans</b></p>
+                        <table>
+                            <tr>
+                                <th>TOTAL AMOUNT</th>
+                                <th>DUE AMOUNT</th>
+                                <th>NEXT INSTALLMENT DATE</th>
+                                <th>LOAN TYPE</th>
+                            </tr>
+                            <tr class="oddRow" style="background: #ffffff;">
+                                <td class="oddDataLeft">200,000.00EGP</td>
+                                <td>45,600.00 EGP</td>
+                                <td>12/3/2024</td>
+                                <td>Personal</td>
+                                <td>
+                                    <button onclick="payPopOpenLoan()" style="margin-top: 6px;">PAY</button>
+                                </td>
+                                <td class = "oddDataRight">
+                                    <div class="reminderFlex">
+                                        <input type="datetime-local" data-placeholder="SET REMINDER" required aria-required="true"/>
+                                        <button>CONFIRM</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddDataLeft">200,000.00EGP</td>
+                                <td>45,600.00 EGP</td>
+                                <td>12/3/2024</td>
+                                <td>Personal</td>
+                                <td>
+                                    <button onclick="payPopOpenLoan()">PAY</button>
+                                </td>
+                                <td class = "oddDataRight">
+                                    <div class="reminderFlex">
+                                        <input type="datetime-local" data-placeholder="SET REMINDER" required aria-required="true"/>
+                                        <button>CONFIRM</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div>
+                            <h1 style="font-size: 48px; padding-left: 50px; padding-top: 30px;margin-top: 0;"><b>Applied Loans</b></h1>
+                            <table>
+                                <tr>
+                                    <th>APPLIED AMOUNT</th>
+                                    <th>APPLICATON DATE</th>
+                                    <th>LOAN TYPE</th>
+                                    <th>STATUS</th>
+                                </tr>
+                                <tr class="oddRow" style="background: #ffffff;">
+                                    <td class="oddDataLeft">200,000.00EGP</td>
+                                    <td>12/3/2024</td>
+                                    <td>Car</td>
+                                    <td>Accepted</td>
+                                </tr>
+                                <tr>
+                                    <td class="oddDataLeft">200,000.00EGP</td>
+                                    <td>12/3/2024</td>
+                                    <td>Personal</td>
+                                    <td>Rejected</td>
+                                </tr>
+                                <tr class="oddRow" style="background: #ffffff;">
+                                    <td class="oddDataLeft">200,000.00EGP</td>
+                                    <td>12/3/2024</td>
+                                    <td>Personal</td>
+                                    <td>Rejected</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="bigDiv1" class="hide"></div>
+                        <div id="popMenu1" class="payPop hide">
+                            <i id="exit2" class="bi-x-circle" onmouseover="hoverLoan()" onmouseleave="exithoverLoan()"
+                                onclick="closepopupLoan()"></i>
+                            <p class="payPoptxt"><span>PAY OFF</span><br>TradeLine Installment</p>
+                            <select class="accountInTransfer" style="background: #B9DEFF;">
+                                <option value="account1">124075613413 (main)</option>
+                                <option value="account2">378075613413</option>
+                                <option value="account3">098075613413</option>
+                                <option value="account4">743075613413</option>
+                            </select>
+                            <p
+                                style="margin-top: 10px;font-family: 'Tajawal';font-style: normal;font-weight: 500;font-size: 26px;color: rgba(0, 0, 0, 0.55);">
+                                Available Balance: <br> 200,00.00 EGP</p>
+                            <table>
+                                <tr>
+                                    <th class="payPoptxt2">Amount To Pay</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="payPopBoxLoan" >
+                                            50,000.00 EGP
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div style="display: flex; justify-content: space-evenly; text-align: center;">
+                                <p id="errorPayoff1" class = "errorMessagePayoff hide"><i class="bi bi-x-circle-fill"></i> No fields can be empty</p>
+                                <button onclick="payoffButtonLoan()">PAYOFF</button>
+                            </div>
+                        </div>
+                        <div id="notifier1" class="slider slowlyhide">Pay Off done!</div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- start of bills page -->
         <div id="billsPage" class="hide">
