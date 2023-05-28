@@ -441,3 +441,13 @@ background-color: red;
 .left{
     right:0px;
 }
+.back{
+    z-index:55;
+    position:fixed;
+    background-color:rgba(109, 109, 109, 0.418);
+    width:100vw;
+    height:100vh;
+}
+.hide {
+    display: none;
+}

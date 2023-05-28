@@ -20,6 +20,8 @@ const ComplaintsIcon = document.getElementById("chatIcon");
 const icon= document.getElementById("profile-icon");
 const icon2= document.getElementById("profile-icon2");
 const accountsettings= document.getElementById("accountsettings");
+const background= document.getElementById("background");
+background.classList.add("hide");
 
 const approveButton = document.getElementById("bTa");
 const declineButton = document.getElementById("bTd");
@@ -312,4 +314,11 @@ function back(){
 }
 function backtologin(){
     window.location = "proj.html"
+}
+function hideSettings(){
+    accountsettings.classList.remove("left")
+    background.classList.add("hide");
+    for( i = 0; i < popups.length;i++){
+        popups[i].classList.add("hide");
+    }
 }
