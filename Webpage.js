@@ -219,6 +219,25 @@ function cancelTransfer() {
         errorMessage[0].classList.add('hide');
 }
 
+function confirmBills() {
+        const errors = document.getElementsByClassName('billsField');
+        const errorMessage = document.getElementsByClassName('errorMessageTransfer');
+        const message = document.getElementById("notifierBills");
+
+        if (errors[0].value == '') {
+                message.classList.add('sliderError');
+        } else {
+                message.classList.remove('sliderError');
+                message.innerHTML = 'Bill Paid';
+        }
+        
+        message.classList.remove("slowlyhide");
+        setTimeout(() => {
+                message.classList.add("slowlyhide");
+        }, 2000);
+
+}
+
 function confirmTransfer() {
         const errors = document.getElementsByClassName('transferField');
         const errorMessage = document.getElementsByClassName('errorMessageTransfer');
@@ -227,8 +246,8 @@ function confirmTransfer() {
 
         for (i = 0; i < endofCheck; i++) {
                 if (errors[i].value == '')
-                if (errors[i].value == '')
-                        empty = true;
+                        if (errors[i].value == '')
+                                empty = true;
         }
 
         if (empty)
@@ -408,22 +427,22 @@ function closepopup() {
         bigDiv.classList.add("hide");
         popMenu.classList.add("hide");
 }
-function payoffButton(){
-        const message=document.getElementById("notifier");
+function payoffButton() {
+        const message = document.getElementById("notifier");
         const numField = document.getElementById("numberInput");
-        if(!numField.value == ""){
-        closepopup();
-        message.classList.remove("slowlyhide");
-        setTimeout(() => {                        
-        message.classList.add("slowlyhide");
-        }, 2000);
-        }else{
+        if (!numField.value == "") {
+                closepopup();
+                message.classList.remove("slowlyhide");
+                setTimeout(() => {
+                        message.classList.add("slowlyhide");
+                }, 2000);
+        } else {
                 const error = document.getElementById('errorPayoff');
                 error.classList.remove('hide');
         }
 }
 
-function payPopOpenLoan() {     
+function payPopOpenLoan() {
         const bigDiv1 = document.getElementById('bigDiv1');
         const popMenu1 = document.getElementById('popMenu1');
         const error1 = document.getElementById('errorPayoff1');
@@ -448,8 +467,8 @@ function closepopupLoan() {
         bigDiv1.classList.add("hide");
         popMenu1.classList.add("hide");
 }
-function payoffButtonLoan(){
-        const message1=document.getElementById("notifier1")
+function payoffButtonLoan() {
+        const message1 = document.getElementById("notifier1")
         closepopupLoan();
         message1.classList.remove("slowlyhide");
         setTimeout(() => {
@@ -467,22 +486,22 @@ function cardSelect() {
         const creditPage = document.getElementById('creditPage');
         const limit = document.getElementById('Limit')
         if (!cardSelect.value.includes('Credit')) {
-          creditPage.classList.add('hide');
-          limit.classList.add('slowlyhide');
+                creditPage.classList.add('hide');
+                limit.classList.add('slowlyhide');
         } else {
-          creditPage.classList.remove('hide');
-          limit.classList.remove('slowlyhide');
+                creditPage.classList.remove('hide');
+                limit.classList.remove('slowlyhide');
         }
 }
 
-document.getElementById('notif').addEventListener('click',() => {
+document.getElementById('notif').addEventListener('click', () => {
         const notifIcon = document.getElementById('notif-icon')
         const notifPanel = document.getElementById('notif-panel')
-        if(notifIcon.classList.contains('bi-bell')){
-            notifPanel.classList.remove('notif-panel-is-hidden')
+        if (notifIcon.classList.contains('bi-bell')) {
+                notifPanel.classList.remove('notif-panel-is-hidden')
         }
         else {
-            notifPanel.classList.add('notif-panel-is-hidden')
+                notifPanel.classList.add('notif-panel-is-hidden')
         }
         notifIcon.classList.toggle('bi-bell')
         notifIcon.classList.toggle('bi-bell-fill')

@@ -71,7 +71,7 @@
                 <option value="098075613413">098075613413</option>
                 <option value="743075613413">743075613413</option>
             </select>
-            <button id = "notif" class="bell"><i id = "notif-icon" class="bi-bell"></i></button>
+            <button id="notif" class="bell"><i id="notif-icon" class="bi-bell"></i></button>
         </div>
 
         <div id="container">
@@ -133,7 +133,7 @@
                         <td class="oddDataRight">CR 269,600.00 EGP</td>
                     </tr>
                     <tr>
-                         <td>23/05/2023</td>
+                        <td>23/05/2023</td>
                         <td>23/05/2023</td>
                         <td>VODAFONE POS</td>
                         <td>CR 269,600.00 EGP</td>
@@ -304,18 +304,19 @@
                             <th>DUE DATE</th>
                             <th>AMOUNT PAID</th>
                         </tr>
-                            <tr class="oddRow">
+                        <tr class="oddRow">
                             <td class="oddDataLeft">23/05/2023</td>
                             <td class="tdWidth">45,600.00 EGP</td>
-                        <td>
-                            <button id="payButton" onclick="payPopOpen()">PAY</button>
-                        </td>
-                        <td class = "oddDataRight">
-                            <div class="reminderFlex">
-                                <input type="datetime-local" data-placeholder="SET REMINDER" required aria-required="true"/>
-                                <button>CONFIRM</button>
-                            </div>
-                        </td>
+                            <td>
+                                <button id="payButton" onclick="payPopOpen()">PAY</button>
+                            </td>
+                            <td class="oddDataRight">
+                                <div class="reminderFlex">
+                                    <input type="datetime-local" data-placeholder="SET REMINDER" required
+                                        aria-required="true" />
+                                    <button>CONFIRM</button>
+                                </div>
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -327,37 +328,37 @@
                             <img src="Icons/icons8-amazon-50.png">
                             <h3>5,500 Points</h3>
                             <p>10% cashback on any product from amazon</p>
-                            <button class = "redeemButton" onclick="redeemPoints(0)">Redeem</button>
+                            <button class="redeemButton" onclick="redeemPoints(0)">Redeem</button>
                         </div>
                         <div class="pointGridItem">
                             <img src="Icons/icons8-league-of-legends-50.png">
                             <h3>2,000 Points</h3>
                             <p>Free 2,500 RP to your Riot acoount</p>
-                            <button class = "redeemButton" onclick="redeemPoints(1)">Redeem</button>
+                            <button class="redeemButton" onclick="redeemPoints(1)">Redeem</button>
                         </div>
                         <div class="pointGridItem">
                             <img src="Icons/icons8-netflix-50.png">
                             <h3>4,000 Points</h3>
                             <p>1 month Premium plan for free</p>
-                            <button class = "redeemButton" onclick="redeemPoints(2)">Redeem</button>
+                            <button class="redeemButton" onclick="redeemPoints(2)">Redeem</button>
                         </div>
                         <div class="pointGridItem">
                             <img src="Icons/icons8-valorant-100.png">
                             <h3>1,500 Points</h3>
                             <p>1,500 Valorant Points to your Riot account </p>
-                            <button class = "redeemButton" onclick="redeemPoints(3)">Redeem</button>
+                            <button class="redeemButton" onclick="redeemPoints(3)">Redeem</button>
                         </div>
                         <div class="pointGridItem">
                             <img src="Icons/icons8-spotify-50.png">
                             <h3>1,000 Points</h3>
                             <p>1 month Spotify Premium for free</p>
-                            <button class = "redeemButton" onclick="redeemPoints(4)">Redeem</button>
+                            <button class="redeemButton" onclick="redeemPoints(4)">Redeem</button>
                         </div>
                         <div class="pointGridItem">
                             <img src="Icons/icons8-starbucks-50.png">
                             <h3>2,000 Points</h3>
                             <p>30% off on any product from Starbucks</p>
-                            <button class = "redeemButton" onclick="redeemPoints(5)">Redeem</button>
+                            <button class="redeemButton" onclick="redeemPoints(5)">Redeem</button>
                         </div>
                     </div>
                 </div>
@@ -392,7 +393,8 @@
                         </tr>
                     </table>
                     <div style="display: flex; justify-content: space-evenly; text-align: center;">
-                        <p id="errorPayoff" class = "errorMessagePayoff hide"><i class="bi bi-x-circle-fill"></i> No fields can be empty</p>
+                        <p id="errorPayoff" class="errorMessagePayoff hide"><i class="bi bi-x-circle-fill"></i> No
+                            fields can be empty</p>
                         <button onclick="payoffButton()">PAYOFF</button>
                     </div>
                 </div>
@@ -403,13 +405,15 @@
         <div id="loansPage" class="hide">
             <div class="loanPage">
                 <div id="loan" class="loanView">
-                    <p style="font-size: 48px; padding-left: 50px; padding-top: 30px;margin-top: 0;"><b>Apply For A Loan</b></p>
+                    <p style="font-size: 48px; padding-left: 50px; padding-top: 30px;margin-top: 0;"><b>Apply For A
+                            Loan</b></p>
                     <div class="loanPageText">
                         <p style="display: inline; margin-left: 30px; margin-bottom: 20px;">National ID:
-                            &nbsp<input class="nationalField loanField" type="text" placeholder=" Ex. 30201010105432"></p>
+                            &nbsp<input class="nationalField loanField" type="text" placeholder=" Ex. 30201010105432">
+                        </p>
                         <br>
                         <label for="loanInTransfer" style="margin-left: 59px;">Account: </label>
-                        <select class="loanInTransfer" >
+                        <select class="loanInTransfer">
                             <option value="account1">124075613413 (main)</option>
                             <option value="account2">378075613413</option>
                             <option value="account3">098075613413</option>
@@ -422,47 +426,48 @@
                             <option value="Car">Car</option>
                         </select>
                         <p style="margin-left: 60px;">Amount: <input class="amountInTransfer loanField" type="text"
-                            placeholder=" Enter Amount">
-                        <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>        
-                        <select class="currency">
-                            <option value="EGP">EGP</option>
-                            <option value="EUR">EUR</option>
-                            <option value="JPY">JPY</option>
-                            <option value="GBP">GBP</option>
-                            <option value="AUD">AUD</option>
-                            <option value="CAD">CAD</option>
-                            <option value="CHF">CHF</option>
-                            <option value="CNY">CNY</option>
-                            <option value="NZD">NZD</option>
-                            <option value="HKD">HKD</option>
-                        </select>
-                        <p style="margin-left: -22px;">Monthly Income: <input class="amountInTransfer loanField" type="text"
-                            placeholder=" Enter Amount">
-                        <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>
-                        <select class="currency">
-                            <option value="EGP">EGP</option>
-                            <option value="EUR">EUR</option>
-                            <option value="JPY">JPY</option>
-                            <option value="GBP">GBP</option>
-                            <option value="AUD">AUD</option>
-                            <option value="CAD">CAD</option>
-                            <option value="CHF">CHF</option>
-                            <option value="CNY">CNY</option>
-                            <option value="NZD">NZD</option>
-                            <option value="HKD">HKD</option>
-                        </select>
+                                placeholder=" Enter Amount">
+                            <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>
+                            <select class="currency">
+                                <option value="EGP">EGP</option>
+                                <option value="EUR">EUR</option>
+                                <option value="JPY">JPY</option>
+                                <option value="GBP">GBP</option>
+                                <option value="AUD">AUD</option>
+                                <option value="CAD">CAD</option>
+                                <option value="CHF">CHF</option>
+                                <option value="CNY">CNY</option>
+                                <option value="NZD">NZD</option>
+                                <option value="HKD">HKD</option>
+                            </select>
+                        <p style="margin-left: -22px;">Monthly Income: <input class="amountInTransfer loanField"
+                                type="text" placeholder=" Enter Amount">
+                            <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>
+                            <select class="currency">
+                                <option value="EGP">EGP</option>
+                                <option value="EUR">EUR</option>
+                                <option value="JPY">JPY</option>
+                                <option value="GBP">GBP</option>
+                                <option value="AUD">AUD</option>
+                                <option value="CAD">CAD</option>
+                                <option value="CHF">CHF</option>
+                                <option value="CNY">CNY</option>
+                                <option value="NZD">NZD</option>
+                                <option value="HKD">HKD</option>
+                            </select>
                         <p style="display: inline; margin-left: 55px;">Job Title:
                             &nbsp<input class="nationalField loanField" type="text" placeholder=" Ex. Engineer"></p>
                         <div class="confirmButtonsLoan">
-                            <button id="confirmLoan">Submit</button>
+                            <button id="confirmLoan" onclick="">Submit</button>
                         </div>
                         <p class="errorMessageTransfer hide"><i class="bi bi-x-circle-fill"></i> No fields can be empty
                         </p>
                     </div>
                 </div>
                 <div class="loans">
-                   <div class="loansApplied">
-                        <p style="font-size: 48px; padding-left: 50px; padding-top: 30px;margin-top: 0;"><b>Your Loans</b></p>
+                    <div class="loansApplied">
+                        <p style="font-size: 48px; padding-left: 50px; padding-top: 30px;margin-top: 0;"><b>Your
+                                Loans</b></p>
                         <table>
                             <tr>
                                 <th>TOTAL AMOUNT</th>
@@ -478,9 +483,10 @@
                                 <td>
                                     <button onclick="payPopOpenLoan()" style="margin-top: 6px;">PAY</button>
                                 </td>
-                                <td class = "oddDataRight">
+                                <td class="oddDataRight">
                                     <div class="reminderFlex">
-                                        <input type="datetime-local" data-placeholder="SET REMINDER" required aria-required="true"/>
+                                        <input type="datetime-local" data-placeholder="SET REMINDER" required
+                                            aria-required="true" />
                                         <button>CONFIRM</button>
                                     </div>
                                 </td>
@@ -493,16 +499,18 @@
                                 <td>
                                     <button onclick="payPopOpenLoan()">PAY</button>
                                 </td>
-                                <td class = "oddDataRight">
+                                <td class="oddDataRight">
                                     <div class="reminderFlex">
-                                        <input type="datetime-local" data-placeholder="SET REMINDER" required aria-required="true"/>
+                                        <input type="datetime-local" data-placeholder="SET REMINDER" required
+                                            aria-required="true" />
                                         <button>CONFIRM</button>
                                     </div>
                                 </td>
                             </tr>
                         </table>
                         <div>
-                            <h1 style="font-size: 48px; padding-left: 50px; padding-top: 30px;margin-top: 0;"><b>Applied Loans</b></h1>
+                            <h1 style="font-size: 48px; padding-left: 50px; padding-top: 30px;margin-top: 0;"><b>Applied
+                                    Loans</b></h1>
                             <table>
                                 <tr>
                                     <th>APPLIED AMOUNT</th>
@@ -550,14 +558,15 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div class="payPopBoxLoan" >
+                                        <div class="payPopBoxLoan">
                                             50,000.00 EGP
                                         </div>
                                     </td>
                                 </tr>
                             </table>
                             <div style="display: flex; justify-content: space-evenly; text-align: center;">
-                                <p id="errorPayoff1" class = "errorMessagePayoff hide"><i class="bi bi-x-circle-fill"></i> No fields can be empty</p>
+                                <p id="errorPayoff1" class="errorMessagePayoff hide"><i class="bi bi-x-circle-fill"></i>
+                                    No fields can be empty</p>
                                 <button onclick="payoffButtonLoan()">PAYOFF</button>
                             </div>
                         </div>
@@ -568,64 +577,105 @@
         </div>
         <!-- start of bills page -->
         <div id="billsPage" class="hide">
-            <p>Bills</p>
-        </div>
+            <div class="loanPage">
+                <div id="Bill" class="billsView">
+                    <p style="font-size: 48px; padding-left: 50px; padding-top: 30px;margin-top: 0;"><b>Pay your
+                            bills</b></p>
+                    <div class="billsPageText">
+                        <label for="billsDropDown" style="margin-left: 15px;">Account: </label>
+                        <select style=" margin-bottom: 8px;" class="billsDropDown">
+                            <option value="account1">124075613413 (main)</option>
+                            <option value="account2">378075613413</option>
+                            <option value="account3">098075613413</option>
+                            <option value="account4">743075613413</option>
+                        </select>
+                        <br>
+                        <label for="billsDropDown" style="margin-left: 60px;;">To: </label>
+                        <select class="billsDropDown" style="margin-top: 20px;margin-left: 15px">
+                            <option value="Electricity">Electricity</option>
+                            <option value="Internet">Internet</option>
+                            <option value="Water">Water</option>
+                            <option value="Gas">Gas</option>
+                        </select>
+                        <p style="margin-left: 15px; margin-top: 30px;">Amount: <input class="amountInBills billsField"
+                                type="text" placeholder=" Enter Amount">
+                            <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>
+                            <select class="currency">
+                                <option value="EGP">EGP</option>
+                                <option value="EUR">EUR</option>
+                                <option value="JPY">JPY</option>
+                                <option value="GBP">GBP</option>
+                                <option value="AUD">AUD</option>
+                                <option value="CAD">CAD</option>
+                                <option value="CHF">CHF</option>
+                                <option value="CNY">CNY</option>
+                                <option value="NZD">NZD</option>
+                                <option value="HKD">HKD</option>
+                            </select>
+                        <div class="confirmButtonsBills">
+                            <button id="confirmBill" onclick="confirmBills()">Submit</button>
+                        </div>
+                        <div id="notifierBills" class="slider slowlyhide">No fields can be empty</div>
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-        
-        <!--notifications-->
-        <div id = "notif-panel" class = "notif-panel  notif-panel-is-hidden">
-            
-            <div class = "notif-head">
-                <h3 class = "notif-title">Notifications<span id = "notif-bubble" class="notif-bubble">3</span></h3>
-                <div>
-                    <ul class = "notif-filter">
-                        <li class = "notif-filte-is-active">All</li>
-                        <li>Reminders</li>
-                        <li>Transactions</li>
-                    </ul>
+
+            <!--notifications-->
+            <div id="notif-panel" class="notif-panel  notif-panel-is-hidden">
+
+                <div class="notif-head">
+                    <h3 class="notif-title">Notifications<span id="notif-bubble" class="notif-bubble">3</span></h3>
+                    <div>
+                        <ul class="notif-filter">
+                            <li class="notif-filte-is-active">All</li>
+                            <li>Reminders</li>
+                            <li>Transactions</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div id = "notif-body" class = "notif-body">
-                
-                <div id = "notif-list" class = "notif-list notif-item-is-active">
-                    <div class = "notif-item">
-                        <div class = "notif-item-head">
-                            <h6>
-                                <i class="bi-arrow-down-left-circle-fill"></i>  Transfer
-                            </h6>
+                <div id="notif-body" class="notif-body">
+
+                    <div id="notif-list" class="notif-list notif-item-is-active">
+                        <div class="notif-item">
+                            <div class="notif-item-head">
+                                <h6>
+                                    <i class="bi-arrow-down-left-circle-fill"></i> Transfer
+                                </h6>
+                            </div>
+                            <div class="notif-item-body">
+                                <p class="notif-time"> 18/09/2023</p>
+                                <p class="notif-date">18:00</p>
+                                <h5> Receiverd transfer of</h5>
+                                <p class="notif-detail"> 50,250 USD</p>
+                                <br>
+                                <p class="notif-detail"> Bezoz, Jeff another Legit Bank</p>
+
+                            </div>
                         </div>
-                        <div class = "notif-item-body">
-                            <p class = "notif-time"> 18/09/2023</p>
-                            <p class = "notif-date">18:00</p>
-                            <h5> Receiverd transfer of</h5>
-                            <p class = "notif-detail"> 50,250 USD</p>
-                            <br>
-                            <p class = "notif-detail"> Bezoz, Jeff another Legit Bank</p>
-                            
+                    </div>
+                    <div id="notif-list" class="notif-listn">
+                        <div class="notif-item">
+                            <div class="notif-item-head">
+                                <h6>
+                                    <i class="bi-arrow-down-left-circle-fill"></i> Transfer
+                                </h6>
+                            </div>
+                            <div class="notif-item-body">
+                                <p class="notif-time"> 18/09/2023</p>
+                                <p class="notif-date">18:00</p>
+                                <h5> Receiverd transfer of</h5>
+                                <p class="notif-detail"> 50,250 USD</p>
+                                <br>
+                                <p class="notif-detail"> Bezoz, Jeff another Legit Bank</p>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div id = "notif-list" class = "notif-listn">
-                    <div class = "notif-item">
-                        <div class = "notif-item-head">
-                            <h6>
-                                <i class="bi-arrow-down-left-circle-fill"></i>  Transfer
-                            </h6>
-                        </div>
-                        <div class = "notif-item-body">
-                            <p class = "notif-time"> 18/09/2023</p>
-                            <p class = "notif-date">18:00</p>
-                            <h5> Receiverd transfer of</h5>
-                            <p class = "notif-detail"> 50,250 USD</p>
-                            <br>
-                            <p class = "notif-detail"> Bezoz, Jeff another Legit Bank</p>
-                            
-                        </div>
-                    </div>
-                </div>              
             </div>
         </div>
-    </div>
 
     </div>
 

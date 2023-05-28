@@ -650,7 +650,7 @@ i {
 }
 
 .sliderError {
-    width: 400px;
+    width: 600px;
     height: 30px;
     background-color: #E42F2F;
     border-radius: 20px;
@@ -786,6 +786,12 @@ i {
 }
 
 .amountInTransfer {
+    margin-right: -40px;
+    margin-left: 5px;
+    height: 50px;
+}
+
+.amountInBills {
     margin-right: -40px;
     margin-left: 5px;
     height: 50px;
@@ -989,12 +995,43 @@ i {
     border-radius: 24px;
     width: 40%;
 }
+.billsView {
+    background-color: #B9DEFF;
+    height: 700px;
+    margin-left: 50px;
+    margin-top: 40px;
+    border-radius: 24px;
+    width: 40%;
+}
 .loanPageText{
     padding-left: 100px;
     font-size: 24px;
     display: block;
 }
+
+.billsPageText {
+    padding-left: 100px;
+    font-size: 24px;
+    display: block;
+}
+
+.billsPageText input {
+    border: 0px;
+    border-radius: 8px;
+    font-size: 24px;
+}
+
 .loanInTransfer{
+    border: 0px;
+    border-radius: 8px;
+    font-size: 24px;
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 306px;
+    height: 50px;
+}
+
+.billsDropDown{
     border: 0px;
     border-radius: 8px;
     font-size: 24px;
@@ -1019,11 +1056,28 @@ i {
     margin-top: 30px;
     margin-left: 330px;
 }
+
 #confirmLoan:hover {
     background-color: rgb(222, 220, 220);
     color: black;
 }
 
+#confirmBill:hover {
+    background-color: rgb(222, 220, 220);
+    color: black;
+}
+#confirmBill {
+    border: 3px solid black;
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+    font-size: 36px;
+    width: 320px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-left: 110px;
+    margin-top: 5px;
+}
 
 #confirmLoan {
     border: 3px solid black;
@@ -1036,6 +1090,10 @@ i {
     cursor: pointer;
 }
 .loanPage{
+    display: flex;
+}
+
+.billsPage{
     display: flex;
 }
 .loans{
