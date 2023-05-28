@@ -22,7 +22,9 @@
         <div id="Header">
             <h1 id="marginer-h1">Legit Offshore Bank</h1>
             <h1 id="marginer-hello">Hello, Elon Musketeer</h1>
-            <button id="profile-icon"><i class="bi-person-circle"></i></button>
+            <button id="profile-icon"><i class="bi-person-circle" onclick="showSettings()" onmouseover="changecolor()"
+              onmouseleave="back()"></i></button>
+
         </div>
 
         <!-- start of navigation bar -->
@@ -34,6 +36,16 @@
             <button id="Complaints" class="notclicked" onclick="switchComplaints()"><i id="chatIcon" class="bi-chat-right-dots"></i>Complaints</button>
             <button class="bell"><i class="bi-bell"></i></button>
         </div>
+        <div id="container">
+          <div class="accountsettings" id="accountsettings">
+              <h1>Account Settings</h1>
+              <i id="profile-icon2" class="bi-person-circle icon" onclick="showSettings()" onmouseover="changecolor()"
+                  onmouseleave="back()"></i>
+              <button onclick="backtologin()">
+                  Sign out
+              </button>
+          </div>
+      </div>
         <!-- start of summary page -->
         <div id="summaryPage" class="show">
             <p class = "username1">
