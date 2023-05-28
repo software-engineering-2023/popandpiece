@@ -66,10 +66,8 @@
                     class="bi-droplet"></i>Bills</button>
             <div class="selector"> </div>
             <select id="account-numbers">
-                <option value="124075613413">124075613413 (main)</option>
-                <option value="378075613413">378075613413</option>
-                <option value="098075613413">098075613413</option>
-                <option value="743075613413">743075613413</option>
+                <option value="540076330348">540076330348 (running)</option>
+                <option value="540051080372">540051080372 (saving)</option>
             </select>
             <button id="notif" class="bell"><i id="notif-icon" class="bi-bell"></i></button>
         </div>
@@ -83,10 +81,8 @@
                     <p>Request to close an account</p>
                     <select id="account-numbersSettings">
                         <option value="choose">Choose Account</option>
-                        <option value="124075613413">124075613413 (main)</option>
-                        <option value="378075613413">378075613413</option>
-                        <option value="098075613413">098075613413</option>
-                        <option value="743075613413">743075613413</option>
+                        <option value="540076330348">540076330348 (running)</option>
+                        <option value="540051080372">540051080372 (saving)</option>
                     </select>
                     <button onclick="notifyClose()"><strong>Request Closing</strong></button>
                     <p>Request to open a new Account</p>
@@ -193,10 +189,8 @@
                     <br>
                     <label for="accountInTransfer" style="margin-left: 59px;">Account: </label>
                     <select class="accountInTransfer">
-                        <option value="account1">124075613413 (main)</option>
-                        <option value="account2">378075613413</option>
-                        <option value="account3">098075613413</option>
-                        <option value="account4">743075613413</option>
+                        <option value="540076330348">540076330348 (running)</option>
+                        <option value="540051080372">540051080372 (saving)</option>
                     </select>
                     <div style="margin-bottom: -25px; margin-left:-38px; display: flex; gap:10px; align-items: center;">
                         <p>Transaction Type:</p>
@@ -261,11 +255,11 @@
         <div id="cardsPage" class="hide" style="overflow: hidden;">
             <div class="cardInfo">
                 <select id="cardsSelect" onchange="cardSelect()" class="cardsList">
-                    <option value="1234567891234567(Credit)"> 1234567891234567(Credit) </option>
-                    <option value="9876543210987654(Debit)"> 9876543210987654(Debit) </option>
+                    <option value="3614167248272936(Credit)"> 3614167248272936 (Credit) </option>
+                    <option value="5423216780987654(Debit)"> 5423216780987654 (Debit) </option>
                 </select>
-                <p id="Limit" style="user-select: none;"><span>Limit:</span> 50,000.00 EGP</p>
-                <p><span>Points:</span> 2,000 point</p>
+                <p id="Limit" style="user-select: none;">Limit: 50,000 EGP</p>
+                <p>Points: 50,600 point</p>
             </div>
             <div class="cardTransactions">
                 <h1> TRANSACTIONS </h1>
@@ -277,22 +271,22 @@
                         <th>AMOUNT PAID</th>
                     </tr>
                     <tr class="oddRow">
-                        <td class="oddDataLeft">23/05/2023</td>
-                        <td>23/05/2023</td>
-                        <td>VODAFONE POS</td>
-                        <td class="oddDataRight">CR 269,600.00 EGP</td>
+                        <td class="oddDataLeft">16/05/2023</td>
+                        <td>17/05/2023</td>
+                        <td>Amazon</td>
+                        <td class="oddDataRight">999.99 EGP</td>
                     </tr>
                     <tr>
-                        <td>23/05/2023</td>
-                        <td>23/05/2023</td>
-                        <td>VODAFONE POS</td>
-                        <td>CR 269,600.00 EGP</td>
+                        <td>18/05/2023</td>
+                        <td>18/05/2023</td>
+                        <td>Carrefour</td>
+                        <td>4000.33 EGP</td>
                     </tr>
                     <tr class="oddRow">
-                        <td class="oddDataLeft">23/05/2023</td>
-                        <td>23/05/2023</td>
-                        <td>VODAFONE POS</td>
-                        <td class="oddDataRight">CR 269,600.00 EGP</td>
+                        <td class="oddDataLeft">28/05/2023</td>
+                        <td>28/05/2023</td>
+                        <td>Netflix</td>
+                        <td class="oddDataRight">160.00 EGP</td>
                     </tr>
                 </table>
             </div>
@@ -305,23 +299,23 @@
                             <th>AMOUNT PAID</th>
                         </tr>
                         <tr class="oddRow">
-                            <td class="oddDataLeft">23/05/2023</td>
-                            <td class="tdWidth">45,600.00 EGP</td>
+                            <td class="oddDataLeft">29/06/2023</td>
+                            <td class="tdWidth">26,000 EGP</td>
                             <td>
-                                <button id="payButton" onclick="payPopOpen()">PAY</button>
+                                <button id="cardPayButton" onclick="payPopOpen()">PAY</button>
                             </td>
                             <td class="oddDataRight">
                                 <div class="reminderFlex">
                                     <input type="datetime-local" data-placeholder="SET REMINDER" required
                                         aria-required="true" />
-                                    <button>CONFIRM</button>
+                                    <button id="cardReminderButton">CONFIRM</button>
                                 </div>
                             </td>
                         </tr>
                     </table>
                 </div>
                 <div class="cardPoints">
-                    <h1>Points | 2,000 point</h1>
+                    <h1>Points | 50,600 point</h1>
                     <h3 id="h3Rewards">Rewards will expire in 5 days</h3>
                     <div class="pointGrid">
                         <div class="pointGridItem">
@@ -368,14 +362,12 @@
                         onclick="closepopup()"></i>
                     <p class="payPoptxt"><span>PAY OFF</span><br>TradeLine Installment</p>
                     <select class="accountInTransfer" style="background: #B9DEFF;">
-                        <option value="account1">124075613413 (main)</option>
-                        <option value="account2">378075613413</option>
-                        <option value="account3">098075613413</option>
-                        <option value="account4">743075613413</option>
+                        <option value="540076330348">540076330348 (running)</option>
+                        <option value="540051080372">540051080372 (saving)</option>
                     </select>
                     <p
                         style="margin-top: 10px;font-family: 'Tajawal';font-style: normal;font-weight: 500;font-size: 26px;color: rgba(0, 0, 0, 0.55);">
-                        Available Balance: <br> 200,00.00 EGP</p>
+                        Available Balance: <br> 8222130 EGP</p>
                     <table>
                         <tr>
                             <th class="payPoptxt2">amount to be paid</th>
@@ -387,7 +379,7 @@
                             </td>
                             <td>
                                 <div class="payPopBox">
-                                    50,000.00 EGP
+                                    26,000.00 EGP
                                 </div>
                             </td>
                         </tr>
@@ -395,7 +387,7 @@
                     <div style="display: flex; justify-content: space-evenly; text-align: center;">
                         <p id="errorPayoff" class="errorMessagePayoff hide"><i class="bi bi-x-circle-fill"></i> No
                             fields can be empty</p>
-                        <button onclick="payoffButton()">PAYOFF</button>
+                        <button id="payoffButton" onclick="payoffButton()">PAYOFF</button>
                     </div>
                 </div>
                 <div id="notifier" class="slider slowlyhide">Pay Off done!</div>
@@ -414,10 +406,8 @@
                         <br>
                         <label for="loanInTransfer" style="margin-left: 59px;">Account: </label>
                         <select class="loanInTransfer">
-                            <option value="account1">124075613413 (main)</option>
-                            <option value="account2">378075613413</option>
-                            <option value="account3">098075613413</option>
-                            <option value="account4">743075613413</option>
+                            <option value="540076330348">540076330348 (running)</option>
+                        <option value="540051080372">540051080372 (saving)</option>
                         </select>
                         <br>
                         <label for="loanInTransfer" style="margin-left: 59px;">Reason: </label>
@@ -487,7 +477,7 @@
                                     <div class="reminderFlex">
                                         <input type="datetime-local" data-placeholder="SET REMINDER" required
                                             aria-required="true" />
-                                        <button>CONFIRM</button>
+                                        <button class="loanReminderConfirm">CONFIRM</button>
                                     </div>
                                 </td>
                             </tr>
@@ -503,7 +493,7 @@
                                     <div class="reminderFlex">
                                         <input type="datetime-local" data-placeholder="SET REMINDER" required
                                             aria-required="true" />
-                                        <button>CONFIRM</button>
+                                        <button class="loanReminderConfirm">CONFIRM</button>
                                     </div>
                                 </td>
                             </tr>
@@ -544,10 +534,8 @@
                                 onclick="closepopupLoan()"></i>
                             <p class="payPoptxt"><span>PAY OFF</span><br>TradeLine Installment</p>
                             <select class="accountInTransfer" style="background: #B9DEFF;">
-                                <option value="account1">124075613413 (main)</option>
-                                <option value="account2">378075613413</option>
-                                <option value="account3">098075613413</option>
-                                <option value="account4">743075613413</option>
+                                <option value="540076330348">540076330348 (running)</option>
+                                <option value="540051080372">540051080372 (saving)</option>
                             </select>
                             <p
                                 style="margin-top: 10px;font-family: 'Tajawal';font-style: normal;font-weight: 500;font-size: 26px;color: rgba(0, 0, 0, 0.55);">
@@ -567,7 +555,7 @@
                             <div style="display: flex; justify-content: space-evenly; text-align: center;">
                                 <p id="errorPayoff1" class="errorMessagePayoff hide"><i class="bi bi-x-circle-fill"></i>
                                     No fields can be empty</p>
-                                <button onclick="payoffButtonLoan()">PAYOFF</button>
+                                <button id="loanPayoffButton" onclick="payoffButtonLoan()">PAYOFF</button>
                             </div>
                         </div>
                         <div id="notifier1" class="slider slowlyhide">Pay Off done!</div>
@@ -584,10 +572,8 @@
                     <div class="billsPageText">
                         <label for="billsDropDown" style="margin-left: 15px;">Account: </label>
                         <select style=" margin-bottom: 8px;" class="billsDropDown">
-                            <option value="account1">124075613413 (main)</option>
-                            <option value="account2">378075613413</option>
-                            <option value="account3">098075613413</option>
-                            <option value="account4">743075613413</option>
+                            <option value="540076330348">540076330348 (running)</option>
+                            <option value="540051080372">540051080372 (saving)</option>
                         </select>
                         <br>
                         <label for="billsDropDown" style="margin-left: 60px;;">To: </label>

@@ -511,76 +511,138 @@ let user = {
         name: "elon Musk",
         accounts: [
                 {
-                        number: "540076330348",
-                        balance: 8224380.90,
-                        availableToUse: 8222130,
+                        accountNumber: "540076330348",
+                        debitNumber:"9876543210987654",
+                        balance: 7174380.80,
+                        availableToUse: 7174380,
+                        type: "running",
                         transactions: [
                                 {
-                                        transactionDate: "28/05/2023",
-                                        valueDate: "28/05/2023",
-                                        details: "uber",
-                                        debitCredit: 44.91,
-                                        balance: 8224380.90
+                                        transactionDate: "03/05/2023",
+                                        valueDate: "09/05/2023",
+                                        details: "Sunrise Language School",
+                                        debitCredit: 60000,
+                                        balance: 8164380.9
+                                },
+                                {
+                                        transactionDate: "13/05/2023",
+                                        valueDate: "17/05/2023",
+                                        details: "Mercedes-Benz",
+                                        debitCredit: 1000000.91,
+                                        balance: 7164380.9
                                 },
                                 {
                                         transactionDate: "28/05/2023",
                                         valueDate: "28/05/2023",
-                                        details: "uber",
-                                        debitCredit: 44.91,
-                                        balance: 8224380.90
-                                },
-                                {
-                                        transactionDate: "28/05/2023",
-                                        valueDate: "28/05/2023",
-                                        details: "uber",
-                                        debitCredit: 44.91,
-                                        balance: 8224380.90
+                                        details: "Madinaty",
+                                        debitCredit: 50000.10,
+                                        balance: 7174380.8
                                 }
                         ]
                 },
                 {
-                        number: "540051080372",
-                        balance: 8224380.90,
-                        availableToUse: 8222130,
+                        accountNumber: "540051080372",
+                        debitNumber:"5423216780987654",
+                        balance: 3579.85,
+                        availableToUse: 4130,
+                        type:"saving",
                         transactions: [
                                 {
                                         transactionDate: "28/05/2023",
                                         valueDate: "28/05/2023",
-                                        details: "uber",
-                                        debitCredit: 44.91,
-                                        balance: 8224380.90
+                                        details: "Vodafone Red",
+                                        debitCredit: 300.53,
+                                        balance: 5380.90
                                 },
                                 {
                                         transactionDate: "28/05/2023",
                                         valueDate: "28/05/2023",
-                                        details: "uber",
-                                        debitCredit: 44.91,
-                                        balance: 8224380.90
+                                        details: "Jumia",
+                                        debitCredit: 1000.41,
+                                        balance: 5080.37
                                 },
                                 {
                                         transactionDate: "28/05/2023",
                                         valueDate: "28/05/2023",
-                                        details: "uber",
-                                        debitCredit: 44.91,
-                                        balance: 8224380.90
+                                        details: "DHL",
+                                        debitCredit: 500.11,
+                                        balance: 4079.96
                                 }
                         ]
                 }
         ],
 
         creditCards: [
-                { number: "3614167248272936", limit: 50000, points: 50600, amountDue: 26000, expiryDate: 06 / 29 },
-                { number: "3614608682512591", limit: 20500, points: 20600, amountDue: 13000, expiryDate: 06 / 29 }
+                {  
+                        accountNumber: "540051080372", 
+                        cardNumber: "3614167248272936", 
+                        limit: 50000, 
+                        points: 50600, 
+                        amountDue: 26000, 
+                        expiryDate: 06 / 29,
+                        transactions: [
+                                {
+                                        transactionDate: "16/05/2023",
+                                        valueDate: "17/05/2023",
+                                        details: "Amazon",
+                                        amountPaid: 999.99
+                                },
+                                {
+                                        transactionDate: "18/05/2023",
+                                        valueDate: "18/05/2023",
+                                        details: "Carrefour",
+                                        amountPaid: 4000.33
+                                },
+                                {
+                                        transactionDate: "28/05/2023",
+                                        valueDate: "28/05/2023",
+                                        details: "Netflix",
+                                        amountPaid: 160.00
+                                }
+                        ] 
+                },
+                {  
+                        accountNumber: "540076330348",
+                        cardNumber: "3614608682512591",
+                        limit: 20500,
+                        points: 20600,
+                        amountDue: 13000,
+                        expiryDate: 06 / 29,
+                        transactions: [
+                                {
+                                        transactionDate: "30/05/2023",
+                                        valueDate: "30/05/2023",
+                                        details: "Starbucks",
+                                        amountPaid: 60.42
+                                       
+                                },
+                                {
+                                        transactionDate: "28/05/2023",
+                                        valueDate: "28/05/2023",
+                                        details: "Uber",
+                                        amountPaid: 44.91
+                                        
+                                },
+                                {
+                                        transactionDate: "10/06/2023",
+                                        valueDate: "10/06/2023",
+                                        details: "Steam",
+                                        amountPaid: 120.91
+                                }
+                        ]
+                 }
         ], 
 
         loans: [
                 {
+                        accountNumber: "540051080372",
                         number: "191922009764869L",
                         amount: 1000000,
                         period: 32,
                         installment: this.amount * 1.1 / this.period
                 },
                 {
+                        accountNumber: "540076330348",
                         number: "173906995243957L",
                         amount: 1000000,
                         period: 32,
