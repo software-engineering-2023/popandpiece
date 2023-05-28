@@ -375,6 +375,7 @@ function payPopOpen() {
         const bigDiv = document.getElementById('bigDiv');
         const popMenu = document.getElementById('popMenu');
         const error = document.getElementById('errorPayoff');
+
         bigDiv.classList.remove('hide');
         popMenu.classList.remove('hide');
         error.classList.add('hide');
@@ -421,6 +422,41 @@ function payoffButton(){
                 error.classList.remove('hide');
         }
 }
+
+function payPopOpenLoan() {     
+        const bigDiv1 = document.getElementById('bigDiv1');
+        const popMenu1 = document.getElementById('popMenu1');
+        const error1 = document.getElementById('errorPayoff1');
+        bigDiv1.classList.remove('hide');
+        popMenu1.classList.remove('hide');
+        error1.classList.add('hide');
+}
+
+function hoverLoan() {
+        const exitbutton2 = document.getElementById('exit2');
+        exitbutton2.classList.remove("bi-x-circle");
+        exitbutton2.classList.add("bi-x-circle-fill");
+}
+function exithoverLoan() {
+        const exitbutton2 = document.getElementById('exit2');
+        exitbutton2.classList.add("bi-x-circle");
+        exitbutton2.classList.remove("bi-x-circle-fill");
+}
+function closepopupLoan() {
+        const bigDiv1 = document.getElementById('bigDiv1');
+        const popMenu1 = document.getElementById('popMenu1');
+        bigDiv1.classList.add("hide");
+        popMenu1.classList.add("hide");
+}
+function payoffButtonLoan(){
+        const message1=document.getElementById("notifier1")
+        closepopupLoan();
+        message1.classList.remove("slowlyhide");
+        setTimeout(() => {
+                message1.classList.add("slowlyhide");
+        }, 2000);
+}
+
 function redeemPoints(x) {
         const redeemButton = document.getElementsByClassName('redeemButton');
         redeemButton[x].disabled = true;
