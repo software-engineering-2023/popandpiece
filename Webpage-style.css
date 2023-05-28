@@ -1095,6 +1095,7 @@ i {
 
 .billsPage{
     display: flex;
+    flex-direction: row;
 }
 .loans{
     background-color: #B9DEFF;
@@ -1238,9 +1239,7 @@ i {
     background-color: #263c5000;
 }
 
-.hide {
-    display: none;
-}
+
 
 
 /*notification module*/
@@ -1358,8 +1357,60 @@ i {
     float:right;
     clear:right;
 }
+.secondbills{
+    background-color:#B9DEFF;
+    text-align: center;
+    border-radius:20px;
+    margin-left: 50px;
+    margin-top: 40px;
+    height: 700px;
+    width:1000px;
+   display:flex;
+   flex-direction: column;
+}
+.secondbills h1{
+    font-size:50px;
+    margin-right:auto;
+    margin-left:60px;
+}
+.secondbills input{
+   
+        border: 0px;
+        border-radius: 8px;
+        font-size: 24px;
+        width:300px;
+        height:60px;
+}
+.secondbills button{
+    width:200px;
+    height:100px;
+    margin-left:auto;
+    margin-right: 80px;
+    background-color: black;
+    color:white;
+    font-size: 40px;
+    border-radius: 20px;
+    margin-top: 30px;
+    transition: 0.4s;
+}
+.secondbills button:hover{
+    background-color: rgb(222, 220, 220);
+    color: black;
+}
 
-
+.secondbills p{
+    font-size:30px;
+   
+}
+.goback{
+    margin-left:-50px;
+}
+.gofront{
+    margin-left:15px;
+}
 .notif-item-is-active {
     border-left: 8px solid #51ABFF;
+}
+.hide {
+    display: none;
 }

@@ -22,7 +22,9 @@ const fading = document.getElementById('fading');
 var noOffFading = false;
 const selector = document.getElementsByClassName("selector")
 
-
+const fields= document.getElementsByClassName("secondbillsentry")
+var today = new Date().toISOString().split('T')[0];
+fields[2].setAttribute('min', today);
 function switchSummary() {
 
         cardsPage.classList.replace('show', 'hide');
@@ -645,6 +647,31 @@ function loadNotifications(notifs) {
         }
 
         document.getElementById('notif-list').appendChild(fragment);
+}
+function secondbill(){
+        const message = document.getElementById("notifierBills");
+        var bool=false;
+        for( i=0;i<fields.length;i++){
+                if(fields[i].value==""){
+                        bool=true;
+                }
+        }
+        if(bool){
+                message.innerHTML="dont leave any field empty"
+                message.classList.add("sliderError");
+                
+        }
+        else{
+              
+                message.innerHTML="Reminder set"
+                message.classList.remove("sliderError");
+              
+                
+        }
+        message.classList.remove("slowlyhide");
+                setTimeout(() => {
+                        message.classList.add("slowlyhide");
+                }, 2000);
 }
 
 loadNotifications(user.notifications);
