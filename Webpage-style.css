@@ -1280,6 +1280,7 @@ i {
     color: white;
     
     transition: .5s;
+    overflow-y: scroll;
 }
 
 .notif-panel-is-hidden{
@@ -1291,6 +1292,10 @@ i {
     border-radius: 13px 0px 0px 0px;
     padding:21px 21px 13px 21px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5) ;
+    background-color: #2B2B36;
+    position: sticky;
+    top:0px;
+    z-index: 5;
 }
 
 .notif-body {
@@ -1314,6 +1319,21 @@ i {
     bottom:1px;
 }
 
+.bi-x-octagon {
+    float: right;
+}
+
+.notif-bubble-nav {
+    font-size:18px;
+    margin-left:13px;
+    padding: 0px 8px 0px 8px;
+    border-radius: 21px;
+    background-color:#2B2B36;
+    color:white;
+    position:relative;
+    bottom:3px;
+    right:8px;
+}
 
 .notif-filter  li{
     font-size: 18px;
@@ -1340,6 +1360,8 @@ i {
 }
 
 .notif-item-head {
+    position: sticky;
+    top:0px;
     padding:8px 13px 8px 24px;
     color:white;
 }

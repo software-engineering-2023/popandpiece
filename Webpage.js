@@ -543,44 +543,152 @@ function secondbill() {
 
 let user = {
         name: "elon Musk",
-        accounts: [
+        accounts:[
                 {
                         accountNumber: "540076330348",
-                        debitNumber: "9876543210987654",
+                        debitNumber:"9876543210987654",
                         balance: 7174380.80,
                         availableToUse: 7174380,
                         type: "running",
                         transactions: [
                                 {
-                                        transactionDate: "2023-05-02",
-                                        valueDate: "2023-05-03",
+                                        transactionDate: "03/05/2023",
+                                        valueDate: "09/05/2023",
                                         details: "Sunrise Language School",
                                         debitCredit: 60000,
                                         balance: 8164380.9,
                                 },
                                 {
-                                        transactionDate: "2023-05-06",
-                                        valueDate: "2023-05-07",
+                                        transactionDate: "13/05/2023",
+                                        valueDate: "17/05/2023",
                                         details: "Mercedes-Benz",
                                         debitCredit: 1000000.91,
                                         balance: 7164380.9,
                                 },
                                 {
-                                        transactionDate: "2023-05-14",
-                                        valueDate: "2023-05-13",
+                                        transactionDate: "28/05/2023",
+                                        valueDate: "28/05/2023",
                                         details: "Madinaty",
                                         debitCredit: 50000.10,
                                         balance: 7174380.8,
+                                }
+                        ],
+
+                        creditCard:[
+                                {  
+                                cardNumber: "3614167248272936", 
+                                limit: 50000, 
+                                points: 50600, 
+                                amountDue: 26000, 
+                                expiryDate: 06 / 29,
+                                transactions: [
+                                        {
+                                                transactionDate: "16/05/2023",
+                                                valueDate: "17/05/2023",
+                                                details: "Amazon",
+                                                amountPaid: 999.99,
+                                        },
+                                        {
+                                                transactionDate: "18/05/2023",
+                                                valueDate: "18/05/2023",
+                                                details: "Carrefour",
+                                                amountPaid: 4000.33,
+                                        },
+                                        {
+                                                transactionDate: "28/05/2023",
+                                                valueDate: "28/05/2023",
+                                                details: "Netflix",
+                                                amountPaid: 160.00,
+                                        }
+                                ] 
+                        }
+                        ],
+
+                        debitTransaction:[
+                                {
+                                transactionDate: "30/05/2023",
+                                valueDate: "30/05/2023",
+                                details: "Starbucks",
+                                amountPaid: 60.42,               
+                                },
+                                
+                                {
+                                transactionDate: "28/05/2023",
+                                valueDate: "28/05/2023",
+                                details: "Uber",
+                                amountPaid: 44.91,                
+                                },
+
+                                {
+                                        transactionDate: "10/06/2023",
+                                        valueDate: "10/06/2023",
+                                        details: "Steam",
+                                        mountPaid: 120.91,
                                 }
                         ]
                 },
                 {
                         accountNumber: "540051080372",
-                        debitNumber: "5423216780987654",
+                        debitNumber:"5423216780987654",
                         balance: 3579.85,
                         availableToUse: 4130,
-                        type: "saving",
+                        type:"saving",
                         transactions: [
+                                {
+                                        transactionDate: "28/05/2023",
+                                        valueDate: "28/05/2023",
+                                        details: "Vodafone Red",
+                                        debitCredit: 300.53,
+                                        balance: 5380.90,
+                                },
+                                {
+                                        transactionDate: "28/05/2023",
+                                        valueDate: "28/05/2023",
+                                        details: "Jumia",
+                                        debitCredit: 1000.41,
+                                        balance: 5080.37,
+                                },
+                                {
+                                        transactionDate: "28/05/2023",
+                                        valueDate: "28/05/2023",
+                                        details: "DHL",
+                                        debitCredit: 500.11,
+                                        balance: 4079.96,
+                                } 
+                        ],
+
+                        creditCard:[
+                                {  
+                                        cardNumber: "3614608682512591",
+                                        limit: 20500,
+                                        points: 20600,
+                                        amountDue: 13000,
+                                        expiryDate: 06 / 29,
+                                        transactions: [
+                                                {
+                                                        transactionDate: "30/05/2023",
+                                                        valueDate: "30/05/2023",
+                                                        details: "Starbucks",
+                                                        amountPaid: 60.42,
+                                                
+                                                },
+                                                {
+                                                        transactionDate: "28/05/2023",
+                                                        valueDate: "28/05/2023",
+                                                        details: "Uber",
+                                                        amountPaid: 44.91,
+
+                                                },
+                                                {
+                                                        transactionDate: "10/06/2023",
+                                                        valueDate: "10/06/2023",
+                                                        details: "Steam",
+                                                        amountPaid: 120.91,
+                                                }
+                                        ]
+                                }
+                        ],
+                        debitCredit:[
                                 {
                                         transactionDate: "28/05/2023",
                                         valueDate: "28/05/2023",
@@ -606,67 +714,6 @@ let user = {
                 }
         ],
 
-        creditCards: [
-                {
-                        accountNumber: "540076330348",
-                        cardNumber: "3614167248272936",
-                        limit: 50000,
-                        points: 50600,
-                        amountDue: 26000,
-                        expiryDate: 06 / 29,
-                        transactions: [
-                                {
-                                        transactionDate: "16/05/2023",
-                                        valueDate: "17/05/2023",
-                                        details: "Amazon",
-                                        amountPaid: 999.99,
-                                },
-                                {
-                                        transactionDate: "18/05/2023",
-                                        valueDate: "18/05/2023",
-                                        details: "Carrefour",
-                                        amountPaid: 4000.33,
-                                },
-                                {
-                                        transactionDate: "28/05/2023",
-                                        valueDate: "28/05/2023",
-                                        details: "Netflix",
-                                        amountPaid: 160.00,
-                                }
-                        ]
-                },
-                {
-                        accountNumber: "540051080372",
-                        cardNumber: "3614608682512591",
-                        limit: 20500,
-                        points: 20600,
-                        amountDue: 13000,
-                        expiryDate: 06 / 29,
-                        transactions: [
-                                {
-                                        transactionDate: "30/05/2023",
-                                        valueDate: "30/05/2023",
-                                        details: "Starbucks",
-                                        amountPaid: 60.42,
-
-                                },
-                                {
-                                        transactionDate: "28/05/2023",
-                                        valueDate: "28/05/2023",
-                                        details: "Uber",
-                                        amountPaid: 44.91,
-
-                                },
-                                {
-                                        transactionDate: "10/06/2023",
-                                        valueDate: "10/06/2023",
-                                        details: "Steam",
-                                        amountPaid: 120.91,
-                                }
-                        ]
-                }
-        ],
-
         loans: [
                 {
                         accountNumber: "540051080372",
@@ -674,7 +721,7 @@ let user = {
                         date: "12/03/2023",
                         amount: 2000000,
                         period: 32,
-                        installment: this.amount * 1.1 / this.period,
+                        installment: 2000000 * 1.1 / 32,
                         type: "Car",
                         status: "Accepted",
                         currency: "EGP",
@@ -685,7 +732,7 @@ let user = {
                         amount: 2000000,
                         date: "12/03/2023",
                         period: 32,
-                        installment: this.amount * 1.1 / this.period,
+                        installment: 2000000 * 1.1 / 32,
                         type: "Car",
                         status: "Rejected",
                         currency: "EGP",
@@ -696,12 +743,13 @@ let user = {
                         amount: 2000000,
                         date: "12/03/2023",
                         period: 32,
-                        installment: this.amount * 1.1 / this.period,
+                        installment: 2000000 * 1.1 / 32,
                         type: "Car",
                         status: "Rejected",
                         currency: "EGP",
                 }
         ],
+        loanApplications:[],
 
         notifications: [
                 {
@@ -733,6 +781,7 @@ let user = {
                 }
         ]
 }
+
 let selectedAccount = 0;
 let selectedCard = 0;
 
@@ -747,22 +796,29 @@ rewards = [
 
 
 // load notif-panel dynamically
+
+let notifno = 0
+// load notif-panel dynamically
 function loadNotifications(notifs, filter) {
         notificationFilter = filter
         const fragment = document.createDocumentFragment();
-
+        let x = 0
         for (let i = 0; i < user.notifications.length; i++) {
+                x++
                 if (filter != "All" && filter != notifs[i].type + "s") {
                         continue;
                 }
+                
                 const div = document.createElement('div');
                 div.classList.add('notif-item');
                 if (notifs[i].state == "unread") {
                         div.classList.add('notif-item-is-active')
+                        
                 }
                 div.innerHTML =
-                        `<div class = "notif-item-head"> 
-                        <h6><i class=${(notifs[i].type == "Transfer" ? "bi-arrow-down-left-circle-fill" : "bi-alarm-fill")}></i>${notifs[i].type}</h6>
+                `<div class = "notif-item-head"> 
+                        <h6><i class=${(notifs[i].type == "Transfer" ? "bi-arrow-down-left-circle-fill" : "bi-alarm-fill")}></i>${notifs[i].type}<i class="bi-x-octagon"></i></h6>
+                        
                 </div>
                 <div class = "notif-item-body">
                         <p class = "notif-time">${notifs[i].time}</p>
@@ -775,9 +831,14 @@ function loadNotifications(notifs, filter) {
 
 
         }
+        notifno = x
+        document.getElementById('notif-bubble').innerHTML = x
+        
+        document.getElementById('notif-bubble-nav').innerHTML = x
         const notifList = document.getElementById('notif-list')
         notifList.innerHTML = "";
         notifList.appendChild(fragment);
+        addNotifEventListners()
 }
 let notificationFilter = "All"
 
@@ -810,6 +871,19 @@ for (let i = 0; i < filters.length; i++) {
                 loadNotifications(user.notifications, event.srcElement.innerHTML + "")
         })
 }
+
+//notif-addlisteners
+function addNotifEventListners(){
+
+        const closeNotif = document.getElementsByClassName('bi-x-octagon')
+        for(let i = 0; i < closeNotif.length; i++){
+                closeNotif[i].addEventListener('click', () => {
+                       user.notifications.splice(i,1)
+                       loadNotifications(user.notifications, notificationFilter);
+                })
+        }
+}
+
 // transactions: [
 //         {
 //                 transactionDate: "03/05/2023",
@@ -883,6 +957,7 @@ function updateTranscations() {
 
 // cards
 function format(x) {
+        x = Math.floor(x)
         x = x + ""
         let i = x.length
         let s
@@ -895,8 +970,11 @@ function format(x) {
                 s = x.substring(i - 3, i) + "," + s
                 i -= 3
         }
-        if (i != 0) {
+        if (i != 0 && x.length > 3) {
                 s = x.substring(0, i) + "," + s
+        }
+        else {
+                s = x
         }
 
         return s
@@ -907,7 +985,7 @@ document.getElementById('cardPayment-payoff').addEventListener('click', () => {
         let amount = document.getElementById('payoff-input').value;
         let balance = user.accounts[account].balance
         let availableToUse = user.accounts[account].availableToUse
-        let amountDue = user.creditCards[selectedCard].amountDue
+        let amountDue = user.accounts[account].creditCard[selectedCard].amountDue
         if (amount <= availableToUse && amount <= amountDue) {
 
                 balance -= amount
@@ -917,7 +995,7 @@ document.getElementById('cardPayment-payoff').addEventListener('click', () => {
                 user.accounts[account].availableToUse = availableToUse
 
                 amountDue -= amount
-                user.creditCards[selectedCard].amountDue = amountDue
+                user.accounts[account].creditCard[selectedCard].amountDue = amountDue
 
                 //update payoff module
                 document.getElementById('payoff-balance').innerHTML = "Available Balance: <br>" + format(availableToUse)
@@ -939,15 +1017,16 @@ let date = new Date();
 
 // notif payoff-card
 document.getElementById('cardPayment-reminder').addEventListener('click', () => {
+        const account = document.getElementById('account-numbers').value;
         let dateTime = document.getElementById('cardPayment-reminder-dateTime').value
         let date = dateTime.substring(0, 10)
         let time = dateTime.substring(11, 16)
-        user.notifications.push({
+        user.notifications.unshift({
                 state: "unread",
                 type: "Reminder",
                 title: "Payoff credit Card",
-                amount: format(user.creditCards[selectedCard].amountDue),
-                detail: "card no." + user.creditCards[selectedCard].cardNumber,
+                amount: format(user.accounts[account].creditCard[selectedCard].amountDue),
+                detail: "card no." + user.accounts[account].creditCard[selectedCard].cardNumber,
                 date: date,
                 time: time
         })
@@ -958,13 +1037,14 @@ document.getElementById('cardPayment-reminder').addEventListener('click', () => 
 const redeemButtons = document.getElementsByClassName('redeemButton')
 for (let i = 0; i < redeemButtons.length; i++) {
         redeemButtons[i].addEventListener('click', (event) => {
-                let points = user.creditCards[selectedCard].points
+                const account = document.getElementById('account-numbers').value;
+                let points = user.accounts[account].creditCard[selectedCard].points
                 points -= rewards[i].value;
                 if (points >= 0) {
-                        user.creditCards[selectedCard].points = points
+                        user.accounts[account].creditCard[selectedCard].points = points
                         document.getElementById('card-info-points').innerHTML = 'Points: ' + (points > 999 ? Math.floor(points / 1000) + "," : "") + points % 1000
                 }
-                console.log(user.creditCards[0].points);
+                console.log(user.accounts[account].creditCard[0].points);
         })
 }
 
@@ -978,9 +1058,12 @@ document.getElementById('loan-app-submit').addEventListener('click', () => {
         const table = document.getElementById('loan-applied')
         const tr = document.createElement('tr');
 
-
-        const date = new Date()
-        console.log("helloo")
+        user.loanApplications.push({
+                amount: amount,
+                currency: currency,
+                type: type,
+                status: "pending"
+        })    
         tr.innerHTML = `<td class="oddDataLeft">${format(amount) + " " + currency}</td>
                         <td>${date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()}</td>
                         <td>${type}</td>
@@ -989,6 +1072,106 @@ document.getElementById('loan-app-submit').addEventListener('click', () => {
 })
 
 
+let loanSelected = 0
+
+// loan-pay
+
+// loan-pay-load
+function loadLoans(){
+        let fragment = document.createDocumentFragment()
+
+        let head = document.createElement('tr')
+        head.innerHTML = `
+        <th>TOTAL AMOUNT</th>
+        <th>DUE AMOUNT</th>
+        <th>NEXT INSTALLMENT DATE</th>
+        <th>LOAN TYPE</th>`;
+
+        fragment.appendChild(head)
+        for(let i = 0; i < user.loans.length; i++){
+                
+                const temp = document.createElement('tr');
+                const loan = user.loans[i];
+
+                temp.innerHTML = `<td>${format(loan.amount) + " " +  loan.currency}</td>
+                <td>${format(loan.installment) + " " + loan.currency}</td>
+                <td>${loan.date}</td>
+                <td>${loan.type }</td>
+                <td>
+                        <button class = "loan-pay" onclick="payPopOpenLoan()" style="margin-top: 6px;">PAY</button>
+                </td>
+                <td>
+                        <div class="reminderFlex">
+                        <input type="datetime-local" data-placeholder="SET REMINDER" required
+                                    aria-required="true" />
+                        <button class="loanReminderConfirm loan-rem">CONFIRM</button>
+                        </div>
+                </td>`;
+
+
+                fragment.appendChild(temp)
+        }
+        let table  = document.getElementById('loans-table')
+        table.innerHTML = ""
+        table.appendChild(fragment)
+
+        const loanPayments = document.getElementsByClassName('loan-pay')
+        for(let i = 0; i < loanPayments.length; i++) {
+        loanPayments[i].addEventListener('click', () => {
+                loanSelected = i
+                let loan = user.loans[i]
+                document.getElementById('loan-pay-amount').innerHTML = format(loan.installment) + " " + loan.currency;
+                document.getElementById('loan-pay-avB').innerHTML = format(user.accounts[document.getElementById('loan-pay-account').value].availableToUse)
+        })
+        }
+}
+loadLoans();
+
+document.getElementById('loan-pay-account').addEventListener('change',()=>{
+        document.getElementById('loan-pay-avB').innerHTML = format(user.accounts[document.getElementById('loan-pay-account').value].availableToUse)
+})
+
+
+
+// loan-pay-confirm
+document.getElementById('loan-pay-confirm').addEventListener('click',() => {
+        let amount = user.loans[loanSelected].amount;
+        let accountIndex = document.getElementById('loan-pay-account').value
+        let balance = user.accounts[accountIndex].balance;
+        let availableToUse = user.accounts[accountIndex].availableToUse;
+        
+        if(amount <= availableToUse){
+                availableToUse -= amount
+                balance -= balance
+                user.accounts[accountIndex].balance = balance
+                user.accounts[accountIndex].availableToUse = availableToUse
+        }
+
+        // add edits to balance
+
+
+        
+})
+
+// loan-reminder
+const loanReminders = document.getElementsByClassName('loan-rem');
+for(let i = 0; i < loanReminders.length; i++) {
+        loanReminders[i].addEventListener('click', () => {
+                let dateTime = loanReminders[i].previousElementSibling.value;
+                let date = dateTime.substring(0, 10)
+                let time = dateTime.substring(11, 16)
+                user.notifications.unshift({
+                        state: "unread",
+                        type: "Reminder",
+                        title: "Pay loan installment",
+                        amount: format(user.loans[i].installment),
+                        detail: "loan no" + user.loans[i].number,
+                        date: date,
+                        time: time,
+                })
+                loadNotifications(user.notifications, notificationFilter);
+        })
+}
 
 
 
