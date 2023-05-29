@@ -1263,13 +1263,13 @@ document.getElementById('loan-pay-confirm').addEventListener('click',() => {
         
         if(amount <= availableToUse){
                 availableToUse -= amount
-                balance -= balance
+                balance -= amount
                 user.accounts[accountIndex].balance = balance
                 user.accounts[accountIndex].availableToUse = availableToUse
         }
 
         // add edits to balance
-
+        document.getElementById('loans-table').children[loanSelected + 1].innerHTML = ""
 
         
 })
