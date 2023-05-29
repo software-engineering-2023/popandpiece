@@ -1267,12 +1267,16 @@ document.getElementById('loan-pay-confirm').addEventListener('click',() => {
                 balance -= amount
                 user.accounts[accountIndex].balance = balance
                 user.accounts[accountIndex].availableToUse = availableToUse
+                document.getElementById('loans-table').children[loanSelected + 1].innerHTML = ""
+                changeBalance();
+                payoffButtonLoan();
+        }else{
+                const error = document.getElementById('errorPayoff1');
+                error.innerHTML = `<i class="bi bi-x-circle-fill"></i> no enough money`
+                error.classList.remove('hide');  
         }
-        changeBalance();
         // add edits to balance
-        document.getElementById('loans-table').children[loanSelected + 1].innerHTML = ""
 
-        
 })
 
 // loan-reminder
