@@ -22,9 +22,12 @@ const fading = document.getElementById('fading');
 var noOffFading = false;
 const selector = document.getElementsByClassName("selector")
 
-const fields= document.getElementsByClassName("secondbillsentry")
+const fields = document.getElementsByClassName("secondbillsentry")
+
+const currentDateTransfer = document.getElementById('dateInTransfer');
 var today = new Date().toISOString().split('T')[0];
 fields[2].setAttribute('min', today);
+currentDateTransfer.setAttribute('min', today);
 function switchSummary() {
 
         cardsPage.classList.replace('show', 'hide');
@@ -49,7 +52,6 @@ function switchSummary() {
 }
 
 function switchCards() {
-
         loansPage.classList.replace('show', 'hide');
         billsPage.classList.replace('show', 'hide');
         summaryPage.classList.replace('show', 'hide');
@@ -165,7 +167,9 @@ function toTransfer() { //this method switches from the transfers' page itself t
                 const domesticView = document.getElementById('domesticViewInterface');
                 const internationalView = document.getElementById('internationalViewInterface');
                 const transferPage = document.getElementById('transferCenter');
+                const toAccount = document.getElementById('toAccountInTransfer');
 
+                toAccount.classList.remove('hide');
                 transferPage.classList.remove('domesticView');
                 transferPage.classList.remove('internationalView');
                 transferPage.classList.add('LOSView');
@@ -174,16 +178,18 @@ function toTransfer() { //this method switches from the transfers' page itself t
         }
 }
 
-var endofCheck = 3;//used to determine when to stop checking for errors for the different views
+var endofCheck = 5;//used to determine when to stop checking for errors for the different views
 
 function toDomestic() {
         if (document.getElementById('domestic').checked) {
-                endofCheck = 9;
+                endofCheck = 11;
                 document.getElementById('summaryWithoutTransfer').classList.add('hide');
                 const domesticView = document.getElementById('domesticViewInterface');
                 const internationalView = document.getElementById('internationalViewInterface');
                 const transferPage = document.getElementById('transferCenter');
+                const toAccount = document.getElementById('toAccountInTransfer');
 
+                toAccount.classList.add('hide');
                 transferPage.classList.add('domesticView');
                 transferPage.classList.remove('internationalView');
                 domesticView.classList.remove('hide');
@@ -193,12 +199,14 @@ function toDomestic() {
 
 function toInternational() {
         if (document.getElementById('international').checked) {
-                endofCheck = 10;
+                endofCheck = 12;
                 document.getElementById('summaryWithoutTransfer').classList.add('hide');
                 const domesticView = document.getElementById('domesticViewInterface');
                 const internationalView = document.getElementById('internationalViewInterface');
                 const transferPage = document.getElementById('transferCenter');
+                const toAccount = document.getElementById('toAccountInTransfer');
 
+                toAccount.classList.add('hide');
                 transferPage.classList.add('internationalView');
                 internationalView.classList.remove('hide');
                 domesticView.classList.remove('hide');
@@ -231,12 +239,14 @@ function confirmBills() {
         } else {
                 message.classList.remove('sliderError');
                 message.innerHTML = 'Bill Paid';
+                billpay();
         }
-        
+
         message.classList.remove("slowlyhide");
         setTimeout(() => {
                 message.classList.add("slowlyhide");
         }, 2000);
+        
 
 }
 
@@ -244,9 +254,15 @@ function confirmTransfer() {
         const errors = document.getElementsByClassName('transferField');
         const errorMessage = document.getElementsByClassName('errorMessageTransfer');
         const currentView = document.getElementById('transferCenter');
+
         var empty = false;
 
         for (i = 0; i < endofCheck; i++) {
+                if (i == 1 && (document.getElementById('domestic').checked || document.getElementById('international').checked)) {
+
+                        i++;
+                }
+                i
                 if (errors[i].value == '')
                         if (errors[i].value == '')
                                 empty = true;
@@ -255,6 +271,7 @@ function confirmTransfer() {
         if (empty)
                 errorMessage[0].classList.remove('hide');
         else {
+                updateTranscations();
                 for (i = 0; i < errors.length; i++) {
                         errors[i].value = '';
                 }
@@ -508,35 +525,35 @@ function cardSelect() {
         loadCreditTransactions();
 }
 
-function secondbill(){
+function secondbill() {
         const message = document.getElementById("notifierBills");
-        var bool=false;
-        for( i=0;i<fields.length;i++){
-                if(fields[i].value==""){
-                        bool=true;
+        var bool = false;
+        for (i = 0; i < fields.length; i++) {
+                if (fields[i].value == "") {
+                        bool = true;
                 }
         }
-        if(bool){
-                message.innerHTML="dont leave any field empty"
+        if (bool) {
+                message.innerHTML = "dont leave any field empty"
                 message.classList.add("sliderError");
-                
+
         }
-        else{
-              
-                message.innerHTML="Reminder set"
+        else {
+
+                message.innerHTML = "Reminder set"
                 message.classList.remove("sliderError");
-              
-                
+
+
         }
         message.classList.remove("slowlyhide");
-                setTimeout(() => {
-                        message.classList.add("slowlyhide");
-                }, 2000);
+        setTimeout(() => {
+                message.classList.add("slowlyhide");
+        }, 2000);
 }
 
 let user = {
         name: "elon Musk",
-        accounts: [
+        accounts:[
                 {
                         accountNumber: "540076330348",
                         debitNumber:"9876543210987654",
@@ -709,7 +726,7 @@ let user = {
                         date: "12/03/2023",
                         amount: 2000000,
                         period: 32,
-                        installment: this.amount * 1.1 / this.period,
+                        installment: 2000000 * 1.1 / 32,
                         type: "Car",
                         status: "Accepted",
                         currency: "EGP",
@@ -720,7 +737,7 @@ let user = {
                         amount: 2000000,
                         date: "12/03/2023",
                         period: 32,
-                        installment: this.amount * 1.1 / this.period,
+                        installment: 2000000 * 1.1 / 32,
                         type: "Car",
                         status: "Rejected",
                         currency: "EGP",
@@ -731,12 +748,13 @@ let user = {
                         amount: 2000000,
                         date: "12/03/2023",
                         period: 32,
-                        installment: this.amount * 1.1 / this.period,
+                        installment: 2000000 * 1.1 / 32,
                         type: "Car",
                         status: "Rejected",
                         currency: "EGP",
                 }
         ],
+        loanApplications:[],
 
         notifications: [
                 {
@@ -768,36 +786,44 @@ let user = {
                 }
         ]
 }
+
 let selectedAccount = 0;
 let selectedCard = 0;
 
 rewards = [
-        {value:5500},
-        {value:2000},
-        {value:4000},
-        {value:1500},
-        {value:1000},
-        {value:2000}
+        { value: 5500 },
+        { value: 2000 },
+        { value: 4000 },
+        { value: 1500 },
+        { value: 1000 },
+        { value: 2000 }
 ]
 
 
 // load notif-panel dynamically
+
+let notifno = 0
+// load notif-panel dynamically
 function loadNotifications(notifs, filter) {
         notificationFilter = filter
         const fragment = document.createDocumentFragment();
-
+        let x = 0
         for (let i = 0; i < user.notifications.length; i++) {
-                if(filter != "All" && filter != notifs[i].type + "s"){
+                x++
+                if (filter != "All" && filter != notifs[i].type + "s") {
                         continue;
                 }
+                
                 const div = document.createElement('div');
                 div.classList.add('notif-item');
                 if (notifs[i].state == "unread") {
                         div.classList.add('notif-item-is-active')
+                        
                 }
                 div.innerHTML =
                 `<div class = "notif-item-head"> 
-                        <h6><i class=${(notifs[i].type == "Transfer" ? "bi-arrow-down-left-circle-fill" : "bi-alarm-fill")}></i>${notifs[i].type}</h6>
+                        <h6><i class=${(notifs[i].type == "Transfer" ? "bi-arrow-down-left-circle-fill" : "bi-alarm-fill")}></i>${notifs[i].type}<i class="bi-x-octagon"></i></h6>
+                        
                 </div>
                 <div class = "notif-item-body">
                         <p class = "notif-time">${notifs[i].time}</p>
@@ -808,11 +834,16 @@ function loadNotifications(notifs, filter) {
                 </div>`;
                 fragment.appendChild(div)
 
-                
+
         }
-        const notifList =  document.getElementById('notif-list')
+        notifno = x
+        document.getElementById('notif-bubble').innerHTML = x
+        
+        document.getElementById('notif-bubble-nav').innerHTML = x
+        const notifList = document.getElementById('notif-list')
         notifList.innerHTML = "";
         notifList.appendChild(fragment);
+        addNotifEventListners()
 }
 let notificationFilter = "All"
 
@@ -834,10 +865,10 @@ document.getElementById('notif').addEventListener('click', () => {
 
 // notif-panel filter
 const filters = document.getElementById('notif-filter').children
-for(let i = 0; i < filters.length; i++){
+for (let i = 0; i < filters.length; i++) {
         filters[i].addEventListener('click', (event) => {
-                for(let j = 0; j < filters.length; j++){
-                        if(filters[j].classList.contains('notif-filter-is-active')){
+                for (let j = 0; j < filters.length; j++) {
+                        if (filters[j].classList.contains('notif-filter-is-active')) {
                                 filters[j].classList.remove('notif-filter-is-active')
                         }
                 }
@@ -845,6 +876,19 @@ for(let i = 0; i < filters.length; i++){
                 loadNotifications(user.notifications, event.srcElement.innerHTML + "")
         })
 }
+
+//notif-addlisteners
+function addNotifEventListners(){
+
+        const closeNotif = document.getElementsByClassName('bi-x-octagon')
+        for(let i = 0; i < closeNotif.length; i++){
+                closeNotif[i].addEventListener('click', () => {
+                       user.notifications.splice(i,1)
+                       loadNotifications(user.notifications, notificationFilter);
+                })
+        }
+}
+
 //change balance
 function changeBalance(){
         const accountNum = document.getElementById('account-numbers').value;
@@ -860,7 +904,7 @@ function loadTransactions() {
         const accountNum = document.getElementById('account-numbers');
         const account = user.accounts[accountNum.value];
         const header = document.getElementById('summary-table-header');
-        for (let i = account.transactions.length-1; i >= 0; i--) {
+        for (let i = account.transactions.length - 1; i >= 0; i--) {
                 const tr = document.createElement('tr');
                 const trans = account.transactions[i];
                 tr.innerHTML = `<td>${trans.transactionDate}</td>
@@ -871,11 +915,37 @@ function loadTransactions() {
                 fragment.appendChild(tr);
         }
         const table = document.getElementById('summary-transactions-table');
-        table.innerHTML=``;
+        table.innerHTML = ``;
         table.appendChild(header);
         header.after(fragment);
 }
 loadTransactions();
+
+function updateTranscations() {
+        //fetching fields from the transfer page
+        const inputFields = document.getElementsByClassName('transferField');
+
+        const accountNum = document.getElementById('transfer-account');
+        const account = user.accounts[accountNum.value];
+        account.transactions.push({
+                transactionDate: inputFields[4].value,
+                valueDate: inputFields[4].value,
+                details: inputFields[0].value,
+                debitCredit: inputFields[2].value,
+                balance: account.availableToUse - inputFields[2].value,
+        })
+        account.availableToUse = account.availableToUse - inputFields[2].value;
+        loadTransactions();
+}
+
+// tr.innerHTML = `<td>${inputFields[3].value}</td>
+// <td>${inputFields[4].value}</td>
+// <td>${'to' + inputFields[4].value}</td>
+// <td>CR ${inputFields[2].value + inputFields[3].value} </td>
+// <td >CR ${format(trans.balance)} EGP</td>`
+
+
+
 //load Credit cards 
 function loadCredits(){
         const accountNum = document.getElementById('account-numbers').value;
@@ -975,27 +1045,27 @@ document.getElementById('account-numbers').addEventListener('change', ()=>{
 })      
 // cards
 function format(x) {
-        x = Math.floor(x);
+        x = Math.floor(x)
         x = x + ""
         let i = x.length
         let s
-        if( i > 2){
-                s = x.substring(i-3,i)
-                i -= 3
-        }
-
-        while (i > 2) {
-                s = x.substring(i-3,i) + "," + s
-                i -=3
-        }
-        if (i != 0 && x.length > 3) {
-                s = x.substring(0, i) + "," + s
-        }
-        else {
-                s = x
-        }
+        if (i > 2) {
+                        s = x.substring(i - 3, i)
+                        i -= 3
+                }
         
-        return s
+                while (i > 2) {
+                        s = x.substring(i - 3, i) + "," + s
+                        i -= 3
+                }
+                if (i != 0 && x.length > 3) {
+                        s = x.substring(0, i) + "," + s
+                }
+                else {
+                        s = x
+                }
+        
+                return s
 }
 document.getElementById('payoff-account').addEventListener('change',()=>{
         let account = document.getElementById('payoff-account').value
@@ -1015,10 +1085,10 @@ document.getElementById('cardPayment-payoff').addEventListener('click', () => {
                 
                 balance -= amount
                 user.accounts[account].balance = balance
-                
+
                 availableToUse -= amount
                 user.accounts[account].availableToUse = availableToUse
-                
+
                 amountDue -= amount
                 user.accounts[accountNum].creditCard[cardNum].amountDue = amountDue
                 
@@ -1027,7 +1097,7 @@ document.getElementById('cardPayment-payoff').addEventListener('click', () => {
 
                 // update card-payment module
                 document.getElementById('amountDue').innerHTML = format(amountDue) + "EGP"
-                               
+
                 // remove card-payment module
                 if(amountDue == 0) {
                         document.getElementById('card-payment').classList.add('hide');
@@ -1051,12 +1121,13 @@ let date = new Date();
 
 // notif payoff-card
 document.getElementById('cardPayment-reminder').addEventListener('click', () => {
+        const account = document.getElementById('account-numbers').value;
         let dateTime = document.getElementById('cardPayment-reminder-dateTime').value
         const cardNum = document.getElementById('cardsSelect').value;
         const accountNum = document.getElementById('account-numbers').value;
         let date = dateTime.substring(0,10)
         let time = dateTime.substring(11,16)
-        user.notifications.push({
+        user.notifications.unshift({
                 state: "unread",
                 type: "Reminder",
                 title: "Payoff credit Card",
@@ -1107,30 +1178,151 @@ document.getElementById('loan-app-submit').addEventListener('click', () => {
         const currency = document.getElementById('loan-app-currency').value
         const table = document.getElementById('loan-applied')
         const tr = document.createElement('tr');
-        const date = new Date()
+
+        user.loanApplications.push({
+                amount: amount,
+                currency: currency,
+                type: type,
+                status: "pending"
+        })    
         tr.innerHTML = `<td class="oddDataLeft">${format(amount) + " " + currency}</td>
-                        <td>${  date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() }</td>
+                        <td>${date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()}</td>
                         <td>${type}</td>
                         <td>Pending</td>`
         table.appendChild(tr);
 })
 
 
+let loanSelected = 0
+
+// loan-pay
+
+// loan-pay-load
+function loadLoans(){
+        let fragment = document.createDocumentFragment()
+
+        let head = document.createElement('tr')
+        head.innerHTML = `
+        <th>TOTAL AMOUNT</th>
+        <th>DUE AMOUNT</th>
+        <th>NEXT INSTALLMENT DATE</th>
+        <th>LOAN TYPE</th>`;
+
+        fragment.appendChild(head)
+        for(let i = 0; i < user.loans.length; i++){
+                
+                const temp = document.createElement('tr');
+                const loan = user.loans[i];
+
+                temp.innerHTML = `<td>${format(loan.amount) + " " +  loan.currency}</td>
+                <td>${format(loan.installment) + " " + loan.currency}</td>
+                <td>${loan.date}</td>
+                <td>${loan.type }</td>
+                <td>
+                        <button class = "loan-pay" onclick="payPopOpenLoan()" style="margin-top: 6px;">PAY</button>
+                </td>
+                <td>
+                        <div class="reminderFlex">
+                        <input type="datetime-local" data-placeholder="SET REMINDER" required
+                                    aria-required="true" />
+                        <button class="loanReminderConfirm loan-rem">CONFIRM</button>
+                        </div>
+                </td>`;
+
+
+                fragment.appendChild(temp)
+        }
+        let table  = document.getElementById('loans-table')
+        table.innerHTML = ""
+        table.appendChild(fragment)
+
+        const loanPayments = document.getElementsByClassName('loan-pay')
+        for(let i = 0; i < loanPayments.length; i++) {
+        loanPayments[i].addEventListener('click', () => {
+                loanSelected = i
+                let loan = user.loans[i]
+                document.getElementById('loan-pay-amount').innerHTML = format(loan.installment) + " " + loan.currency;
+                document.getElementById('loan-pay-avB').innerHTML = format(user.accounts[document.getElementById('loan-pay-account').value].availableToUse)
+        })
+        }
+}
+loadLoans();
+
+document.getElementById('loan-pay-account').addEventListener('change',()=>{
+        document.getElementById('loan-pay-avB').innerHTML = format(user.accounts[document.getElementById('loan-pay-account').value].availableToUse)
+})
+
+
+
+// loan-pay-confirm
+document.getElementById('loan-pay-confirm').addEventListener('click',() => {
+        let amount = user.loans[loanSelected].amount;
+        let accountIndex = document.getElementById('loan-pay-account').value
+        let balance = user.accounts[accountIndex].balance;
+        let availableToUse = user.accounts[accountIndex].availableToUse;
+        
+        if(amount <= availableToUse){
+                availableToUse -= amount
+                balance -= balance
+                user.accounts[accountIndex].balance = balance
+                user.accounts[accountIndex].availableToUse = availableToUse
+        }
+
+        // add edits to balance
+
+
+        
+})
+
+// loan-reminder
+const loanReminders = document.getElementsByClassName('loan-rem');
+for(let i = 0; i < loanReminders.length; i++) {
+        loanReminders[i].addEventListener('click', () => {
+                let dateTime = loanReminders[i].previousElementSibling.value;
+                let date = dateTime.substring(0, 10)
+                let time = dateTime.substring(11, 16)
+                user.notifications.unshift({
+                        state: "unread",
+                        type: "Reminder",
+                        title: "Pay loan installment",
+                        amount: format(user.loans[i].installment),
+                        detail: "loan no" + user.loans[i].number,
+                        date: date,
+                        time: time,
+                })
+                loadNotifications(user.notifications, notificationFilter);
+        })
+}
 
 
 
 
 //bill-pay
+function billpay() {
+        //fetching fields from the transfer page
 
+        const inputFields = document.getElementsByClassName('billsDropDown');
+        const amount=document.getElementsByClassName("amountInBills");
+        const account = user.accounts[inputFields[0].value];
+        account.transactions.push({
+                transactionDate: new Date().getFullYear()+"-"+new Date().getMonth()+"-"+new Date().getDay(),
+                valueDate: new Date().getFullYear()+"-"+new Date().getMonth()+"-"+new Date().getDay(),
+                details: inputFields[1].value,
+                debitCredit: amount[0].value,
+                balance: account.availableToUse - amount[0].value,
+        })
+        account.availableToUse = account.availableToUse - amount[0].value;
+        loadTransactions();
+}
 
 //bill-notifi
 document.getElementById('bill-save-reminder-button').addEventListener('click', () => {
         const dateTime = document.getElementById('bill-dateTime-input').value
-        const date = dateTime.substring(0,10);
-        const time = dateTime.substring(11,16);
+        const date = dateTime.substring(0, 10);
+        const time = dateTime.substring(11, 16);
         const amount = document.getElementById('bill-amount-input');
         const name = document.getElementById('bill-name-input');
-        user.notifications.push({
+        user.notifications.unshift({
                 state: "unread",
                 type: "Reminder",
                 title: name.value + " Bill Due",
