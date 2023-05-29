@@ -769,7 +769,51 @@ for (let i = 0; i < filters.length; i++) {
                 loadNotifications(user.notifications, event.srcElement.innerHTML + "")
         })
 }
-
+// transactions: [
+//         {
+//                 transactionDate: "03/05/2023",
+//                 valueDate: "09/05/2023",
+//                 details: "Sunrise Language School",
+//                 debitCredit: 60000,
+//                 balance: 8164380.9,
+//         },
+//         {
+//                 transactionDate: "13/05/2023",
+//                 valueDate: "17/05/2023",
+//                 details: "Mercedes-Benz",
+//                 debitCredit: 1000000.91,
+//                 balance: 7164380.9,
+//         },
+//         {
+//                 transactionDate: "28/05/2023",
+//                 valueDate: "28/05/2023",
+//                 details: "Madinaty",
+//                 debitCredit: 50000.10,
+//                 balance: 7174380.8,
+//         }
+// ]
+//Transactions
+function loadTransactions() {
+        const fragment = document.createDocumentFragment();
+        const accountNum = document.getElementById('account-numbers');
+        const account = user.accounts[accountNum.value];
+        const header = document.getElementById('summary-table-header');
+        for (let i = 0; i < account.transactions.length; i++) {
+                const tr = document.createElement('tr');
+                const trans = account.transactions[i];
+                tr.innerHTML = `<td>${trans.transactionDate}</td>
+                <td>${trans.valueDate}</td>
+                <td>${trans.details}</td>
+                <td>CR ${format(trans.debitCredit)} EGP</td>
+                <td >CR ${format(trans.balance)} EGP</td>`
+                fragment.appendChild(tr);
+        }
+        const table = document.getElementById('summary-transactions-table');
+        table.innerHTML=``;
+        table.appendChild(header);
+        header.after(fragment);
+}
+loadTransactions();
 // cards
 function format(x) {
         x = x + ""
@@ -879,3 +923,30 @@ document.getElementById('loan-app-submit').addEventListener('click', () => {
 
 
 
+
+
+
+
+
+//bill-pay
+
+
+//bill-notifi
+document.getElementById('bill-save-reminder-button').addEventListener('click', () => {
+        const dateTime = document.getElementById('bill-dateTime-input').value
+        const date = dateTime.substring(0,10);
+        const time = dateTime.substring(11,16);
+        const amount = document.getElementById('bill-amount-input');
+        const name = document.getElementById('bill-name-input');
+        user.notifications.push({
+                state: "unread",
+                type: "Reminder",
+                title: name.value + " Bill Due",
+                amount: format(amount.value),
+                detail: "Pay the" + name.value,
+                date: date,
+                time: time
+        })
+        loadNotifications(user.notifications, notificationFilter);
+        secondbill();
+})
