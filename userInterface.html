@@ -143,9 +143,9 @@
                             onclick="toInternational()"><label for="international">International</label>
                     </div>
                     <div id="toAccountInTransfer">
-                        <p style="margin-left: 115px;">To: &nbsp<input class="toAccountInTransfer transferField" placeholder="Account Number" type="number"></p>
+                        <p style="margin-left: 115px;">To: &nbsp<input class="toAccountInTransfer transferField" placeholder="Account Number" type="number" min="0"></p>
                     </div>
-                    <p style="margin-left: 60px;">Amount: <input class="amountInTransfer transferField" type="number"
+                    <p style="margin-left: 60px;">Amount: <input class="amountInTransfer transferField" type="number" min="0"
                             placeholder=" Enter Amount">
                         <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>
                         <select class="currency transferField">
@@ -172,7 +172,7 @@
                         <p style="display: inline; margin-left: 99px; margin-bottom: 20px;">City: &nbsp<input
                                 class="paymentName transferField" type="text" placeholder=" Enter City"></p><br>
                         <p style="display: inline; margin-left: -48px; margin-bottom: 20px;"> Swift Code or IBAN:
-                            &nbsp<input class="paymentName transferField" type="number"
+                            &nbsp<input class="paymentName transferField" type="number" min="0"
                                 placeholder=" Enter Swift or IBAN"></p><br>
                         <p style="display: inline; margin-left: -58px; margin-bottom: 20px;">Beneficiary Address:
                             &nbsp<input class="paymentName transferField" type="text"
@@ -328,7 +328,7 @@
                             Loan</b></p>
                     <div class="loanPageText">
                         <p style="display: inline; margin-left: 30px; margin-bottom: 20px;">National ID:
-                            &nbsp<input class="nationalField loanField" type="text" placeholder=" Ex. 30201010105432">
+                            &nbsp<input class="nationalField loanField" type="number" placeholder=" Ex. 30201010105432">
                         </p>
                         <br>
                         <label for="loanInTransfer" style="margin-left: 59px;">Account: </label>
@@ -343,7 +343,7 @@
                             <option value="Car">Car</option>
                         </select>
                         <p style="margin-left: 60px;">Amount: <input id="loan-app-amount"
-                                class="amountInTransfer loanField" type="text" placeholder=" Enter Amount">
+                                class="amountInTransfer loanField" type="number" placeholder=" Enter Amount">
                             <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>
                             <select id="loan-app-currency" class="currency">
                                 <option value="EGP">EGP</option>
@@ -358,7 +358,7 @@
                                 <option value="HKD">HKD</option>
                             </select>
                         <p style="margin-left: -22px;">Monthly Income: <input class="amountInTransfer loanField"
-                                type="text" placeholder=" Enter Amount">
+                                type="number" placeholder=" Enter Amount">
                             <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>
                             <select class="currency">
                                 <option value="EGP">EGP</option>
@@ -452,7 +452,7 @@
                             <option value="Telephone">Telephone</option>
                         </select>
                         <p style="margin-left: 15px; margin-top: 30px;">Amount: <input class="amountInBills billsField"
-                                type="text" placeholder=" Enter Amount">
+                                type="number" placeholder=" Enter Amount" min="0">
                             <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>
                             <select class="currency">
                                 <option value="EGP">EGP</option>

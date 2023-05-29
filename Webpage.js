@@ -1256,7 +1256,7 @@ document.getElementById('loan-pay-account').addEventListener('change',()=>{
 
 // loan-pay-confirm
 document.getElementById('loan-pay-confirm').addEventListener('click',() => {
-        let amount = user.loans[loanSelected].amount;
+        let amount = user.loans[loanSelected].installment;
         let accountIndex = document.getElementById('loan-pay-account').value
         let balance = user.accounts[accountIndex].balance;
         let availableToUse = user.accounts[accountIndex].availableToUse;
@@ -1267,7 +1267,7 @@ document.getElementById('loan-pay-confirm').addEventListener('click',() => {
                 user.accounts[accountIndex].balance = balance
                 user.accounts[accountIndex].availableToUse = availableToUse
         }
-
+        changeBalance();
         // add edits to balance
         document.getElementById('loans-table').children[loanSelected + 1].innerHTML = ""
 
