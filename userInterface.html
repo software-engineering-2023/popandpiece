@@ -291,7 +291,7 @@
                 </table>
             </div>
             <div id="creditPage">
-                <div class="cardsDuepayment">
+                <div id = "card-payment" class="cardsDuepayment">
                     <h1>CREDIT CARD BILL</h1>
                     <table>
                         <tr>
@@ -300,15 +300,15 @@
                         </tr>
                         <tr class="oddRow">
                             <td class="oddDataLeft">29/06/2023</td>
-                            <td class="tdWidth">26,000 EGP</td>
+                            <td id = "amountDue" class="tdWidth">26,000 EGP</td>
                             <td>
                                 <button id="cardPayButton" onclick="payPopOpen()">PAY</button>
                             </td>
                             <td class="oddDataRight">
                                 <div class="reminderFlex">
-                                    <input type="datetime-local" data-placeholder="SET REMINDER" required
+                                    <input id = "cardPayment-reminder-dateTime" type="datetime-local" data-placeholder="SET REMINDER" required
                                         aria-required="true" />
-                                    <button id="cardReminderButton">CONFIRM</button>
+                                    <button id="cardPayment-reminder">CONFIRM</button>
                                 </div>
                             </td>
                         </tr>
@@ -361,11 +361,11 @@
                     <i id="exit" class="bi-x-circle" onmouseover="hover()" onmouseleave="exithover()"
                         onclick="closepopup()"></i>
                     <p class="payPoptxt"><span>PAY OFF</span><br>TradeLine Installment</p>
-                    <select class="accountInTransfer" style="background: #B9DEFF;">
-                        <option value="540076330348">540076330348 (running)</option>
-                        <option value="540051080372">540051080372 (saving)</option>
+                    <select id = "payoff-account" class="accountInTransfer" style="background: #B9DEFF;">
+                        <option value="0">540076330348 (running)</option>
+                        <option value="1">540051080372 (saving)</option>
                     </select>
-                    <p
+                    <p  id = "payoff-balance"
                         style="margin-top: 10px;font-family: 'Tajawal';font-style: normal;font-weight: 500;font-size: 26px;color: rgba(0, 0, 0, 0.55);">
                         Available Balance: <br> 8222130 EGP</p>
                     <table>
@@ -375,7 +375,9 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type=number id="numberInput" min="1" class="payPopBox">
+                                <form>
+                                    <input type="number" name = "amount" id="payoff-input" class="payPopBox" />
+                                </form> 
                             </td>
                             <td>
                                 <div class="payPopBox">
@@ -387,7 +389,7 @@
                     <div style="display: flex; justify-content: space-evenly; text-align: center;">
                         <p id="errorPayoff" class="errorMessagePayoff hide"><i class="bi bi-x-circle-fill"></i> No
                             fields can be empty</p>
-                        <button id="payoffButton" onclick="payoffButton()">PAYOFF</button>
+                        <button id="cardPayment-payoff" >PAYOFF</button>
                     </div>
                 </div>
                 <div id="notifier" class="slider slowlyhide">Pay Off done!</div>

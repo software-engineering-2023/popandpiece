@@ -423,15 +423,16 @@ function exithover() {
 function closepopup() {
         const bigDiv = document.getElementById('bigDiv');
         const popMenu = document.getElementById('popMenu');
-        const number = document.getElementById('numberInput');
+        const number = document.getElementById('payoff-input');
 
         number.value = "";
         bigDiv.classList.add("hide");
         popMenu.classList.add("hide");
 }
+
 function payoffButton() {
         const message = document.getElementById("notifier");
-        const numField = document.getElementById("numberInput");
+        const numField = document.getElementById("payoff-input");
         if (!numField.value == "") {
                 closepopup();
                 message.classList.remove("slowlyhide");
@@ -443,6 +444,7 @@ function payoffButton() {
                 error.classList.remove('hide');
         }
 }
+
 
 function payPopOpenLoan() {
         const bigDiv1 = document.getElementById('bigDiv1');
@@ -496,7 +498,6 @@ function cardSelect() {
         }
 }
 
-
 function secondbill(){
         const message = document.getElementById("notifierBills");
         var bool=false;
@@ -522,9 +523,6 @@ function secondbill(){
                         message.classList.add("slowlyhide");
                 }, 2000);
 }
-
-
-
 
 let user = {
         name: "elon Musk",
@@ -714,7 +712,7 @@ rewards = [
 
 // load notif-panel dynamically
 function loadNotifications(notifs, filter) {
-
+        notificationFilter = filter
         const fragment = document.createDocumentFragment();
 
         for (let i = 0; i < user.notifications.length; i++) {
@@ -745,8 +743,9 @@ function loadNotifications(notifs, filter) {
         notifList.innerHTML = "";
         notifList.appendChild(fragment);
 }
+let notificationFilter = "All"
 
-loadNotifications(user.notifications, "All");
+loadNotifications(user.notifications, notificationFilter);
 
 // expand collapse notif-panel
 document.getElementById('notif').addEventListener('click', () => {
@@ -776,12 +775,84 @@ for(let i = 0; i < filters.length; i++){
         })
 }
 
+// cards
+function format(x) {
+        x = x + ""
+        let i = x.length
+        let s
+        if( i > 2){
+                s = x.substring(i-3,i)
+                i -= 3
+        }
+
+        while (i > 2) {
+                s = x.substring(i-3,i) + "," + s
+                i -=3
+        }
+        if(i != 0) {
+                s = x.substring(0,i) + "," + s
+        }
+        
+        return s
+}
+// payoff card
+document.getElementById('cardPayment-payoff').addEventListener('click', () => {
+        let account = document.getElementById('payoff-account').value
+        let amount = document.getElementById('payoff-input').value;
+        let balance = user.accounts[account].balance
+        let availableToUse = user.accounts[account].availableToUse
+        let amountDue = user.creditCards[selectedCard].amountDue
+        if(amount <= availableToUse && amount <= amountDue) {
+                
+                balance -= amount
+                user.accounts[account].balance = amount
+                
+                availableToUse -= amount
+                user.accounts[account].availableToUse = availableToUse
+                
+                amountDue -= amount
+                user.creditCards[selectedCard].amountDue = amountDue
+                
+                //update payoff module
+                document.getElementById('payoff-balance').innerHTML = "Available Balance: <br>" + format(availableToUse)
+
+                // update card-payment module
+                document.getElementById('amountDue').innerHTML = format(amountDue) + "EGP"
+                               
+                // remove card-payment module
+                if(amountDue == 0) {
+                        document.getElementById('card-payment').style.display = "none";
+                }
+        }
+
+        // calling payoffButton()
+        payoffButton()
+
+})
+let date = new Date();
+
+// notif payoff-card
+document.getElementById('cardPayment-reminder').addEventListener('click', () => {
+        let dateTime = document.getElementById('cardPayment-reminder-dateTime').value
+        let date = dateTime.substring(0,10)
+        let time = dateTime.substring(11,16)
+        user.notifications.push({
+                state: "unread",
+                type: "Reminder",
+                title: "Payoff credit Card",
+                amount: format(user.creditCards[selectedCard].amountDue),
+                detail: "card no." + user.creditCards[selectedCard].cardNumber,
+                date: date,
+                time: time
+        })
+        loadNotifications(user.notifications, notificationFilter);
+})
+
 // redeem points
 const redeemButtons = document.getElementsByClassName('redeemButton')
 for(let i = 0; i < redeemButtons.length; i++){
         redeemButtons[i].addEventListener('click', (event) => {
                 let points = user.creditCards[selectedCard].points
-                console.log(i);
                 points -= rewards[i].value;
                 if(points >= 0){
                         user.creditCards[selectedCard].points = points
