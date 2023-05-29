@@ -279,6 +279,7 @@ function confirmTransfer() {
                 payoffButtonTransfer();
                 cancelTransfer();
         }
+        changeBalance();
 }
 
 function notifyReport() {
