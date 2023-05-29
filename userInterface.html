@@ -125,16 +125,15 @@
 
             </div>
             <div id="transferCenter" class="hide LOSView">
-
                 <p style="font-size: 48px; padding-left: 50px; padding-top: 30px;"><b>New Transfer</b></p>
                 <div class="transferPageText">
                     <p style="display: inline; margin-left: -35px; margin-bottom: 20px;">beneficiary Name:
                         &nbsp<input class="paymentName transferField" type="text" placeholder=" Ex. Kika Mina"></p>
                     <br>
                     <label for="accountInTransfer" style="margin-left: 59px;">Account: </label>
-                    <select class="accountInTransfer">
-                        <option value="540076330348">540076330348 (running)</option>
-                        <option value="540051080372">540051080372 (saving)</option>
+                    <select id="transfer-account" class="accountInTransfer">
+                        <option value="0">540076330348 (running)</option>
+                        <option value="1">540051080372 (saving)</option>
                     </select>
                     <div style="margin-bottom: -25px; margin-left:-38px; display: flex; gap:10px; align-items: center;">
                         <p>Transaction Type:</p>
@@ -144,10 +143,13 @@
                             for="domestic">Domestic</label><input type="radio" id="international" name="transcationType"
                             onclick="toInternational()"><label for="international">International</label>
                     </div>
+                    <div id="toAccountInTransfer">
+                        <p style="margin-left: 115px;">To: &nbsp<input class="toAccountInTransfer transferField" placeholder="Account Number" type="text"></p>
+                    </div>
                     <p style="margin-left: 60px;">Amount: <input class="amountInTransfer transferField" type="text"
                             placeholder=" Enter Amount">
                         <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>
-                        <select class="currency">
+                        <select class="currency transferField">
                             <option value="EGP">EGP</option>
                             <option value="EUR">EUR</option>
                             <option value="JPY">JPY</option>
@@ -159,7 +161,7 @@
                             <option value="NZD">NZD</option>
                             <option value="HKD">HKD</option>
                         </select>
-                    <p style="margin-left: 90px;">Date: <input class="dateInTransfer transferField" type="date"></p>
+                    <p style="margin-left: 90px;">Date: <input id="dateInTransfer" class="dateInTransfer transferField" type="date"></p>
                     <div id="domesticViewInterface" class="hide">
                         <p style="display: inline; margin-left: 25px; margin-bottom: 20px;">Bank Name: &nbsp<input
                                 class="paymentName transferField" type="text" placeholder=" Enter Bank Name"></p>
