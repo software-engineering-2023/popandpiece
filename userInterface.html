@@ -407,20 +407,20 @@
                         </p>
                         <br>
                         <label for="loanInTransfer" style="margin-left: 59px;">Account: </label>
-                        <select class="loanInTransfer">
-                            <option value="540076330348">540076330348 (running)</option>
-                        <option value="540051080372">540051080372 (saving)</option>
+                        <select  id = "loan-app-account" class="loanInTransfer">
+                            <option value="0">540076330348 (running)</option>
+                        <option value="1">540051080372 (saving)</option>
                         </select>
                         <br>
                         <label for="loanInTransfer" style="margin-left: 59px;">Reason: </label>
-                        <select class="loanInTransfer" style="margin-top: 20px;margin-left: 15px">
+                        <select id = "loan-app-type" class="loanInTransfer" style="margin-top: 20px;margin-left: 15px">
                             <option value="Personal">Personal</option>
                             <option value="Car">Car</option>
                         </select>
-                        <p style="margin-left: 60px;">Amount: <input class="amountInTransfer loanField" type="text"
+                        <p style="margin-left: 60px;">Amount: <input id = "loan-app-amount" class="amountInTransfer loanField" type="text"
                                 placeholder=" Enter Amount">
                             <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>
-                            <select class="currency">
+                            <select id = "loan-app-currency" class="currency">
                                 <option value="EGP">EGP</option>
                                 <option value="EUR">EUR</option>
                                 <option value="JPY">JPY</option>
@@ -450,7 +450,7 @@
                         <p style="display: inline; margin-left: 55px;">Job Title:
                             &nbsp<input class="nationalField loanField" type="text" placeholder=" Ex. Engineer"></p>
                         <div class="confirmButtonsLoan">
-                            <button id="confirmLoan" onclick="">Submit</button>
+                            <button id = "loan-app-submit" class="confirmLoan">Submit</button>
                         </div>
                         <p class="errorMessageTransfer hide"><i class="bi bi-x-circle-fill"></i> No fields can be empty
                         </p>
@@ -503,7 +503,7 @@
                         <div>
                             <h1 style="font-size: 48px; padding-left: 50px; padding-top: 30px;margin-top: 0;"><b>Applied
                                     Loans</b></h1>
-                            <table>
+                            <table id = "loan-applied" >
                                 <tr>
                                     <th>APPLIED AMOUNT</th>
                                     <th>APPLICATON DATE</th>

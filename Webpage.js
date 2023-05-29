@@ -539,21 +539,21 @@ let user = {
                                         valueDate: "09/05/2023",
                                         details: "Sunrise Language School",
                                         debitCredit: 60000,
-                                        balance: 8164380.9
+                                        balance: 8164380.9,
                                 },
                                 {
                                         transactionDate: "13/05/2023",
                                         valueDate: "17/05/2023",
                                         details: "Mercedes-Benz",
                                         debitCredit: 1000000.91,
-                                        balance: 7164380.9
+                                        balance: 7164380.9,
                                 },
                                 {
                                         transactionDate: "28/05/2023",
                                         valueDate: "28/05/2023",
                                         details: "Madinaty",
                                         debitCredit: 50000.10,
-                                        balance: 7174380.8
+                                        balance: 7174380.8,
                                 }
                         ]
                 },
@@ -569,21 +569,21 @@ let user = {
                                         valueDate: "28/05/2023",
                                         details: "Vodafone Red",
                                         debitCredit: 300.53,
-                                        balance: 5380.90
+                                        balance: 5380.90,
                                 },
                                 {
                                         transactionDate: "28/05/2023",
                                         valueDate: "28/05/2023",
                                         details: "Jumia",
                                         debitCredit: 1000.41,
-                                        balance: 5080.37
+                                        balance: 5080.37,
                                 },
                                 {
                                         transactionDate: "28/05/2023",
                                         valueDate: "28/05/2023",
                                         details: "DHL",
                                         debitCredit: 500.11,
-                                        balance: 4079.96
+                                        balance: 4079.96,
                                 }
                         ]
                 }
@@ -591,7 +591,7 @@ let user = {
 
         creditCards: [
                 {  
-                        accountNumber: "540051080372", 
+                        accountNumber: "540076330348", 
                         cardNumber: "3614167248272936", 
                         limit: 50000, 
                         points: 50600, 
@@ -602,24 +602,24 @@ let user = {
                                         transactionDate: "16/05/2023",
                                         valueDate: "17/05/2023",
                                         details: "Amazon",
-                                        amountPaid: 999.99
+                                        amountPaid: 999.99,
                                 },
                                 {
                                         transactionDate: "18/05/2023",
                                         valueDate: "18/05/2023",
                                         details: "Carrefour",
-                                        amountPaid: 4000.33
+                                        amountPaid: 4000.33,
                                 },
                                 {
                                         transactionDate: "28/05/2023",
                                         valueDate: "28/05/2023",
                                         details: "Netflix",
-                                        amountPaid: 160.00
+                                        amountPaid: 160.00,
                                 }
                         ] 
                 },
                 {  
-                        accountNumber: "540076330348",
+                        accountNumber: "540051080372",
                         cardNumber: "3614608682512591",
                         limit: 20500,
                         points: 20600,
@@ -630,21 +630,21 @@ let user = {
                                         transactionDate: "30/05/2023",
                                         valueDate: "30/05/2023",
                                         details: "Starbucks",
-                                        amountPaid: 60.42
+                                        amountPaid: 60.42,
                                        
                                 },
                                 {
                                         transactionDate: "28/05/2023",
                                         valueDate: "28/05/2023",
                                         details: "Uber",
-                                        amountPaid: 44.91
+                                        amountPaid: 44.91,
                                         
                                 },
                                 {
                                         transactionDate: "10/06/2023",
                                         valueDate: "10/06/2023",
                                         details: "Steam",
-                                        amountPaid: 120.91
+                                        amountPaid: 120.91,
                                 }
                         ]
                  }
@@ -654,16 +654,35 @@ let user = {
                 {
                         accountNumber: "540051080372",
                         number: "191922009764869L",
-                        amount: 1000000,
+                        date: "12/03/2023",
+                        amount: 2000000,
                         period: 32,
-                        installment: this.amount * 1.1 / this.period
+                        installment: this.amount * 1.1 / this.period,
+                        type: "Car",
+                        status: "Accepted",
+                        currency: "EGP",
                 },
                 {
                         accountNumber: "540076330348",
                         number: "173906995243957L",
-                        amount: 1000000,
+                        amount: 2000000,
+                        date: "12/03/2023",
                         period: 32,
-                        installment: this.amount * 1.1 / this.period
+                        installment: this.amount * 1.1 / this.period,
+                        type: "Car",
+                        status: "Rejected",
+                        currency: "EGP",
+                },
+                {
+                        accountNumber: "540076330348",
+                        number: "173906995243957L",
+                        amount: 2000000,
+                        date: "12/03/2023",
+                        period: 32,
+                        installment: this.amount * 1.1 / this.period,
+                        type: "Car",
+                        status: "Rejected",
+                        currency: "EGP",
                 }
         ],
 
@@ -675,7 +694,7 @@ let user = {
                         amount: 50259,
                         detail: "Bezoz, Jeff LB",
                         date: "2023/07/14",
-                        time: "18:00"
+                        time: "18:00",
                 },
                 {
                         state: "unread",
@@ -684,7 +703,7 @@ let user = {
                         amount: 250,
                         sender: "bills",
                         date: "2023/07/14",
-                        time: "16:00"
+                        time: "16:00",
                 },
                 {
                         state: "read",
@@ -693,7 +712,7 @@ let user = {
                         amount: 12600,
                         detail: "card no. 3614167248272936",
                         date: "5/06/2023",
-                        time: "14:00"
+                        time: "14:00",
                 }
         ]
 }
@@ -805,7 +824,7 @@ document.getElementById('cardPayment-payoff').addEventListener('click', () => {
         if(amount <= availableToUse && amount <= amountDue) {
                 
                 balance -= amount
-                user.accounts[account].balance = amount
+                user.accounts[account].balance = balance
                 
                 availableToUse -= amount
                 user.accounts[account].availableToUse = availableToUse
@@ -827,8 +846,8 @@ document.getElementById('cardPayment-payoff').addEventListener('click', () => {
 
         // calling payoffButton()
         payoffButton()
-
 })
+
 let date = new Date();
 
 // notif payoff-card
@@ -861,3 +880,24 @@ for(let i = 0; i < redeemButtons.length; i++){
                 console.log(user.creditCards[0].points);
         })
 }
+
+// loans
+// loan-app
+document.getElementById('loan-app-submit').addEventListener('click', () => {
+        const account = document.getElementById('loan-app-account').value;
+        const type = document.getElementById('loan-app-type').value;
+        const amount = document.getElementById('loan-app-amount').value
+        const currency = document.getElementById('loan-app-currency').value
+        const table = document.getElementById('loan-applied')
+        const tr = document.createElement('tr');
+
+
+        const date = new Date()
+        console.log("helloo")
+        tr.innerHTML = `<td class="oddDataLeft">${format(amount) + " " + currency}</td>
+                        <td>${  date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() }</td>
+                        <td>${type}</td>
+                        <td>Pending</td>`
+        table.appendChild(tr);
+})
+

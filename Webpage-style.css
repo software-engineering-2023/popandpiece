@@ -1057,7 +1057,7 @@ i {
     margin-left: 330px;
 }
 
-#confirmLoan:hover {
+.confirmLoan:hover {
     background-color: rgb(222, 220, 220);
     color: black;
 }
@@ -1079,7 +1079,7 @@ i {
     margin-top: 5px;
 }
 
-#confirmLoan {
+.confirmLoan {
     border: 3px solid black;
     background-color: black;
     color: white;
@@ -1253,7 +1253,7 @@ i {
     border-radius: 8px 0px 0px 8px;
     font-family: "Tajawal";
     box-sizing: border-box;
-    position:fixed;
+    position: absolute;
     top: 200px;
     right: 0px;
     bottom: 0px;
@@ -1267,6 +1267,7 @@ i {
 
 .notif-panel-is-hidden{
     right: -400px;
+    display: none;
 }
 
 .notif-head {
