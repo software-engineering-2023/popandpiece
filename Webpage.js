@@ -22,7 +22,7 @@ const fading = document.getElementById('fading');
 var noOffFading = false;
 const selector = document.getElementsByClassName("selector")
 
-const fields= document.getElementsByClassName("secondbillsentry")
+const fields = document.getElementsByClassName("secondbillsentry")
 var today = new Date().toISOString().split('T')[0];
 fields[2].setAttribute('min', today);
 function switchSummary() {
@@ -232,36 +232,12 @@ function confirmBills() {
                 message.classList.remove('sliderError');
                 message.innerHTML = 'Bill Paid';
         }
-        
+
         message.classList.remove("slowlyhide");
         setTimeout(() => {
                 message.classList.add("slowlyhide");
         }, 2000);
 
-}
-
-function confirmTransfer() {
-        const errors = document.getElementsByClassName('transferField');
-        const errorMessage = document.getElementsByClassName('errorMessageTransfer');
-        const currentView = document.getElementById('transferCenter');
-        var empty = false;
-
-        for (i = 0; i < endofCheck; i++) {
-                if (errors[i].value == '')
-                        if (errors[i].value == '')
-                                empty = true;
-        }
-
-        if (empty)
-                errorMessage[0].classList.remove('hide');
-        else {
-                for (i = 0; i < errors.length; i++) {
-                        errors[i].value = '';
-                }
-                errorMessage[0].classList.add('hide');
-                payoffButtonTransfer();
-                cancelTransfer();
-        }
 }
 
 function notifyReport() {
@@ -498,30 +474,30 @@ function cardSelect() {
         }
 }
 
-function secondbill(){
+function secondbill() {
         const message = document.getElementById("notifierBills");
-        var bool=false;
-        for( i=0;i<fields.length;i++){
-                if(fields[i].value==""){
-                        bool=true;
+        var bool = false;
+        for (i = 0; i < fields.length; i++) {
+                if (fields[i].value == "") {
+                        bool = true;
                 }
         }
-        if(bool){
-                message.innerHTML="dont leave any field empty"
+        if (bool) {
+                message.innerHTML = "dont leave any field empty"
                 message.classList.add("sliderError");
-                
+
         }
-        else{
-              
-                message.innerHTML="Reminder set"
+        else {
+
+                message.innerHTML = "Reminder set"
                 message.classList.remove("sliderError");
-              
-                
+
+
         }
         message.classList.remove("slowlyhide");
-                setTimeout(() => {
-                        message.classList.add("slowlyhide");
-                }, 2000);
+        setTimeout(() => {
+                message.classList.add("slowlyhide");
+        }, 2000);
 }
 
 let user = {
@@ -529,7 +505,7 @@ let user = {
         accounts: [
                 {
                         accountNumber: "540076330348",
-                        debitNumber:"9876543210987654",
+                        debitNumber: "9876543210987654",
                         balance: 7174380.80,
                         availableToUse: 7174380,
                         type: "running",
@@ -559,10 +535,10 @@ let user = {
                 },
                 {
                         accountNumber: "540051080372",
-                        debitNumber:"5423216780987654",
+                        debitNumber: "5423216780987654",
                         balance: 3579.85,
                         availableToUse: 4130,
-                        type:"saving",
+                        type: "saving",
                         transactions: [
                                 {
                                         transactionDate: "28/05/2023",
@@ -590,12 +566,12 @@ let user = {
         ],
 
         creditCards: [
-                {  
-                        accountNumber: "540076330348", 
-                        cardNumber: "3614167248272936", 
-                        limit: 50000, 
-                        points: 50600, 
-                        amountDue: 26000, 
+                {
+                        accountNumber: "540076330348",
+                        cardNumber: "3614167248272936",
+                        limit: 50000,
+                        points: 50600,
+                        amountDue: 26000,
                         expiryDate: 06 / 29,
                         transactions: [
                                 {
@@ -616,9 +592,9 @@ let user = {
                                         details: "Netflix",
                                         amountPaid: 160.00,
                                 }
-                        ] 
+                        ]
                 },
-                {  
+                {
                         accountNumber: "540051080372",
                         cardNumber: "3614608682512591",
                         limit: 20500,
@@ -631,14 +607,14 @@ let user = {
                                         valueDate: "30/05/2023",
                                         details: "Starbucks",
                                         amountPaid: 60.42,
-                                       
+
                                 },
                                 {
                                         transactionDate: "28/05/2023",
                                         valueDate: "28/05/2023",
                                         details: "Uber",
                                         amountPaid: 44.91,
-                                        
+
                                 },
                                 {
                                         transactionDate: "10/06/2023",
@@ -647,8 +623,8 @@ let user = {
                                         amountPaid: 120.91,
                                 }
                         ]
-                 }
-        ], 
+                }
+        ],
 
         loans: [
                 {
@@ -720,12 +696,12 @@ let selectedAccount = 0;
 let selectedCard = 0;
 
 rewards = [
-        {value:5500},
-        {value:2000},
-        {value:4000},
-        {value:1500},
-        {value:1000},
-        {value:2000}
+        { value: 5500 },
+        { value: 2000 },
+        { value: 4000 },
+        { value: 1500 },
+        { value: 1000 },
+        { value: 2000 }
 ]
 
 
@@ -735,7 +711,7 @@ function loadNotifications(notifs, filter) {
         const fragment = document.createDocumentFragment();
 
         for (let i = 0; i < user.notifications.length; i++) {
-                if(filter != "All" && filter != notifs[i].type + "s"){
+                if (filter != "All" && filter != notifs[i].type + "s") {
                         continue;
                 }
                 const div = document.createElement('div');
@@ -744,7 +720,7 @@ function loadNotifications(notifs, filter) {
                         div.classList.add('notif-item-is-active')
                 }
                 div.innerHTML =
-                `<div class = "notif-item-head"> 
+                        `<div class = "notif-item-head"> 
                         <h6><i class=${(notifs[i].type == "Transfer" ? "bi-arrow-down-left-circle-fill" : "bi-alarm-fill")}></i>${notifs[i].type}</h6>
                 </div>
                 <div class = "notif-item-body">
@@ -756,9 +732,9 @@ function loadNotifications(notifs, filter) {
                 </div>`;
                 fragment.appendChild(div)
 
-                
+
         }
-        const notifList =  document.getElementById('notif-list')
+        const notifList = document.getElementById('notif-list')
         notifList.innerHTML = "";
         notifList.appendChild(fragment);
 }
@@ -782,10 +758,10 @@ document.getElementById('notif').addEventListener('click', () => {
 
 // notif-panel filter
 const filters = document.getElementById('notif-filter').children
-for(let i = 0; i < filters.length; i++){
+for (let i = 0; i < filters.length; i++) {
         filters[i].addEventListener('click', (event) => {
-                for(let j = 0; j < filters.length; j++){
-                        if(filters[j].classList.contains('notif-filter-is-active')){
+                for (let j = 0; j < filters.length; j++) {
+                        if (filters[j].classList.contains('notif-filter-is-active')) {
                                 filters[j].classList.remove('notif-filter-is-active')
                         }
                 }
@@ -843,19 +819,19 @@ function format(x) {
         x = x + ""
         let i = x.length
         let s
-        if( i > 2){
-                s = x.substring(i-3,i)
+        if (i > 2) {
+                s = x.substring(i - 3, i)
                 i -= 3
         }
 
         while (i > 2) {
-                s = x.substring(i-3,i) + "," + s
-                i -=3
+                s = x.substring(i - 3, i) + "," + s
+                i -= 3
         }
-        if(i != 0) {
-                s = x.substring(0,i) + "," + s
+        if (i != 0) {
+                s = x.substring(0, i) + "," + s
         }
-        
+
         return s
 }
 // payoff card
@@ -865,25 +841,25 @@ document.getElementById('cardPayment-payoff').addEventListener('click', () => {
         let balance = user.accounts[account].balance
         let availableToUse = user.accounts[account].availableToUse
         let amountDue = user.creditCards[selectedCard].amountDue
-        if(amount <= availableToUse && amount <= amountDue) {
-                
+        if (amount <= availableToUse && amount <= amountDue) {
+
                 balance -= amount
                 user.accounts[account].balance = balance
-                
+
                 availableToUse -= amount
                 user.accounts[account].availableToUse = availableToUse
-                
+
                 amountDue -= amount
                 user.creditCards[selectedCard].amountDue = amountDue
-                
+
                 //update payoff module
                 document.getElementById('payoff-balance').innerHTML = "Available Balance: <br>" + format(availableToUse)
 
                 // update card-payment module
                 document.getElementById('amountDue').innerHTML = format(amountDue) + "EGP"
-                               
+
                 // remove card-payment module
-                if(amountDue == 0) {
+                if (amountDue == 0) {
                         document.getElementById('card-payment').style.display = "none";
                 }
         }
@@ -897,8 +873,8 @@ let date = new Date();
 // notif payoff-card
 document.getElementById('cardPayment-reminder').addEventListener('click', () => {
         let dateTime = document.getElementById('cardPayment-reminder-dateTime').value
-        let date = dateTime.substring(0,10)
-        let time = dateTime.substring(11,16)
+        let date = dateTime.substring(0, 10)
+        let time = dateTime.substring(11, 16)
         user.notifications.push({
                 state: "unread",
                 type: "Reminder",
@@ -913,13 +889,13 @@ document.getElementById('cardPayment-reminder').addEventListener('click', () => 
 
 // redeem points
 const redeemButtons = document.getElementsByClassName('redeemButton')
-for(let i = 0; i < redeemButtons.length; i++){
+for (let i = 0; i < redeemButtons.length; i++) {
         redeemButtons[i].addEventListener('click', (event) => {
                 let points = user.creditCards[selectedCard].points
                 points -= rewards[i].value;
-                if(points >= 0){
+                if (points >= 0) {
                         user.creditCards[selectedCard].points = points
-                        document.getElementById('card-info-points').innerHTML = 'Points: ' + (points > 999? Math.floor(points/1000) + ",": "") + points%1000
+                        document.getElementById('card-info-points').innerHTML = 'Points: ' + (points > 999 ? Math.floor(points / 1000) + "," : "") + points % 1000
                 }
                 console.log(user.creditCards[0].points);
         })
@@ -939,11 +915,13 @@ document.getElementById('loan-app-submit').addEventListener('click', () => {
         const date = new Date()
         console.log("helloo")
         tr.innerHTML = `<td class="oddDataLeft">${format(amount) + " " + currency}</td>
-                        <td>${  date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() }</td>
+                        <td>${date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()}</td>
                         <td>${type}</td>
                         <td>Pending</td>`
         table.appendChild(tr);
 })
+
+
 
 
 
