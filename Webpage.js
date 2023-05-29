@@ -239,12 +239,14 @@ function confirmBills() {
         } else {
                 message.classList.remove('sliderError');
                 message.innerHTML = 'Bill Paid';
+                billpay();
         }
 
         message.classList.remove("slowlyhide");
         setTimeout(() => {
                 message.classList.add("slowlyhide");
         }, 2000);
+        
 
 }
 
@@ -992,7 +994,22 @@ document.getElementById('loan-app-submit').addEventListener('click', () => {
 
 
 //bill-pay
+function billpay() {
+        //fetching fields from the transfer page
 
+        const inputFields = document.getElementsByClassName('billsDropDown');
+        const amount=document.getElementsByClassName("amountInBills");
+        const account = user.accounts[inputFields[0].value];
+        account.transactions.push({
+                transactionDate: new Date().getFullYear()+"-"+new Date().getMonth()+"-"+new Date().getDay(),
+                valueDate: new Date().getFullYear()+"-"+new Date().getMonth()+"-"+new Date().getDay(),
+                details: inputFields[1].value,
+                debitCredit: amount[0].value,
+                balance: account.availableToUse - amount[0].value,
+        })
+        account.availableToUse = account.availableToUse - amount[0].value;
+        loadTransactions();
+}
 
 //bill-notifi
 document.getElementById('bill-save-reminder-button').addEventListener('click', () => {
