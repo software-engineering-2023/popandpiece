@@ -1,7 +1,19 @@
 * {
     font-family: 'Tajawal', sans-serif;
 }
-
+tr:nth-child(even){
+    background-color: #51ABFF33;
+}
+td:first-child{
+    border-top-left-radius: 8px;
+    border-Bottom-left-radius: 8px;
+    border: 0px;
+}
+td:last-child{
+    border-top-right-radius: 8px;
+    border-Bottom-right-radius: 8px;
+    border: 0px;
+}
 body {
     margin: 0px;
 }
@@ -257,6 +269,9 @@ i {
     width: 93%;
     text-align: center;
     font-size: 24px;
+}
+.summaryTable td {
+    width:200px;
 }
 
 .oddRowSummary {

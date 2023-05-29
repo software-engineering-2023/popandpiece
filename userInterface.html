@@ -65,9 +65,9 @@
             <button id="bills" class="notclicked bill" onclick="switchBills()"><i id="waterIcon"
                     class="bi-droplet"></i>Bills</button>
             <div class="selector"> </div>
-            <select id="account-numbers">
-                <option value="540076330348">540076330348 (running)</option>
-                <option value="540051080372">540051080372 (saving)</option>
+            <select id="account-numbers" onclick="loadTransactions()">
+                <option value="0">540076330348 (running)</option>
+                <option value="1">540051080372 (saving)</option>
             </select>
             <button id="notif" class="bell"><i id="notif-icon" class="bi-bell"></i></button>
         </div>
@@ -113,69 +113,13 @@
                     <button id="transferButton" style="font-size: 36px;" onclick="toTransfers()">TRANSFER<i
                             id="arrow-right" class="bi-arrow-bar-right"></i></button>
                 </div>
-                <table class="summaryTable">
-                    <tr>
+                <table id="summary-transactions-table" class="summaryTable">
+                    <tr id="summary-table-header">
                         <th>TRANSACTION DATE</th>
                         <th>VALUE DATE</th>
                         <th>DETAILS</th>
                         <th>DEBIT/CREDIT</th>
                         <th>BALANCE</th>
-                    </tr>
-                    <tr class="oddRow">
-                        <td class="oddDataLeft">23/05/2023</td>
-                        <td>23/05/2023</td>
-                        <td>VODAFONE POS</td>
-                        <td>CR 269,600.00 EGP</td>
-                        <td class="oddDataRight">CR 269,600.00 EGP</td>
-                    </tr>
-                    <tr>
-                        <td>23/05/2023</td>
-                        <td>23/05/2023</td>
-                        <td>VODAFONE POS</td>
-                        <td>CR 269,600.00 EGP</td>
-                        <td>CR 269,600.00 EGP</td>
-                    </tr>
-                    <tr class="oddRow">
-                        <td class="oddDataLeft">23/05/2023</td>
-                        <td>23/05/2023</td>
-                        <td>VODAFONE POS</td>
-                        <td>CR 269,600.00 EGP</td>
-                        <td class="oddDataRight">CR 269,600.00 EGP</td>
-                    </tr>
-                    <tr>
-                        <td>23/05/2023</td>
-                        <td>23/05/2023</td>
-                        <td>VODAFONE POS</td>
-                        <td>CR 269,600.00 EGP</td>
-                        <td>CR 269,600.00 EGP</td>
-                    </tr>
-                    <tr class="oddRow">
-                        <td class="oddDataLeft">23/05/2023</td>
-                        <td>23/05/2023</td>
-                        <td>VODAFONE POS</td>
-                        <td>CR 269,600.00 EGP</td>
-                        <td class="oddDataRight">CR 269,600.00 EGP</td>
-                    </tr>
-                    <tr>
-                        <td>23/05/2023</td>
-                        <td>23/05/2023</td>
-                        <td>VODAFONE POS</td>
-                        <td>CR 269,600.00 EGP</td>
-                        <td>CR 269,600.00 EGP</td>
-                    </tr>
-                    <tr class="oddRow">
-                        <td class="oddDataLeft">23/05/2023</td>
-                        <td>23/05/2023</td>
-                        <td>VODAFONE POS</td>
-                        <td>CR 269,600.00 EGP</td>
-                        <td class="oddDataRight">CR 269,600.00 EGP</td>
-                    </tr>
-                    <tr>
-                        <td>23/05/2023</td>
-                        <td>23/05/2023</td>
-                        <td>VODAFONE POS</td>
-                        <td>CR 269,600.00 EGP</td>
-                        <td>CR 269,600.00 EGP</td>
                     </tr>
                 </table>
 
@@ -259,7 +203,7 @@
                     <option value="5423216780987654(Debit)"> 5423216780987654 (Debit) </option>
                 </select>
                 <p id="Limit" style="user-select: none;">Limit: 50,000 EGP</p>
-                <p id = "card-info-points">Points: 50,600 point</p>
+                <p id="card-info-points">Points: 50,600 point</p>
             </div>
             <div class="cardTransactions">
                 <h1> TRANSACTIONS </h1>
@@ -291,7 +235,7 @@
                 </table>
             </div>
             <div id="creditPage">
-                <div id = "card-payment" class="cardsDuepayment">
+                <div id="card-payment" class="cardsDuepayment">
                     <h1>CREDIT CARD BILL</h1>
                     <table>
                         <tr>
@@ -300,14 +244,14 @@
                         </tr>
                         <tr class="oddRow">
                             <td class="oddDataLeft">29/06/2023</td>
-                            <td id = "amountDue" class="tdWidth">26,000 EGP</td>
+                            <td id="amountDue" class="tdWidth">26,000 EGP</td>
                             <td>
                                 <button id="cardPayButton" onclick="payPopOpen()">PAY</button>
                             </td>
                             <td class="oddDataRight">
                                 <div class="reminderFlex">
-                                    <input id = "cardPayment-reminder-dateTime" type="datetime-local" data-placeholder="SET REMINDER" required
-                                        aria-required="true" />
+                                    <input id="cardPayment-reminder-dateTime" type="datetime-local"
+                                        data-placeholder="SET REMINDER" required aria-required="true" />
                                     <button id="cardPayment-reminder">CONFIRM</button>
                                 </div>
                             </td>
@@ -315,7 +259,7 @@
                     </table>
                 </div>
                 <div class="cardPoints">
-                    <h1 >Rewards</h1>
+                    <h1>Rewards</h1>
                     <h3 id="h3Rewards">Rewards will expire in 5 days</h3>
                     <div class="pointGrid">
                         <div class="pointGridItem">
@@ -361,11 +305,11 @@
                     <i id="exit" class="bi-x-circle" onmouseover="hover()" onmouseleave="exithover()"
                         onclick="closepopup()"></i>
                     <p class="payPoptxt"><span>PAY OFF</span><br>TradeLine Installment</p>
-                    <select id = "payoff-account" class="accountInTransfer" style="background: #B9DEFF;">
+                    <select id="payoff-account" class="accountInTransfer" style="background: #B9DEFF;">
                         <option value="0">540076330348 (running)</option>
                         <option value="1">540051080372 (saving)</option>
                     </select>
-                    <p  id = "payoff-balance"
+                    <p id="payoff-balance"
                         style="margin-top: 10px;font-family: 'Tajawal';font-style: normal;font-weight: 500;font-size: 26px;color: rgba(0, 0, 0, 0.55);">
                         Available Balance: <br> 8222130 EGP</p>
                     <table>
@@ -376,8 +320,8 @@
                         <tr>
                             <td>
                                 <form>
-                                    <input type="number" name = "amount" id="payoff-input" class="payPopBox" />
-                                </form> 
+                                    <input type="number" name="amount" id="payoff-input" class="payPopBox" />
+                                </form>
                             </td>
                             <td>
                                 <div class="payPopBox">
@@ -389,7 +333,7 @@
                     <div style="display: flex; justify-content: space-evenly; text-align: center;">
                         <p id="errorPayoff" class="errorMessagePayoff hide"><i class="bi bi-x-circle-fill"></i> No
                             fields can be empty</p>
-                        <button id="cardPayment-payoff" >PAYOFF</button>
+                        <button id="cardPayment-payoff">PAYOFF</button>
                     </div>
                 </div>
                 <div id="notifier" class="slider slowlyhide">Pay Off done!</div>
@@ -407,20 +351,20 @@
                         </p>
                         <br>
                         <label for="loanInTransfer" style="margin-left: 59px;">Account: </label>
-                        <select  id = "loan-app-account" class="loanInTransfer">
+                        <select id="loan-app-account" class="loanInTransfer">
                             <option value="0">540076330348 (running)</option>
-                        <option value="1">540051080372 (saving)</option>
+                            <option value="1">540051080372 (saving)</option>
                         </select>
                         <br>
                         <label for="loanInTransfer" style="margin-left: 59px;">Reason: </label>
-                        <select id = "loan-app-type" class="loanInTransfer" style="margin-top: 20px;margin-left: 15px">
+                        <select id="loan-app-type" class="loanInTransfer" style="margin-top: 20px;margin-left: 15px">
                             <option value="Personal">Personal</option>
                             <option value="Car">Car</option>
                         </select>
-                        <p style="margin-left: 60px;">Amount: <input id = "loan-app-amount" class="amountInTransfer loanField" type="text"
-                                placeholder=" Enter Amount">
+                        <p style="margin-left: 60px;">Amount: <input id="loan-app-amount"
+                                class="amountInTransfer loanField" type="text" placeholder=" Enter Amount">
                             <label for="Currency" style="margin-left: 54px; margin-bottom: 5px;">Currency: </label>
-                            <select id = "loan-app-currency" class="currency">
+                            <select id="loan-app-currency" class="currency">
                                 <option value="EGP">EGP</option>
                                 <option value="EUR">EUR</option>
                                 <option value="JPY">JPY</option>
@@ -450,7 +394,7 @@
                         <p style="display: inline; margin-left: 55px;">Job Title:
                             &nbsp<input class="nationalField loanField" type="text" placeholder=" Ex. Engineer"></p>
                         <div class="confirmButtonsLoan">
-                            <button id = "loan-app-submit" class="confirmLoan">Submit</button>
+                            <button id="loan-app-submit" class="confirmLoan">Submit</button>
                         </div>
                         <p class="errorMessageTransfer hide"><i class="bi bi-x-circle-fill"></i> No fields can be empty
                         </p>
@@ -503,7 +447,7 @@
                         <div>
                             <h1 style="font-size: 48px; padding-left: 50px; padding-top: 30px;margin-top: 0;"><b>Applied
                                     Loans</b></h1>
-                            <table id = "loan-applied" >
+                            <table id="loan-applied">
                                 <tr>
                                     <th>APPLIED AMOUNT</th>
                                     <th>APPLICATON DATE</th>
@@ -608,32 +552,29 @@
                     </div>
                 </div>
                 <div class="secondbills">
-<h1>
-    Set reminders
-</h1>
-<p>Name <input class="secondbillsentry"type="text" placeholder="Eg Electric"></p>
-<p class="goback">To be paid <input class="secondbillsentry" type="number" min="0"></p>
-<p class="gofront">Date <input class="secondbillsentry" type="date"></p>
-<button onclick="secondbill()">
-    Save
-</button>
-
+                    <h1>
+                        Set reminders
+                    </h1>
+                    <p>Name <input id="bill-name-input" class="secondbillsentry" type="text" placeholder="Eg Electric"></p>
+                    <p class="goback">To be paid <input id="bill-amount-input" class="secondbillsentry" type="number" min="0"></p>
+                    <p class="gofront">Date <input id="bill-dateTime-input" class="secondbillsentry" type="datetime-local"></p>
+                    <button id="bill-save-reminder-button">
+                        Save
+                    </button>
                 </div>
             </div>
-
-          
         </div>
 
         <!--notifications-->
         <div id="notif-panel" class="notif-panel notif-panel-is-hidden">
             <div class="notif-head">
                 <h3 class="notif-title">Notifications<span id="notif-bubble" class="notif-bubble">3</span></h3>
-                <ul id = "notif-filter" class = "notif-filter">
+                <ul id="notif-filter" class="notif-filter">
                     <li class="notif-filter-is-active">All</li>
                     <li>Reminders</li>
                     <li>Transfers</li>
                 </ul>
-                
+
             </div>
             <div id="notif-body" class="notif-body">
                 <div id="notif-list" class="notif-list">
